@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
 <header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/home.css">
 </header>
 <body>
-    <div>
+    <div class="header">
         <h1>Home</h1>
     </div>
     <div>
@@ -20,169 +25,184 @@
         <h2>Topics</h2>
         <div>
             <h3>Data Structures</h3>
-            <div>
-                <h4>Array Lists</h4>
-                <p>
-                    Arrays are the most integral data structure
-                    as they are built into almost every languge.
-                    However, they are often limited in their 
-                    ability to change in size. As such, we have 
-                    array lists.
-                </p>
-            </div>
-            <div>
-                <h4>Linked Lists</h4>
-                <p>
-                    Linked lists are the foundation of 
-                    many other data structures that are 
-                    essential to good coding practices. 
-                </p>
-            </div>
-            <div>
-                <h4>Stacks and Queues</h4>
-                <p>
-                    An extention of linked lists, stacks and queues are 
-                    great structures for things like priority scheduling 
-                    or computing complex mathematical equations.
-                </p>
-            </div>
-            <div>
-                <h4>Trees/Binary Trees</h4>
-                <p>
-                    There are many types of trees that have unqiue 
-                    properities, allowing for interesting uses in 
-                    practical programming. As such, they have many 
-                    complex versions and 
-                </p>
-            </div>
-            <div>
-                <h4>Binary Heaps</h4>
-                <p>
-                    Description incoming...
-                </p>
-            </div>
-            <div>
-                <h4>Hashes</h4>
-                <p>
-                    Description incoming...
-                </p>
-            </div>
-            <div>
-                <h4>Self Leveling Binary Search Trees</h4>
-                <p>
-                    Built of the concept of Binary Search Trees, Red-Black 
-                    and 2-3 Trees are the next level of tree data structures.
-                    Even better, they are self-leveling, meaning that they 
-                    stay a reasonable height with perfect balence.
-                </p>
-            </div>
-            <div>
-                <h4>Graphs</h4>
-                <p>
-                    A way to represent connections between different items.
-                    This represntation results in several properities that 
-                    have been well studied, thus resulting in an plethora 
-                    of algorithms and use cases that are essential to a 
-                    programmer's repertoire.
-                </p>
-            </div>
-            <div>
-                <h4>Union Find</h4>
-                <p>
-                    Description incoming...
-                </p>
-            </div>
-            <div>
-                <h4>Tries</h4>
-                <p>
-                    Description incoming...
-                </p>
+            <div class="flex-row-container">
+                <div class="topic-item">
+                    <h4>Array Lists</h4>
+                    <p>
+                        Arrays are the most integral data structure
+                        as they are built into almost every languge.
+                        However, they are often limited in their 
+                        ability to change in size. As such, we have 
+                        array lists.
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Linked Lists</h4>
+                    <p>
+                        Linked lists are the foundation of 
+                        many other data structures that are 
+                        essential to good coding practices. 
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Stacks and Queues</h4>
+                    <p>
+                        An extention of linked lists, stacks and queues are 
+                        great structures for things like priority scheduling 
+                        or computing complex mathematical equations.
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Trees/Binary Trees</h4>
+                    <p>
+                        There are many types of trees that have unqiue 
+                        properities, allowing for interesting uses in 
+                        practical programming. As such, they have many 
+                        complex versions and 
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Binary Heaps</h4>
+                    <p>
+                        Description incoming...
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Hashes</h4>
+                    <p>
+                        Description incoming...
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Self Leveling Binary Search Trees</h4>
+                    <p>
+                        Built of the concept of Binary Search Trees, Red-Black 
+                        and 2-3 Trees are the next level of tree data structures.
+                        Even better, they are self-leveling, meaning that they 
+                        stay a reasonable height with perfect balence.
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Graphs</h4>
+                    <p>
+                        A way to represent connections between different items.
+                        This represntation results in several properities that 
+                        have been well studied, thus resulting in an plethora 
+                        of algorithms and use cases that are essential to a 
+                        programmer's repertoire.
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Union Find</h4>
+                    <p>
+                        Description incoming...
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Tries</h4>
+                    <p>
+                        Description incoming...
+                    </p>
+                </div>
             </div>
         </div>
         <div>
-            <h3>Algorithms</h3>
-            <div>
-                <h4>Simple Sorting Algorithms</h4>
-                <p>
-                    Sorting algorithms are a great start to getting 
-                    into the common algorithms that are fundemental
-                    to computer science as a whole. These include
-                    Insertion Sort, Selection Sort, Bubble Sort, 
-                    Shell Sort, and more!
-                </p>
-            </div>
-            <div>
-                <h4>More Sorting Algorithms</h4>
-                <p>
-                    With an understanding of more datastructures and
-                    a solid understanding of simpler sorting algorithms,
-                    you can now get into more sorting algorithms such 
-                    as Bucket Sort and Heap Sort.
-                </p>
-            </div>
-            <div>
-                <h4>Breath First and Deapth First Search</h4>
-                <p>
-                    The simplest graphing algorithm, fundemental 
-                    to many more graphing algorithms after them. 
-                    Though similiar, their differences result in 
-                    differing use cases, integral to utilizing 
-                    graphs as much as possible.
-                </p>
-            </div>
-            <div>
-                <h4>Topological Sort</h4>
-                <p>
-                    A 'sorting' alogirthm for graphs that reveals 
-                    and explains important graphing concepts.
-                </p>
-            </div>
-            <div>
-                <h4>Minimium Spanning Tree</h4>
-                <p>
-                    A 'sorting' alogirthm for graphs that reveals 
-                    and explains important graphing concepts.
-                </p>
-            </div>
-            <div>
-                <h4>Strongly Connect Components and Kosaraju's Algorithm</h4>
-                <p>
-                    Description incoming...
-                </p>
-            </div>
-            <div>
-                <h4>Sortest Path</h4>
-                <p>
-                    Description incoming...
-                </p>
-            </div>
-            <div>
-                <h4>All Pairs Sortest Path</h4>
-                <p>
-                    Description incoming...
-                </p>
-            </div>
-            <div>
-                <h4>String Pattern Matching</h4>
-                <p>
-                    Description incoming...
-                </p>
-            </div>
-            div>
-                <h4>Huffman Coding</h4>
-                <p>
-                    Description incoming...
-                </p>
+            <h3>Data Structure Algorithms</h3>
+            <div class="flex-row-container">
+                <div class="topic-item">
+                    <h4>Simple Sorting Algorithms</h4>
+                    <p>
+                        Sorting algorithms are a great start to getting 
+                        into the common algorithms that are fundemental
+                        to computer science as a whole. These include
+                        Insertion Sort, Selection Sort, Bubble Sort, 
+                        Shell Sort, and more!
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>More Sorting Algorithms</h4>
+                    <p>
+                        With an understanding of more datastructures and
+                        a solid understanding of simpler sorting algorithms,
+                        you can now get into more sorting algorithms such 
+                        as Bucket Sort and Heap Sort.
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Breath/Depth First Search</h4>
+                    <p>
+                        The simplest graphing algorithm, fundemental 
+                        to many more graphing algorithms after them. 
+                        Though similiar, their differences result in 
+                        differing use cases, integral to utilizing 
+                        graphs as much as possible.
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Topological Sort</h4>
+                    <p>
+                        A 'sorting' alogirthm for graphs that reveals 
+                        and explains important graphing concepts.
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Minimium Spanning Tree</h4>
+                    <p>
+                        A 'sorting' alogirthm for graphs that reveals 
+                        and explains important graphing concepts.
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>SCC and Kosaraju's Algorithm</h4>
+                    <p>
+                        Description incoming...
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Sortest Path</h4>
+                    <p>
+                        Description incoming...
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>All Pairs Sortest Path</h4>
+                    <p>
+                        Description incoming...
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>String Pattern Matching</h4>
+                    <p>
+                        Description incoming...
+                    </p>
+                </div>
+                <div class="topic-item">
+                    <h4>Huffman Coding</h4>
+                    <p>
+                        Description incoming...
+                    </p>
+                </div>
             </div>
         </div>
         <!-- <div>
+            <h3>Algorithms</h3>
+            <div class="flex-row-container">
+            </div>
+        </div>
+        <div>
             <h3>Computer Architecture</h3>
+            <div class="flex-row-container">
+            </div>
         </div>
         <div>
             <h3>Machine Learning</h3>
+            <div class="flex-row-container">
+            </div>
         </div>
         <div>
             <h3>Cryptography</h3>
+            <div class="flex-row-container">
+            </div>
         </div> -->
     </div>
 </body>
