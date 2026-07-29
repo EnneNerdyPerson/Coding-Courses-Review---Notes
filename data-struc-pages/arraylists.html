@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/data-struc.css">
+</header>
+<body>
+    <div class="header">
+        <h1>Learning: Array Lists</h1>
+    </div>
+    <div>
+        <h3>Prerequisite Knowledge</h3>
+        <p>
+            Arrays are a fundemental part of understanding ArrayLists. This demonstration also expects 
+            a reasonable understanding of Java classes and methods, and C structs.
+        </p>
+    </div>
+    <div>
+        <h2>What is an Array List?</h2>
+        <p>
+            First, we must understand what an array is. Arrays are a basic datastructure common in most 
+            programming languages. However, they are limited as for programming languages like Java and 
+            C/C++, the size of an array is immultible (unchanging). This can often limit how arrays can 
+            be used. To still utilize the many strengths of arrays while allowing for the benefits of 
+            a dynamic data structure, Array Lists were created.
+        </p>
+        <div class="code-display">
+            <p>Java: <code>int[] numArray = new int[10];</code> <br></p>
+            <p>C/C++: <code>int numArray[10];</code> <br></p>
+        </div>
+        <p>
+            Array Lists make use of arrays as a data structure but allow for dynamic sizing. They are useful
+            where there is no clear size limit to the number of elements that may be added.
+        </p>
+    </div>
+    <div>
+        <h2>How to make an ArrayList?</h2>
+        <p>
+            ArrayLists require the following information:
+            <h3>Feilds</h3>
+            <ul>
+                <li>
+                    Array - this is where information will be stored
+                </li>
+                <ul>
+                    <li>The type of this array should be the type of items you want to store</li>
+                </ul>
+                <li>
+                    Size of ArrayList - this is the number of items that have been added to the array
+                </li>
+                <li>
+                    Capacity - this is the maximum number of items the ArrayList can hold
+                </li>
+                <ul>
+                    <li>
+                        This doesn't need to explicitly have an assigned variable if you can easily in O(1)
+                        time get the length of the Array
+                    </li>
+                </ul>
+            </ul>
+
+            <h3>Methods</h3>
+            <ul>
+                <li>
+                    Add Item - add an item to the ArrayList
+                </li>
+                <li>
+                    Resize/Reallocate - when capacity is met, increase the size of the array
+                </li>
+                <ul>
+                    <li>
+                        There are multiple methodologies on how size should be increased.
+                    </li>
+                    <ul>
+                        <li>
+                            Ex: Increase by N. increase by some set amount each time
+                        </li>
+                        <li>
+                            Ex: Doubling. double the size of the array each time
+                        </li>
+                    </ul>
+                    <li>
+                        However, these increase methods come with some cost considerations. 
+                    </li>
+                    <ul>
+                        <li>
+                            Increase by N my be too slow when lots of elements are added to the array 
+                            and many cause several calls to the Resize/Reallocate method, resulting in 
+                            inefficency.
+                        </li>
+                        <li>
+                            Doubling can lead to a substantial amount of wasted space, espcially as the 
+                            size of the array grows incredbily large
+                        </li>
+                    </ul>
+                </ul>
+            </ul>
+        </p>
+    </div>
+    <div>
+        <h3>Psuedocode for ArrayLists</h3>
+        <p>Coming soon...</p>
+    </div>
+</body>
+</html>
