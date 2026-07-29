@@ -1,0 +1,24 @@
+h4 {
+    width: 100%;
+    text-align: center;
+    background-color: #BEE9E8;
+}
+
+.topic-item p {
+    margin-top: 0;
+}
+
+.topic-item {
+    width: 17vw;
+    min-height: 300px;
+    padding: 5px 20px;
+    margin: 0 30px 15px 30px;
+
+    border: solid black 1px;
+    border-radius: 5px;
+}
+
+.topic-item:hover {
+    border: solid #1B4965 1px;
+    box-shadow: black 2px 2px 3px;
+}

@@ -1,0 +1,58 @@
+/* Color Pallet
+#1B4965
+#62B6CB
+#5FA8D3
+#BEE9E8
+#CAE9FF
+*/
+
+body {
+    font-family: Calibri;
+    margin: 0 10vw;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: left;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 18px;
+}
+
+.header {
+    padding: 10px 10vw;
+    margin: 0 -10vw;
+    background-color: #62B6CB;
+}
+
+.flex-row-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.flex-col-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
