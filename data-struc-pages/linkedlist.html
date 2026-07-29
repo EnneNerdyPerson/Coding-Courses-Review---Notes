@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/data-struc.css">
+</header>
+<body>
+    <div class="header">
+        <h1>Learning: Linked Lists</h1>
+    </div>
+    <div>
+        <h3>Prerequisite Knowledge</h3>
+        <p>
+            This demonstration expects a reasonable understanding of Java classes and methods, and C structs.
+        </p>
+    </div>
+    <div>
+        <h2>What is a LinkedList?</h2>
+        <p>
+            LinkedLists are a dynamic datastructure with a multitude of uses. Unlike ArrayLists, they don't use 
+            arrays but rather create something called a Node. This Node is made up of at least two important 
+            peices of information, the data being stored, and the next Node in the LinkedList
+        </p>
+        <div class="link-container">
+            <div class="node">
+                data1
+            </div>
+            <div class="right-arrow-container">
+                <div class="right-arrow-body"></div>
+                <div class="right-arrow-head"></div>
+            </div>
+            <div class="node">
+                data2
+            </div>
+            <div class="right-arrow-container">
+                <div class="right-arrow-body"></div>
+                <div class="right-arrow-head"></div>
+            </div>
+            <div class="node">
+                data3
+            </div>
+            <div class="right-arrow-container">
+                <div class="right-arrow-body"></div>
+                <div class="right-arrow-head"></div>
+            </div>
+            <div class="node">
+                data4
+            </div>
+            <div class="right-arrow-container">
+                <div class="right-arrow-body"></div>
+                <div class="right-arrow-head"></div>
+            </div>
+            <p class="null">NULL</p>
+        </div>
+        <p>
+            The above LinkedList holds 4 items. The first item in the list has the value data1. You can think 
+            of LinkedLists as a long chain of nodes, linked together through knowing the next item in the list.
+            This is the simplest form of a LinkedList. LinkedLists can have links to both the Node before and 
+            after them and depending on the information that is being kept track of, LinkedList can 'transform'
+            into other data structures!
+        </p>
+
+        <h3>Terminology</h3>
+        <ul>
+            <li>Singly Linked List: a Node (or list item) only links to the next Node in the list (Figure 1)</li>
+            <li>Doubly Linked List: a Node (or list item) links to both the next Node and the previous Node in the list</li>
+            <ul>
+                <li>This allows for someone to traverse the list both forwards and backwards rather than only forwards</li>
+            </ul>
+            <li>Circular LinkedList: the list item in the list points to the beginning of the list.</li>
+            <ul>
+                <li>Rather than the last item pointing to NULL, the list repeats back at the beginning, allowing 
+                    for some addition flexibility.
+                </li>
+            </ul>
+        </ul>
+    </div>
+    <div>
+        <h2>How to make a LinkedList?</h2>
+        <p>
+            LinkedLists require the create of both a Node and a LinkedList class. The LinkedList class will utilize 
+            the Node class in it's creation. Remember, how the Node is built also effects the abilities of the 
+            LinkedList.
+        </p>
+        <h3>Node Class</h3>
+        <ul>
+            <li>Value/Data: the item stored within the Node</li>
+            <li>Next: the next node in the list</li>
+            <li>Previous (optional): the previous node in the list</li>
+            <ul>
+                <li>This is only when creating a doubly linked list</li>
+            </ul>
+        </ul>
+        <h3>LinkedList Class: Feilds</h3>
+        <ul>
+            <li>Head: the begginning Node in the LinkedList</li>
+            <li>Size: the number of items/Nodes are in the LinkedList</li>
+            <li>Tail (optional): the last Node in the LinkedList</li>
+            <ul>
+                <li>
+                    Keeping track of the tail/last Node can decrease insertion time depending 
+                    on implementation and usage but a fully functional LinkedList doesn't require 
+                    keeping track of a tail
+                </li>
+            </ul>
+        </ul>
+        <h3>LinkedList Class: Methods</h3>
+        <ul>
+            <li>Add Item/Value: add a new item to the list</li>
+            <ul>
+                <li>
+                    This requires the creation of a new Node and insertion of that Node in the correct place 
+                    in the list. Also increase size of LinkedList
+                </li>
+                <li>
+                    Insertion can happen at the beginning, end, or middle of list. 
+                </li>
+                <ul>
+                    <li>
+                        Insertion Anywhere: 
+                    </li>
+                    <ol>
+                        <li>
+                            Walk through the LinkedList to the desired section of the list. (It is 
+                            recommended to use a while loop to walk through a LinkedList). Make sure 
+                            to keep track of the Node that will be before the new Node as it's next 
+                            value needs to be updated.
+                        </li>
+                        <li>
+                            Once this 'before' Node is found, save it's next Node, the Node that 
+                            will be after the new Node.
+                        </li>
+                        <li>
+                            Update the next value of the 'before' Node to our new Node.
+                        </li>
+                        <li>
+                            Update the next value of our new Node to the 'after' Node we saved earlier
+                        </li>
+                    </ol>
+                    <li>
+                        Beginning Insertion: Have new Node point to current Head. Have Head point to new node
+                    </li>
+                    <li>
+                        End Insertion: If keeping track of tail, use similar method to beginning insertion. If 
+                        not keeping track of the tail, you will need to iterate to the end of the list to 
+                        add the new Node to the end
+                    </li>
+                </ul>
+            </ul>
+            <li>Get Item: get an item from the LinkedList</li>
+            <ul>
+                <li>
+                    This can have multiple different methods, depending on what purpose the LinkedList is being 
+                    used for. 
+                </li>
+            </ul>
+            <li>Get Size: get the size of the LinkedList</li>
+        </ul>
+    </div>
+    <div>
+        <h3>Psuedocode for LinkedList</h3>
+        <p>Coming soon...</p>
+    </div>
+</body>
+</html>

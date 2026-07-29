@@ -1,0 +1,56 @@
+/* Linked List Styling */
+.link-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.node {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+
+    text-align: center;
+    align-content: center;
+
+    border: solid black 1px;
+    border-radius: 100px;
+    
+    background-color: #CAE9FF;
+}
+
+.right-arrow-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right-arrow-body {
+    width: 45px;
+    height: 10px;
+
+    background-color: #BEE9E8;
+}
+
+.right-arrow-head {
+    width: 0;
+    height: 0;
+
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 30px solid #BEE9E8;
+}
+
+.null {
+    color: white;
+    background-color: black;
+
+    /* border: solid black 1px; */
+    font-size: 24px;
+
+    padding: 5px;
+}
