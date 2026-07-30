@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/data-struc.css">
+</header>
+<body>
+    <div class="header">
+        <h1>Learning: Stacks and Queues</h1>
+    </div>
+    <div>
+        <h3>Prerequisite Knowledge</h3>
+        <p>
+            This demonstration expects a reasonable understanding of Java classes and methods, and C structs 
+            and LinkedLists.
+        </p>
+    </div>
+    <div>
+        <h2>Why Stacks and Queues?</h2>
+        <p>
+            Stacks and queues are reletively similar in their implementation and how they operate.
+            Because of their similarity, they are often taught togehter since understanding one can 
+            give insight into the other.
+        </p>
+        <h3>Abstract Data Type (ADT)</h3>
+        <p>
+            One of their similarities is that they are both Abstract Data Types (ADT). ADTs are a 
+            conceptual model which describes the behavior of the data type (in Java, it is class)
+            without a concrete outline of the implementation. As such, these focus on the 'what'
+            (what the data type does) rather than the 'how' (how the data type does these things).
+        </p>
+        <p>
+            Why aren't LinkedLists or ArrayLists ADTs? These things aren't ADTs because the 
+            underlying implementation details are clearly outlined. For ArrayLists, we know that 
+            an array must be used to store the data. For our LinkedList we know we must create a 
+            Node, with each Node linking to some other Node. Now the specifics can change and 
+            maybe different, but the important points are the same across the board.
+        </p>
+    </div>
+    <div>
+        <h2>What is a Stack?</h2>
+        <p>
+            You can think of a Stack like a stack of plates. With a stack of plates, you put the 
+            most recent plate on the top of the stack. Then, when you are trying to grab a new 
+            plate, you also take from the top of the stack of plates. This is the same with 
+            Stacks in computer science. The last item added to the stack is the first item out of
+            the stack (Last In First Out: LIFO).
+        </p>
+        <p>
+            Stacks are helpful in more complex aglorithms (Kosaraju’s Algorithm) or when computing 
+            mathematical equations with Reverse Polish Notation. In general, stacks are helpful 
+            when the Last In First Out property is necessary. 
+        </p>
+        <h3>How are Stacks ADTs?</h3>
+        <p>
+            There are many ways to implement a Stack. You can use Linked Lists, arrays, or some other 
+            data structure to implement a stack. Within this explaination, we will be showcasing 
+            implementation using arrays.
+        </p>
+    </div>
+    <div>
+        <h2>What are the Stack Operations?</h2>
+        <p>
+            Remember, Stacks are ADTs and thus specific implementations is not clearly
+            outlined. Instead we have some operations that are integral to the Stack 
+            but how it is implemented is up to the developer. 
+        </p>
+        <ul>
+            <li>
+                push(item): 'push' the item to the top of the Stack 
+            </li>
+            <li>
+                pop(): remove and return the item at the top of the Stack
+            </li>
+            <li>
+                isEmpty(): checks if Stack is empty (size equals 0) or not
+            </li>
+            <li>
+                size(): returns the number of items in the stack
+            </li>
+            <li>
+                peek(): return the value of the item at the top of the Stack without
+                removing it
+            </li>
+        </ul>
+        
+        <h3>How to Implement Stacks with arrays:</h3>
+        <ul>
+            <li>Array: how the data is stored in the stack</li>
+            <li>Size: the number of items added to the stack</li>
+            <li>
+                Top Index: the index of the most recently added item in the stack 
+                array
+            </li>
+            <ul>
+                <li>When getting the most recent item, simply return the value at this index</li>
+                <li>If using the pop() function, the index with decrease</li>
+                <li>When adding an item, increase this index and add increase the index</li>
+            </ul>
+        </ul>
+    </div>
+    <div>
+        <h3>Psuedocode for Stacks</h3>
+        <p>Coming soon...</p>
+    </div>
+
+    <div>
+        <h2>What is a Queue?</h2>
+        <p>
+            As you might know, a queue is the British English word for a line of people. 
+            Thus, you can think of queues are a line of people. The person who will leave 
+            the queue next is the person at the front of the queue while the person who 
+            most recently gets into the line will be at the end of the queue. The first 
+            person in is the first person out (First In First Out: FIFO).
+        </p>
+        <p>
+            Algorithms like Breath First Search or when there are virtual 'lines' (i.e., 
+            a line for buying tickets), Queues are the got to data structure. 
+        </p>
+        <h3>How are Queue ADTs?</h3>
+        <p>
+            Once again, the way an queue is implemented is fuild. You can use arrays or 
+            LinkedLists to do so. Since the 'how' is uncearly, Queues are Abstract Data 
+            Structures. This page will explain a Linked List implementation. 
+        </p>
+    </div>
+    <div>
+        <h2>What are the Queue Operations?</h2>
+        <ul>
+            <li>enqueue(item): inserts the item at the end of the queue</li>
+            <li>dequeue(): removes and returns item at the front of the queue</li>
+            <li>isEmpty(): checks whetehr the queue is empty or not</li>
+            <li>size(): returns the number of items in the queue</li>
+            <li>peek(): returns the item at the front of the queue without removing it</li>
+        </ul>
+        
+        <h3>How to Implement Queue with Linked Lists:</h3>
+        <ul>
+            <li>Linked List: how the data is stored in the queue</li>
+            <ul>
+                <li>
+                    For faster implementation the LinkedList need sto keep track of the 
+                    first (head) and last (tail) elements in the list
+                </li>
+                <li>
+                    Enqueue will use the tail of the list while dequeue will use the head 
+                    of the list
+                </li>
+            </ul>
+            <li>Size: the number of elements in the Queue</li>
+        </ul>
+    </div>
+    <div>
+        <h3>Psuedocode for Queues</h3>
+        <p>Coming soon...</p>
+    </div>
+</body>
+</html>
