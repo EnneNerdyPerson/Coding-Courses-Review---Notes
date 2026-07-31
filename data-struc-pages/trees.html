@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/data-struc.css">
+</header>
+<body>
+    <div class="header">
+        <h1>Learning: Trees & Binary Trees</h1>
+    </div>
+    <div>
+        <h3>Prerequisite Knowledge</h3>
+        <p>
+            This demonstration expects a reasonable understanding of Java classes and methods, and C structs 
+            and LinkedLists.
+        </p>
+    </div>
+    <div>
+        <h2>What is a Tree?</h2>
+        <p>
+            This is a dynamic data structure which is defined by having a 'root' node that is used 
+            to access the rest of the tree. Similar to a Linked List, Trees use Nodes in there 
+            creation. However, for Trees are non-linear, allows for uses outside of those for 
+            LinkedLists. This non-linearity happens as each Node in a tree can have multiple children, 
+            unlike LinkedLists which have at most a 'next' and 'previous' connection.
+        </p>
+        <h3>Terminology</h3>
+        <ul>
+            <li>Root: the Node which the Tree uses to access all other Nodes inside the Tree</li>
+            <li>
+                Parent and Child: in this case, the children of a Node are the Nodes that some 
+                parent Node points to.
+            </li>
+            <ul>
+                <li>The parent of some Node called node1 is the Node that points to node1</li>
+                <li>The children of some Node called node3 is the Nodes that node3 points to</li>
+            </ul>
+            <li>
+                Leaf Node: the Nodes with no children are Leaf Nodes
+            </li>
+            <li>
+                Internal Node: any node that is not a Leaf Node is an Internal Node
+            </li>
+            <li>Non-linear: poltting out a Tree will NOT result in a line</li>
+        </ul>
+    </div>
+    <div>
+        <h2>What is a Binary Tree?</h2>
+        <p>
+            Binary Trees, like the name implies are a type of Tree. However, there are 
+            some restrictions/properities that Binary Trees have that regular Trees do 
+            not. In additional to the properities of Trees, every Node in a Binary Tree 
+            have at most two (&lt;=2) children. These children are often labels as left 
+            and right.
+        </p>
+
+        <h3>What is the Difference Between Trees and Binary Trees?</h3>
+        <p>
+            Similiar to how all squares are recentangles but not all rectangles are 
+            squares, all Binary Trees are Trees but not all Trees are Binary Trees.
+            What determines if a Tree is a Binary Tree or not, is if a Tree has 
+            at most two (0, 1, or 2) child Nodes.
+        </p>
+
+        <h3>Binary Tree Terminology</h3>
+        <ul>
+            <li>Full Binary Tree: every node other than the leaf nodes have two children</li>
+            <li>
+                Complete Binary Tree: every level, except the bottom level is completely filled
+                where the last level has nodes that are as far left as possible
+            </li>
+        </ul>
+        <div>
+            <div>
+                <div>
+                    Full Binary Tree
+                </div>
+                <div>
+                    Not Full Binary Tree
+                </div>
+            </div>
+            <div>
+                <div>
+                    Complete Binary Tree
+                </div>
+                <div>
+                    Not Complete Binary Tree
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>Psuedocode for Tree</h3>
+        <p>Coming soon...</p>
+    </div>
+    <div>
+        <h3>Psuedocode for Binary Tree</h3>
+        <p>Coming soon...</p>
+    </div>
+</body>
+</html>
