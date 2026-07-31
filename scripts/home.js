@@ -21,3 +21,10 @@ let treesBinaryTrees = document.getElementById("treeBinarys");
 treesBinaryTrees.addEventListener("click", function () {
     window.location.href = "data-struc-pages/trees.html"
 });
+
+let binaryHeaps = document.getElementById("binaryHeaps");
+
+binaryHeaps.addEventListener("click", function () {
+    window.location.href = "data-struc-pages/binaryheaps.html"
+});
+
