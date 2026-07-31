@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/data-struc.css">
+</header>
+<body>
+    <div class="header">
+        <h1>Learning: Self-Leveling Binary Search Trees</h1>
+    </div>
+    <div>
+        <h3>Prerequisite Knowledge</h3>
+        <p>
+            This demonstration expects a solid understanding of Binary Search Trees and their related 
+            terminology and operations. 
+        </p>
+    </div>
+    <div>
+        <h2>What is a Self-Balancing Binary Search Trees?</h2>
+        <p>
+            As we learned in our introduction of Binary Search Trees, the height of a Binary Tree determines 
+            it's efficency. Thus, a BST with the same height as there are nodes in the tree are just 
+            a LinkedList with extra steps, leaving us without any of the benefits of a Binary Search Tree. 
+            In order to ensure that our BST maintains the greatest efficency we add additional restrictions 
+            and operations to create Self-Leveling Binary Search Trees (SBBST). These Trees are balaneced and 
+            thus get to benefit from the efficency of the Binary Search Tree structure.
+        </p>
+
+        <h3>What are some Self-Balancing Binary Search Trees?</h3>
+        <p>
+            There are a multitude of Self-Balancing Binary Search Trees. Here, we will be focusing on Left-Leaning 
+            Red-Black Trees (LLRBT). However, we will also look a 2-3 Trees which are a type of Self-Balancing 
+            Search Tree that will help us in understanind our LL Red-Black Trees. Other SBBST include ALV-Trees 
+            and Splay Trees. 
+        </p>
+    </div>
+    <div>
+        <h2>What is a 2-3 Tree?</h2>
+        <p>
+            The 2-3 part of the name reffers to the number of children a Node may have, either 2 or 3. Now 
+            a Node with 3 children results in a Tree that is not a Binary Tree. However, since 2-3 trees 
+            easily map onto Left-Leaning Red-Black Trees, we will be learning this before getting into the 
+            nitity gritty of LLRBTs.
+        </p>
+        <p>
+            A 2-3 Tree can have either 1 or 2 values stored in a Node (also called keys). For a Node with 1 key 
+            that Node can only have 2 children. A Node with 2 values can have 3 children. For Nodes with 1 key, 
+            they work just like any other Node in a Binary Search Tree. Our 3-Nodes with 2 keys and 3 children 
+            have slightly different rules. 
+        </p>
+        <p>
+            Our 3-Nodes will have key1 and key2 where key1 is smaller than key2. The left child Node of our 3-Node 
+            will have keys smaller than key1. Our middle child Node will have key values greater than key1 but 
+            smaller than key2. The right child Node will have key values greater than key2. This additional key allows 
+            for a third child while still allowing for easy search of the Tree.
+        </p>
+        <div>
+            2-3 Nodes visuals
+        </div>
+
+        <h3>What are the Properties of a 2-3 Tree?</h3>
+        <ol>
+            <li>Symmetric Order: inorder traversal results in keys in ascending order (smallest to largest)</li>
+            <li>
+                Perfect Balance: every path from root to NULL is the same length. Additionally all leaf Nodes 
+                are on the same level
+            </li>
+            <li>
+                Height Balanced: a 2-3 Tree is never taller than a minimum-height binary Tree
+            </li>
+        </ol>
+
+        <h3>How is a 2-3 Tree Self-Balancing?</h3>
+        <p>
+            During the Insertion and Deletion process, a 2-3 Tree will move and or merge Nodes to ensure that the 
+            height of the Tree is always  O(log_2(n)) where n is the number of Nodes.
+        </p>
+        <ul>
+            <li>Insertion: how to insert an item with key k in a 2-3 Tree</li>
+            <ol>
+                <li>Locate where k should be added in the 2-3 Tree by search for a leaf Node that k could be added to</li>
+                <li>Add the key k to this Node (Nodes can temporarily have 3 keys during the Insertion/Deletion process)</li>
+                <ol>
+                    <li>If this Node now has 3 keys...</li>
+                    <ul>
+                        <li>
+                            and this Node is a leaf: split the Node into 2, where the smallest and largest 
+                            keys belong to these two split Nodes. The middle key will move up to the parent Node.
+                        </li>
+                        <li>
+                            and this Node is the root: split the root into 3 Nodes each containing one of 3 keys. The 
+                            middle key should be the new root Node while the other 2 Nodes are its children 
+                        </li>
+                        <li>
+                            and this Node is internal and not root: split the Node into 2, where the smallest and largest 
+                            keys belong to these two split Nodes. The middle key will move up to the parent Node. The 
+                            children of our split Nodes are the children of the original Node
+                        </li>
+                    </ul>
+                    <li>
+                        Continue moving the middle keys of any Node that has 3 keys up to the parent until no Nodes 
+                        have 3 keys anymore
+                    </li>
+                </ol>
+            </ol>
+            <li>Deletion: how to detete an item with key k in a 2-3 Tree</li>
+            <ol>
+                <li>Swap the key k (the key to be deleted) with the immediate scuessor key</li>
+                <li>This swap means that key k is now in a leaf node</li>
+                <li>If after deleting the key k, the leaf node is empty, the 2-3 Tree needs to be fixed</li>
+                <ol>
+                    <li>Merge up, similar to the insertion process</li>
+                </ol>
+            </ol>
+        </ul>
+    <div>
+        <h2>What is a Left-Leaning Red-Black Tree?</h2>
+        <p>
+            A Left-Leaning Red-Black Tree (LLRBT) is a binary tree representation of a 2-3 Tree. 2-Nodes 
+            with 1 key and 2 children don't change but 3-Nodes do. 3-Nodes in a LLRBT is represented using 
+            red links that act as a 'glue' for 3-Nodes. For Left-Leaning Red-Black Trees, red links must 
+            always be the left link where Red-Black Trees may have these red links for either side. 
+        </p>
+        <ol>
+            <li>
+                Every Node is either red or black (as the name Red-Black Tree implies)
+            </li>
+            <ol>
+                <li>
+                    A red Node represents a red-link to its parent node and these red-links/red Node MUST 
+                    be the left child
+                </li>
+                <li>
+                    The root of the Tree is awlays black and every NULL pointer is also black.
+                </li>
+            </ol>
+            <li>
+                Two red Nodes cannot be connected and thus a red node has only black Nodes as children.
+            </li>
+            <li>
+                Any path from Root to NULL will have the same number of black Nodes (balanced tree)
+            </li>
+        </ol>
+
+        <h3>How are 2-3 Trees and Left-Leaning Red-Black Trees the 'Same'?</h3>
+        <p>
+            3-Nodes have 2 keys and 3 children. The LLRBT representation of this is as follows: 2 Nodes, each 
+            with 1 key. The smaller key is the left child Node the larger key. However, this link 
+            is 'red' to indicate that these 2 Nodes should be considered similar to a 3-Node in a 
+            2-3 Tree. 
+        </p>
+        <p>
+            As such, if every red-link in a Red-Black Tree combined the two Nodes linked 
+            by the red-link into one Node, you would end up with a 2-3 Tree and vice versa. These 
+            two Trees thus have similar properties and can be understood as representations of one 
+            another.
+        </p>
+
+        <h3>How is a Left-Leaning Red-Black Tree Self-Balancing?</h3>
+        <p>
+            Similar to 2-3 Trees, during the insertion and deletion process, a LLRBT will move Nodes 
+            around to ensure the property of balance. This is done using the elementry operations 
+            listed bellow to maintain the rules of a LLRBT: black Node height, left leaning red 
+            links, and no red Node/link has red children/links
+        </p>
+        <ol>
+            <li>
+                Right Rotate: 'rotate' a left-leaning red link to (temporarily) lean right. The left 
+                child of the red Node is now the parent, while the red Node is now its left child. 
+                The colors of the red Node and the parent node are switched to maintain the red-link
+                between them
+            </li>
+            <li>
+                Left Rotate: 'rotate' a right-leaning red link to (temporarily) lean left. The right 
+                child of the node is now the parent while the red Node is now its right child. The 
+                colors of the red Node and the parent node are switched to maintain the red-link
+                between them
+            </li>
+            <li>
+                Color Flip: if a parent Node has two red Node children (two red links), then 
+                those links/Nodes are changed to black and the parent Node is now red
+            </li>
+        </ol>
+
+        <h3>How is a Left-Leaning Red-Black Tree different from a Red-Black tree?</h3>
+        <p>
+            Left-Leaning Red-Black Tree resitricts red Nodes/red links to only be the left child of 
+            some Node. Regular Red-Black Trees can have red links for both the left and right children 
+            and some black Node can have two red children. Still, like the LLRBT, a red Node cannot 
+            have red Nodes as children and follow similar rules of how Nodes are colored LLRBTs.
+        </p>
+    </div>
+    <div>
+        <h3>Psuedocode for 2-3 Tree</h3>
+        <p>Coming soon...</p>
+    </div>
+    <div>
+        <h3>Psuedocode for Left-Leaning Red-Black Tree</h3>
+        <p>Coming soon...</p>
+    </div>
+</body>
+</html>
