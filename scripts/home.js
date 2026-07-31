@@ -16,3 +16,8 @@ stacksQueuesBox.addEventListener("click", function () {
     window.location.href = "data-struc-pages/stacksqueues.html"
 });
 
+let treesBinaryTrees = document.getElementById("treeBinarys");
+
+treesBinaryTrees.addEventListener("click", function () {
+    window.location.href = "data-struc-pages/trees.html"
+});
