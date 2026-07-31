@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/data-struc.css">
+</header>
+<body>
+    <div class="header">
+        <h1>Learning: Binary Heaps</h1>
+    </div>
+    <div>
+        <h3>Prerequisite Knowledge</h3>
+        <p>
+            This demonstration expects a reasonable understanding of Binary Trees
+        </p>
+    </div>
+    <div>
+        <h2>What is a Binary Heap?</h2>
+        <p>
+            Binary Heaps are deliniated by the folowing properities: 
+            <ul>
+                <li>They are a binary tree (tree with each node having at most 2 children)</li>
+                <li>The binary tree is complete (Nodes are added from left to right)</li>
+                <li>It is heap-ordered: either max-heap or min-heap</li>
+                <ul>
+                    <li>Max-Heap: all children of a node are smaller than the current node</li>
+                    <li>Min-Heap: all children of a node are greater than the current node</li>
+                </ul>
+                <li>Height of this tree is log_2(n)</li>
+            </ul>
+        </p>
+    </div>
+    <div>
+        <h2>What are the Operations of a Binary Heap?</h2>
+        <ul>
+            <li>
+                Insertion: uses a 'swim-up' method. 
+                <ul>
+                    <li>
+                        This method inserts a Node to the left most open child in the Tree.
+                    </li>
+                    <li>
+                        This Node will then move up if its value is greater  (max-heap) or lesser 
+                        (min-heap) than the parent. 
+                    </li>
+                    <li>
+                        The recently inserted Node will continue to move up (siwm-up) until its 
+                        value is no longer greater/lesser than the value of its parent.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Get Max/Min: uses a 'sink-down' method 
+                <ul>
+                    <li>
+                        For Binary Heaps, getting the max (max-heap) or min (min-heap) will 
+                        result in deleting the max/min value from the heap. As such this 
+                        also describes deletion from a Binary Heap
+                    </li>
+                    <li>
+                        Swap the right-most, lowest element and the Root element
+                    </li>
+                    <li>
+                        Return and delete the previous Root element (the max/min value) and 
+                        the Node that was recently swapped 
+                    </li>
+                    <li>
+                        Sink the top-most element down, swapping with the children that is 
+                        lesser(max)/greater(min) than the top-most element
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>How to Implement a Binary Heap</h2>
+        <p>
+            To implement a Binary Heap, arrays are used. This can be done since binary heaps 
+            most be complete. This property allows for the creation of a matematical 
+            equation to cacluate the index of the left and right child of some value in 
+            the array.
+        </p>
+        <p>
+            Using some index i, you can calculate the left child's index, right child's index 
+            and parent's index within the array using the value of i.
+        </p>
+        <ul>
+            <li>Left Child Calculation: 2i + 1</li>
+            <li>Right Child Calculation: 2i + 2</li>
+            <li>Parent Calculation: max(floor((i - 1) / 2), 0) </li>
+        </ul>
+    </div>
+    <div>
+        <h3>Psuedocode for Binary Heap</h3>
+        <p>Coming soon...</p>
+    </div>
+</body>
+</html>
