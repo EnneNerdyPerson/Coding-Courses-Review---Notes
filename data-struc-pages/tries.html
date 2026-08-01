@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/data-struc.css">
+</header>
+<body>
+    <div class="header">
+        <h1>Learning: Tries</h1>
+    </div>
+    <div>
+        <h2>What is a Trie?</h2>
+        <p>
+            A Tree based data structure that is useful for storing strings in order, 
+            supporting fast pattern matching. Standard Tries are ordered such that 
+            the children of some Node are alphabetically ordered (so A before E and 
+            O before T, etc...). Additionally, the paths from the root to the leaf 
+            Nodes create a string.
+        </p>
+
+        <h3>How to Deal with Prefixes in Standard Tries?</h3>
+        <p>
+            When some words are prefixes of other words, without some way to deal with 
+            these shorter words, they get lost in Tries. Examples of prefix words: some and 
+            someone, won and wonderful, and bot and bottom. To deal with this, $ is a 
+            specical terminal symbol which makes sure that prefixes are clearly deliniated 
+            within a Trie. As such some$ and someone$ are both stored in a Trie.
+        </p>
+    </div>
+    <div>
+        <h2>Types of Tries</h2>
+        <ul>
+            <li>
+                Prefix/Standard Tries: the discribed above Trie that is often used for autocomplete
+                and wild card searching. 
+            </li>
+            <li>
+                Compressed (PATRICIA) Tries: a compressed standard Trie. Instead of every letter 
+                being it's own node, internal nodes are compressed together, saving space. These 
+                are often done as such: ([word index], [start character], [end character])
+            </li>
+            <li>
+                Suffix Tries: store the suffixes of some word/words. As such, this works backwards 
+                from standard tries where letters are added from the back of the word to the 
+                front of the word. This allows for things like: substring search, finding longest common 
+                substring, and finding longest repeated substring.
+
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h3>Psuedocode for Tries</h3>
+        <p>Coming soon...</p>
+    </div>
+</body>
+</html>
