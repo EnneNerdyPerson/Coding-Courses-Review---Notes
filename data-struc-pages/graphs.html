@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/data-struc.css">
+</header>
+<body>
+    <div class="header">
+        <h1>Learning: Graphs</h1>
+    </div>
+    <div>
+        <h3>Prerequisite Knowledge</h3>
+        <p>
+            Though it is not required, having a reasonable understanding of Trees will 
+            help with understanding Graphs. 
+        </p>
+    </div>
+    <div>
+        <h2>What is a Graph?</h2>
+        <p>
+            A Graph is a series of verticies connected by a series of edges. Each verticie can have 
+            any number of connections but each edge has either 1 or 2 vertices associated with it.
+            Graphs are great for modeling networks, connections, and more! Graphs are often notated
+            as: G = (V, E) where V is the set of vertices and E is the set of edges in the Graph.
+        </p>
+        <div>
+            Graph Examples Here
+        </div>
+    </div>
+    <div>
+        <h2>Types of Graphs</h2>
+        <h4>Undirected Graph</h4>
+        <p>
+            An undirected graph is a Graph whoes edges have no direction. This means 
+            that any connect between edges can go from one vertice to another or vice 
+            versa. Undirected Graphs are great for modeling socail networks, road 
+            networks, and similar connective structures. 
+        </p>
+
+        <h4>Directed Graph (DiGraph)</h4>
+        <p>
+            A directed graph is a Graph where edges have a direction. Some vertice points 
+            to another vertice. These are notated through arrows between verticies, to 
+            show the direction that the graph takes. Directed Graphs add an additional 
+            layer and possible complications with certain Graph algorithms that don't 
+            appear with Undirected Graphs. Some examples of real world uses of Directed Graphs 
+            are Food Webs and Follower-Following Graphs.
+        </p>
+
+        <h4>Weighted Graph</h4>
+        <p>
+            A weight refers to some number assigned to an edge in a Graph. Weights can be 
+            positive or negative, integers or decimals as long as they are numbers. An example 
+            of using weights is with a roadmap network where verticies are cities while 
+            edges represent roads that connect those cities. In these graphs, weight may 
+            refer to the distance between cities or possibly the amount of feul needed 
+            to traverse between cities.
+        </p>
+        
+    </div>
+    <div>
+        <h3>Graph Terminology</h3>
+        <ul>
+            <li>
+                Degree: the number of edges connect to some vertice
+            </li>
+            <li>
+                Simple Graph: each edge is connected to two different vertices (there are no cylces)
+            </li>
+            <li>
+                Multigraphs: may have multiple edges connecting the same two vertcies
+            </li>
+            <li>
+                Loop: an edge that connects a vertex to itself
+            </li>
+            <li>
+                Path: a squence of vertices connected by edge
+            </li>
+            <li>
+                Cycle: path whose first and last vertices are the same
+            </li>
+        </ul>
+
+        <h3>DiGraph Terminology</h3>
+        <ul>
+            <li>
+                In-Degree: the number of edges pointing to the vertex
+            </li>
+            <li>
+                Out-Degree: the number of edges pointing away from the vertex
+            </li>
+            <li>
+                Directed Path: a sequence of verticies in a digraph such that there 
+                is a directed edge from each vertex to the next vertex in the squence
+            </li>
+            <li>
+                Directed Cycle: a directed path whose first and last vertices are the same 
+            </li>
+            <li>
+                Reachable: a vertex v is reachable from vertex u if and only if there is a 
+                directed path from u to v
+            </li>
+            <li>
+                Strongly Connected Digraph: if very vertex is reachable from every other vertex
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>How do You Represent/Implement a Graph?</h2>
+        <div>
+            <p>List of Edges</p>
+            <p>
+                A list of edges saves the two vertices that connect some edge together. One 
+                example is (A, B) where A and B the labels for two vertices. Since only the 
+                edges are saved, the space used to store this representation is proportional 
+                to the number of edges in the graph.
+            </p>
+        </div>
+        <div>
+            <p>Adjacency Matrix</p>
+            <p>
+                This is a two-dimensional v-by-v boolean array (where v is the number of verticies 
+                in the Graph). For each edge u-w (where u and w are some verticies in the Graph), 
+                the adjacency matrix will have true stored at index [u][w]. adj[u][w] = TRUE. 
+                For directed graphs, this might indicated a directed edge from u to w but an 
+                undirected graph would also have adj[w][u] = TRUE. The space used to store this 
+                information is v^2.
+            </p>
+        </div>
+        <div>
+            <p>Adjacency Lists</p>
+            <p>
+                This is an array of lists. Every list in the array is a list for the vertices 
+                connected some some vertex. So every index in the array is linked to some 
+                vertex in the Graph and every item in the list at that index is an edge connecting 
+                the vertex represented by the index to the item in the list. This takes up 
+                O(E + V) space.
+            </p>
+        </div>
+    <div>
+    <div>
+        <h3>Psuedocode for Representing a Graph</h3>
+        <p>Coming soon...</p>
+    </div>
+</body>
+</html>
