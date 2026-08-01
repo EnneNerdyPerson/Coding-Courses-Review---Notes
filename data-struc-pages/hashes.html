@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/data-struc.css">
+</header>
+<body>
+    <div class="header">
+        <h1>Learning: Hashing and Hash Maps</h1>
+    </div>
+    <div>
+        <h3>Prerequisite Knowledge</h3>
+        <p>
+            This demonstration expects a reasonable understanding of the modulo operater and/or modulo arithmetic.
+        </p>
+    </div>
+    <div>
+        <h2>What is a Hashing?</h2>
+        <p>
+           Hashing is the process of mapping data of some arbitrary fix to some value of fixed size. This means 
+           that no matter the size of the input, the output will be of a specific size. Hashing is done through 
+           Hash Functions and their input and output are often numbers and characters. During this demo/explaination 
+           we will be looking mainly at Hash Functions with numerical input and output. For mathematical Hash 
+           functions, and our Hash Maps, we use the modulo operator as they have many properities that allow us 
+           to create a good Hash Function.
+        </p>
+        <p>
+            Good Hash Functions have the following properties:
+        </p>
+        <ul>
+            <li>
+                Consistency: inputs of equal value must produce the same output using the same Hash Function 
+            </li>
+            <li>
+                Efficency: a hash function must be efficient to compute
+            </li>
+            <li>
+                Even Dispersal: a hash function should evenly disperse the outputs across its 
+                possible values.
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>What is a Hash Map?</h2>
+        <p>
+            A Hash Map is a data structure that uses Hash Functions to map the values being stored to an 
+            index/location in the Hash Map. Normally Hash Maps using arrays to store the data and 
+            the modulo operator in the Hash Function. The most common hash function for Hash Maps are:
+            h(k) = k mod n where k is the value being stored in the Hash Map and n is the length of 
+            the array being used as a Hash Map. 
+        </p>
+
+        <h3>How do you deal with 'Collisions'?</h3>
+        <p>
+            Collisions are highly likely when dealing with Hash Maps. Collisions refer to a situation where 
+            some value k in the process of being added to the Hash Map, but the computed index using the given 
+            Hash Function already has a value stored in that location. 
+        </p>
+        <ul>
+            <li>
+                Chaining: all elements that hash to the same solt are in a LinkedList at that index. 
+                This means that the Hash Map is an array of LinkedLists.
+            </li>
+            <li>
+                Linear Probing: if a collision occurs, increase the index by some number 1 and hash 
+                again. If the next index results in another collision, continue increasing by 1 until 
+                a free index is found.
+            </li>
+            <li>
+                Quadratic Probing: very similar the linear probing, except instead of increasinly
+                linearly, increase quadratically.
+            </li>
+            <li>
+                Double Hashing: Use two different size hash functions and add them together for 
+                hashing. If this results in a collision, step-size increases are used instead.
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>How to Implement a Hash Map</h2>
+        <p>
+            Hash Maps use arrays to store their infromation. However, depending on the collision 
+            resolution method being utilized, some things about this array may change. For example, 
+            chaining will mean that the array is an array of LinkedLists rather than an array of the 
+            data type being stored (like string or integer). If not using chaining, the array must 
+            be of a size large enough to hold all values added to the Hash Map.
+        </p>
+    </div>
+    <div>
+        <h3>Psuedocode for Hash Map</h3>
+        <p>Coming soon...</p>
+    </div>
+</body>
+</html>
