@@ -1,3 +1,127 @@
+h2 {
+    width: max-content;
+    padding: 10px 10vw 10px 10vw;
+    margin: 45px 0 20px -10vw;
+
+    background-color: #5FA8D3;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+li {
+    margin: 5px 0;
+}
+
+/* p {
+    border: 10px solid transparent; 
+    border-image: url(../images/ChainToLink.png) 225 round;
+} */
+
+.flex-item {
+    width: 38vw;
+    padding: 0 10px;
+}
+
+.box {
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 3px 0;
+}
+
+.north-east {
+    transform: rotate(-28deg);
+}
+
+.south-east {
+    transform: rotate(28deg);
+}
+
+.split-top-arrow-container {
+    margin: 0 3px 10px 3px;
+}
+
+.split-bottom-arrow-container {
+    margin: 10px 3px 0 3px;
+}
+
+.arrow-label {
+    font-size: 16px;
+    margin: 4px 0;
+    line-height: 13px;
+}
+
+.comment {
+    color: grey;
+    font-style: italic;
+}
+
+.interactiveVisual {
+    /* background-color: #1b496572; */
+    /* color: #1B4965; */
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 30px 0;
+}
+
+.code {
+    font-family: "Google Sans Code", monospace;
+}
+
+/* Array List Styling */
+.transition-container {
+    margin: 0 10px 50px 10px;
+}
+
+.array-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.array-item {
+    border: solid 1px black;
+    background-color: #CAE9FF;
+
+    font-size: 22px;
+    text-align: center;
+    align-content: center;
+    
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.thin-arrow-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right-arrow-thin-body {
+    width: 60px;
+    height: 7px;
+
+    background-color: black;
+}
+
+.right-arrow-thin-head {
+    width: 0;
+    height: 0;
+
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 20px solid black;
+}
+
+
 /* Linked List Styling */
 .link-container {
     display: flex;
