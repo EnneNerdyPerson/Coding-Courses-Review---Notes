@@ -112,13 +112,112 @@
     </div>
     <div>
         <h2>What are the Stack Operations?</h2>
-        <p>
-            Remember, Stacks are ADTs and thus specific implementations is not clearly
-            outlined. Instead we have some operations that are integral to the Stack 
-            but how it is implemented is up to the developer. 
-        </p>
-        <!-- <div class="flex-row-container"> -->
+        <div class="flex-row-container">
+            <div class="flex-item flex-col-container">
+                <div class="box full-width">
+                    <div class="array-container">
+                        <p class="array-item">
+                            s
+                        </p>
+                        <p class="array-item">
+                            t
+                        </p>
+                        <p class="array-item">
+                            a
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                    </div>   
+                    <div class="flex-row-container vertical-label">
+                        <p class="white-background">
+                            push('c')
+                        </p>
+                        <div class="thin-arrow-container rotate-90">
+                            <div class="right-arrow-thin-body"></div>
+                            <div class="right-arrow-thin-head"></div>
+                        </div>
+                    </div>
+                    <div class="array-container">
+                        <p class="array-item">
+                            s
+                        </p>
+                        <p class="array-item">
+                            t
+                        </p>
+                        <p class="array-item">
+                            a
+                        </p>
+                        <p class="array-item">
+                            c
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                        <p class="array-item">
+                            
+                        </p>
+                    </div>   
+                </div>
+                <div class="flex-row-container stack-container box full-width">
+                    <div class="flex-col-container">
+                        <div class="stack-item">a</div>
+                        <div class="stack-item">t</div>
+                        <div class="stack-item">s</div>
+                        <div class="stack-bottom"></div>
+                    </div>
+                    <div class="flex-col-container">
+                        <p>push('c')</p>
+                        <div class="thin-arrow-container">
+                            <div class="right-arrow-thin-body"></div>
+                            <div class="right-arrow-thin-head"></div>
+                        </div>
+                    </div>
+                    <div class="flex-col-container">
+                        <div class="stack-item">c</div>
+                        <div class="stack-item">a</div>
+                        <div class="stack-item">t</div>
+                        <div class="stack-item">s</div>
+                        <div class="stack-bottom"></div>
+                    </div>
+                </div>
+            </div>
             <div class="flex-item">
+                <p>
+                    Remember, Stacks are ADTs and thus specific implementations is not clearly
+                    outlined. Instead we have some operations that are integral to the Stack 
+                    but how it is implemented is up to the developer. 
+                </p>
                 <ul>
                     <li>
                         push(item): 'push' the item to the top of the Stack 
@@ -126,12 +225,12 @@
                     <li>
                         pop(): remove and return the item at the top of the Stack
                     </li>
-                    <li>
+                    <!-- <li>
                         isEmpty(): checks if Stack is empty (size equals 0) or not
                     </li>
                     <li>
                         size(): returns the number of items in the stack
-                    </li>
+                    </li> -->
                     <li>
                         peek(): return the value of the item at the top of the Stack without
                         removing it
@@ -141,7 +240,7 @@
                 <h3>How to Implement Stacks with arrays:</h3>
                 <ul>
                     <li>Array: how the data is stored in the stack</li>
-                    <li>Size: the number of items added to the stack</li>
+                    <!-- <li>Size: the number of items added to the stack</li> -->
                     <li>
                         Top Index: the index of the most recently added item in the stack 
                         array
@@ -153,35 +252,7 @@
                     </ul>
                 </ul>
             </div>
-            <!-- <div class="flex-item">
-                <div class="array-container">
-                    <p class="array-item">
-
-                    </p>
-                    <p class="array-item">
-
-                    </p>
-                    <p class="array-item">
-
-                    </p>
-                    <p class="array-item">
-
-                    </p>
-                    <p class="array-item">
-
-                    </p>
-                    <p class="array-item">
-
-                    </p>
-                    <p class="array-item">
-
-                    </p>
-                    <p class="array-item">
-
-                    </p>
-                </div>   
-            </div> -->
-        <!-- </div> -->
+        </div>
     </div>
 
     <div>
@@ -190,55 +261,139 @@
             <div>
                 <p>
                     As you might know, a queue is the British English word for a line of people. 
-                    Thus, you can think of queues are a line of people. The person who will leave 
+                    Thus, you can think of queues as a line of people. The person who will leave 
                     the queue next is the person at the front of the queue while the person who 
                     most recently gets into the line will be at the end of the queue. The first 
                     person in is the first person out (First In First Out: FIFO).
                 </p>
                 <p>
                     Algorithms like Breath First Search or when there are virtual 'lines' (i.e., 
-                    a line for buying tickets), Queues are the got to data structure. 
+                    a line for buying tickets) are when Queues shine the most.
                 </p>
             </div>
-            <div>
-                <div class="link-container medium">
-                    <div class="node">
-                        front
+
+            <div class="flex-row-container">
+                <div class="flex-item box small-margin">
+                    <div>
+                        <div class="link-container medium">
+                            <div class="flex-col-container relative">
+                                <div class="node rotate-90">
+                                    :)
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                            <div class="flex-col-container relative">
+                                <div class="node rotate-90">
+                                    :(
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                            <div class="flex-col-container relative">
+                                <div class="node">
+                                    -_-
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="arrow-container">
-                        <div class="arrow-body"></div>
-                        <div class="right-arrow-head"></div>
+                    <div class="flex-row-container vertical-label">
+                            <p class="white-background">
+                                enqueue(':{|')
+                            </p>
+                            <div class="thin-arrow-container rotate-90">
+                                <div class="right-arrow-thin-body"></div>
+                                <div class="right-arrow-thin-head"></div>
+                            </div>
+                        </div>
+                    <div>
+                        <div class="link-container medium">
+                            <div class="flex-col-container relative">
+                                <div class="node rotate-90">
+                                    :)
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                            <div class="flex-col-container relative">
+                                <div class="node rotate-90">
+                                    :(
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                            <div class="flex-col-container relative">
+                                <div class="node">
+                                    -_-
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                            <div class="flex-col-container relative">
+                                <div class="node rotate-90">
+                                    :{|
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="node">
-                        second
+                </div>
+                <div class="flex-item box small-margin">
+                    <div>
+                        <div class="link-container medium">
+                            <div class="flex-col-container relative">
+                                <div class="node rotate-90">
+                                    :)
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                            <!-- <div class="arrow-container">
+                                <div class="arrow-body"></div>
+                                <div class="right-arrow-head"></div>
+                            </div> -->
+                            <div class="flex-col-container relative">
+                                <div class="node rotate-90">
+                                    :(
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                            <div class="flex-col-container relative">
+                                <div class="node">
+                                    -_-
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="arrow-container">
-                        <div class="arrow-body"></div>
-                        <div class="right-arrow-head"></div>
+                    <div class="flex-row-container vertical-label">
+                            <p class="white-background">
+                                dequeue()
+                            </p>
+                            <div class="thin-arrow-container rotate-90">
+                                <div class="right-arrow-thin-body"></div>
+                                <div class="right-arrow-thin-head"></div>
+                            </div>
+                        </div>
+                    <div>
+                        <div class="link-container medium">
+                            <div class="flex-col-container relative">
+                                <div class="node rotate-90">
+                                    :(
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                            <div class="flex-col-container relative">
+                                <div class="node">
+                                    -_-
+                                </div>
+                                <div class="person-body"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="node">
-                        third
-                    </div>
-                    <div class="arrow-container">
-                        <div class="arrow-body"></div>
-                        <div class="right-arrow-head"></div>
-                    </div>
-                    <div class="node">
-                        last
-                    </div>
-                    <div class="arrow-container">
-                        <div class="arrow-body"></div>
-                        <div class="right-arrow-head"></div>
-                    </div>
-                    <p class="null">NULL</p>
                 </div>
             </div>
             <div>
                 <h3>How are Queue ADTs?</h3>
                 <p>
-                    Once again, the way an queue is implemented is fuild. You can use arrays or 
-                    LinkedLists to do so. Since the 'how' is uncearly, Queues are Abstract Data 
-                    Structures. This page will explain a Linked List implementation. 
+                    Once again, the way an queue is implemented is fulid. You can use arrays or 
+                    LinkedLists to do so. Since the 'how' is unclear, Queues are Abstract Data 
+                    Structures. This page will explain a Linked List implementation of Queues. 
                 </p>
             </div>
         </div>
@@ -248,8 +403,8 @@
         <ul>
             <li>enqueue(item): inserts the item at the end of the queue</li>
             <li>dequeue(): removes and returns item at the front of the queue</li>
-            <li>isEmpty(): checks whetehr the queue is empty or not</li>
-            <li>size(): returns the number of items in the queue</li>
+            <!-- <li>isEmpty(): checks whetehr the queue is empty or not</li>
+            <li>size(): returns the number of items in the queue</li> -->
             <li>peek(): returns the item at the front of the queue without removing it</li>
         </ul>
         
@@ -266,7 +421,7 @@
                     of the list
                 </li>
             </ul>
-            <li>Size: the number of elements in the Queue</li>
+            <!-- <li>Size: the number of elements in the Queue</li> -->
         </ul>
     </div>
     <div>

@@ -69,3 +69,7 @@ p, li, label {
     text-align: center;
     align-content: center;
 }
+
+.relative {
+    position: relative;
+}
