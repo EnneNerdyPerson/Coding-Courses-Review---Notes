@@ -52,7 +52,7 @@ function makeNewNode(value, index) {
     let leftArrowContainer = document.createElement("div");
     leftArrowContainer.classList.add("arrow-container");
 
-    if (!doubleLinks) {
+    if (!doubleLinks || numNodes == index) {
         leftArrowContainer.classList.add("hidden");
     }
 
@@ -67,11 +67,28 @@ function makeNewNode(value, index) {
     div.append(rightArrowContainer);
     div.append(leftArrowContainer);
 
+    if (numNodes == 0) {
+        let nullNode = document.createElement("p");
+        nullNode.classList.add("null");
+        nullNode.innerText = "NULL";
+        nullNode.id = "null";
+
+        visualDiv.append(nullNode);
+    }
+
     if (numNodes == index) {
-        visualDiv.append(node);
-        visualDiv.append(div);
+        if (numNodes > 0 && doubleLinks) {
+            doubleLinkArray[index - 1].classList.toggle("hidden");
+        }
+        
+        let nullNode = document.getElementById("null");
+
+        nullNode.before(node);
+        nullNode.before(div);
+
         nodeArray.push(node);
         divArray.push(div);
+        doubleLinkArray.push(leftArrowContainer);
     } else if (index == 0) {
         let beginning = nodeArray[0];
         beginning.before(node);
@@ -79,6 +96,7 @@ function makeNewNode(value, index) {
 
         nodeArray.splice(index, 0, node);
         divArray.splice(index, 0, div);
+        doubleLinkArray.splice(index, 0, leftArrowContainer);
     } else {
         let preDiv = divArray[index - 1];
         preDiv.after(div);
@@ -86,14 +104,7 @@ function makeNewNode(value, index) {
 
         nodeArray.splice(index, 0, node);
         divArray.splice(index, 0, div);
-    }
-
-    if (numNodes == 0) {
-        let nullNode = document.createElement("p");
-        nullNode.classList.add("null");
-        nullNode.innerText = "NULL";
-
-        visualDiv.append(nullNode);
+        doubleLinkArray.splice(index, 0, leftArrowContainer);
     }
 
     numNodes++;
@@ -110,11 +121,21 @@ function deleteNode(index) {
 
     nodeArray.splice(index, 1);
     divArray.splice(index, 1);
+    doubleLinkArray.splice(index, 1);
+
+    if (index == numNodes - 1 && doubleLinks) {
+        doubleLinkArray[index - 1].classList.toggle("hidden");
+    }
 
     node.remove();
     div.remove();
 
     numNodes--;
+
+    if (numNodes == 0) {
+        let nullElement = document.getElementById("null");
+        nullElement.remove();
+    }
 }
 
 function changeMethod(type, button) {
@@ -243,6 +264,20 @@ getButton.addEventListener("click", function() {
     }
 
     message.innerText = messageValue;
+});
+
+linkTypeButton.addEventListener("click", function() {
+    if (linkTypeButton.innerText == "Single") {
+        linkTypeButton.innerText = "Double";
+        doubleLinks = true;
+    } else {
+        linkTypeButton.innerText = "Single";
+        doubleLinks = false;
+    }
+
+    for (let i = 0; i < doubleLinkArray.length - 1; i++) {
+        doubleLinkArray[i].classList.toggle("hidden");
+    }
 });
 
 addMethodButton.addEventListener("click", function() {
