@@ -1,10 +1,14 @@
 let arrayListDiv = document.getElementById("visualDiv");
 
+let sizeMethodButton = document.getElementById("resize");
+let increaseByN = true;
+
+let nContainer = document.getElementById("change-n-container");
+let nValueInput = document.getElementById("nValueInput");
+let nValueIButton = document.getElementById("nValueButton");
+
 let addItemInput = document.getElementById("addItemInput");
 let addItemButton = document.getElementById("addItemButton");
-
-// let addItemInput = document.getElementById("addItemInput");
-// let addItemButton = document.getElementById("addItemButton");
 
 let arrayList = new ArrayList();
 
@@ -20,12 +24,10 @@ function addDisplayItem(id) {
 
 function addArrayItem (item) {
     let size = arrayList.getSize();
-    console.log(size);
 
     let id = "array-" + size;
 
     let message = arrayList.addItem(item);
-    console.log(message);
 
     if (message == ErrorMessage.CHANGE) {
         let capacity = arrayList.getCapacity();
@@ -39,7 +41,37 @@ function addArrayItem (item) {
     displayArrayItem.innerText = item;
 }
 
+nValueIButton.addEventListener("click", function() {
+    let newN = nValueInput.value;
+    arrayList.changeN(newN);
+    nValueInput.value = "";
+});
+
+sizeMethodButton.addEventListener("click", function() {
+    if (increaseByN) {
+        increaseByN = false;
+        sizeMethodButton.innerText = "Double";
+    } else {
+        increaseByN = true;
+        sizeMethodButton.innerText = "Increase by n";
+    }
+
+    nContainer.classList.toggle("hidden");
+    arrayList.changeReallocType();
+});
+
 addItemButton.addEventListener("click", function () {
-    addArrayItem(addItemInput.value);
+    let value = addItemInput.value;
+
+    if (value.indexOf(",") >= 0) {
+        let array = value.split(",");
+        for (let i of array) {
+            addArrayItem(i);
+        }
+    } else {
+        addArrayItem(value);
+    }
+
+    // addArrayItem(addItemInput.value);
     addItemInput.value = "";
 });
