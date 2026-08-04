@@ -12,13 +12,13 @@
     <div class="header">
         <h1>Learning: Stacks and Queues</h1>
     </div>
-    <div>
+    <!-- <div>
         <h3>Prerequisite Knowledge</h3>
         <p>
             This demonstration expects a reasonable understanding of Java classes and methods, and C structs 
             and LinkedLists.
         </p>
-    </div>
+    </div> -->
     <div>
         <h2>Why Stacks and Queues?</h2>
         <p>
@@ -43,24 +43,72 @@
     </div>
     <div>
         <h2>What is a Stack?</h2>
-        <p>
-            You can think of a Stack like a stack of plates. With a stack of plates, you put the 
-            most recent plate on the top of the stack. Then, when you are trying to grab a new 
-            plate, you also take from the top of the stack of plates. This is the same with 
-            Stacks in computer science. The last item added to the stack is the first item out of
-            the stack (Last In First Out: LIFO).
-        </p>
-        <p>
-            Stacks are helpful in more complex aglorithms (Kosaraju’s Algorithm) or when computing 
-            mathematical equations with Reverse Polish Notation. In general, stacks are helpful 
-            when the Last In First Out property is necessary. 
-        </p>
-        <h3>How are Stacks ADTs?</h3>
-        <p>
-            There are many ways to implement a Stack. You can use Linked Lists, arrays, or some other 
-            data structure to implement a stack. Within this explaination, we will be showcasing 
-            implementation using arrays.
-        </p>
+        <div class="flex-row-container">
+            <div class="flex-item">
+                <p>
+                    You can think of a Stack like a stack of plates. With a stack of plates, you put the 
+                    most recent plate on the top of the stack. Then, when you are trying to grab a new 
+                    plate, you also take from the top of the stack of plates. This is the same with 
+                    Stacks in computer science. The last item added to the stack is the first item out of
+                    the stack (Last In First Out: LIFO).
+                </p>
+                <p>
+                    Stacks are helpful in more complex aglorithms (Kosaraju’s Algorithm) or when computing 
+                    mathematical equations with Reverse Polish Notation. In general, stacks are helpful 
+                    when the Last In First Out property is necessary. 
+                </p>
+                <h3>How are Stacks ADTs?</h3>
+                <p>
+                    There are many ways to implement a Stack. You can use Linked Lists, arrays, or some other 
+                    data structure to implement a stack. Within this explaination, we will be showcasing 
+                    implementation using arrays.
+                </p>
+            </div>
+            <div class="flex-item flex-col-container">
+                <div class="flex-row-container stack-container box">
+                    <div class="flex-col-container">
+                        <div class="stack-item">c</div>
+                        <div class="stack-item">a</div>
+                        <div class="stack-item">t</div>
+                        <div class="stack-bottom"></div>
+                    </div>
+                    <div class="flex-col-container">
+                        <p>pop()</p>
+                        <div class="thin-arrow-container">
+                            <div class="right-arrow-thin-body"></div>
+                            <div class="right-arrow-thin-head"></div>
+                        </div>
+                    </div>
+                    <div class="flex-col-container">
+                        <div class="stack-item">a</div>
+                        <div class="stack-item">t</div>
+                        <div class="stack-bottom"></div>
+                    </div>
+                </div>
+                <div class="flex-row-container stack-container box">
+                    <div class="flex-col-container">
+                        <div class="stack-item">a</div>
+                        <div class="stack-item">k</div>
+                        <div class="stack-item">e</div>
+                        <div class="stack-bottom"></div>
+                    </div>
+                    <div class="flex-col-container">
+                        <p>push('c')</p>
+                        <div class="thin-arrow-container">
+                            <div class="right-arrow-thin-body"></div>
+                            <div class="right-arrow-thin-head"></div>
+                        </div>
+                    </div>
+                    <div class="flex-col-container">
+                        <div class="stack-item">c</div>
+                        <div class="stack-item">a</div>
+                        <div class="stack-item">k</div>
+                        <div class="stack-item">e</div>
+                        <div class="stack-bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div>
         <h2>What are the Stack Operations?</h2>
@@ -69,64 +117,131 @@
             outlined. Instead we have some operations that are integral to the Stack 
             but how it is implemented is up to the developer. 
         </p>
-        <ul>
-            <li>
-                push(item): 'push' the item to the top of the Stack 
-            </li>
-            <li>
-                pop(): remove and return the item at the top of the Stack
-            </li>
-            <li>
-                isEmpty(): checks if Stack is empty (size equals 0) or not
-            </li>
-            <li>
-                size(): returns the number of items in the stack
-            </li>
-            <li>
-                peek(): return the value of the item at the top of the Stack without
-                removing it
-            </li>
-        </ul>
-        
-        <h3>How to Implement Stacks with arrays:</h3>
-        <ul>
-            <li>Array: how the data is stored in the stack</li>
-            <li>Size: the number of items added to the stack</li>
-            <li>
-                Top Index: the index of the most recently added item in the stack 
-                array
-            </li>
-            <ul>
-                <li>When getting the most recent item, simply return the value at this index</li>
-                <li>If using the pop() function, the index with decrease</li>
-                <li>When adding an item, increase this index and add increase the index</li>
-            </ul>
-        </ul>
-    </div>
-    <div>
-        <h3>Psuedocode for Stacks</h3>
-        <p>Coming soon...</p>
+        <!-- <div class="flex-row-container"> -->
+            <div class="flex-item">
+                <ul>
+                    <li>
+                        push(item): 'push' the item to the top of the Stack 
+                    </li>
+                    <li>
+                        pop(): remove and return the item at the top of the Stack
+                    </li>
+                    <li>
+                        isEmpty(): checks if Stack is empty (size equals 0) or not
+                    </li>
+                    <li>
+                        size(): returns the number of items in the stack
+                    </li>
+                    <li>
+                        peek(): return the value of the item at the top of the Stack without
+                        removing it
+                    </li>
+                </ul>
+                
+                <h3>How to Implement Stacks with arrays:</h3>
+                <ul>
+                    <li>Array: how the data is stored in the stack</li>
+                    <li>Size: the number of items added to the stack</li>
+                    <li>
+                        Top Index: the index of the most recently added item in the stack 
+                        array
+                    </li>
+                    <ul>
+                        <li>When getting the most recent item, simply return the value at this index</li>
+                        <li>If using the pop() function, the index with decrease</li>
+                        <li>When adding an item, increase this index and add increase the index</li>
+                    </ul>
+                </ul>
+            </div>
+            <!-- <div class="flex-item">
+                <div class="array-container">
+                    <p class="array-item">
+
+                    </p>
+                    <p class="array-item">
+
+                    </p>
+                    <p class="array-item">
+
+                    </p>
+                    <p class="array-item">
+
+                    </p>
+                    <p class="array-item">
+
+                    </p>
+                    <p class="array-item">
+
+                    </p>
+                    <p class="array-item">
+
+                    </p>
+                    <p class="array-item">
+
+                    </p>
+                </div>   
+            </div> -->
+        <!-- </div> -->
     </div>
 
     <div>
         <h2>What is a Queue?</h2>
-        <p>
-            As you might know, a queue is the British English word for a line of people. 
-            Thus, you can think of queues are a line of people. The person who will leave 
-            the queue next is the person at the front of the queue while the person who 
-            most recently gets into the line will be at the end of the queue. The first 
-            person in is the first person out (First In First Out: FIFO).
-        </p>
-        <p>
-            Algorithms like Breath First Search or when there are virtual 'lines' (i.e., 
-            a line for buying tickets), Queues are the got to data structure. 
-        </p>
-        <h3>How are Queue ADTs?</h3>
-        <p>
-            Once again, the way an queue is implemented is fuild. You can use arrays or 
-            LinkedLists to do so. Since the 'how' is uncearly, Queues are Abstract Data 
-            Structures. This page will explain a Linked List implementation. 
-        </p>
+        <div class="flex-col-container">
+            <div>
+                <p>
+                    As you might know, a queue is the British English word for a line of people. 
+                    Thus, you can think of queues are a line of people. The person who will leave 
+                    the queue next is the person at the front of the queue while the person who 
+                    most recently gets into the line will be at the end of the queue. The first 
+                    person in is the first person out (First In First Out: FIFO).
+                </p>
+                <p>
+                    Algorithms like Breath First Search or when there are virtual 'lines' (i.e., 
+                    a line for buying tickets), Queues are the got to data structure. 
+                </p>
+            </div>
+            <div>
+                <div class="link-container medium">
+                    <div class="node">
+                        front
+                    </div>
+                    <div class="arrow-container">
+                        <div class="arrow-body"></div>
+                        <div class="right-arrow-head"></div>
+                    </div>
+                    <div class="node">
+                        second
+                    </div>
+                    <div class="arrow-container">
+                        <div class="arrow-body"></div>
+                        <div class="right-arrow-head"></div>
+                    </div>
+                    <div class="node">
+                        third
+                    </div>
+                    <div class="arrow-container">
+                        <div class="arrow-body"></div>
+                        <div class="right-arrow-head"></div>
+                    </div>
+                    <div class="node">
+                        last
+                    </div>
+                    <div class="arrow-container">
+                        <div class="arrow-body"></div>
+                        <div class="right-arrow-head"></div>
+                    </div>
+                    <p class="null">NULL</p>
+                </div>
+            </div>
+            <div>
+                <h3>How are Queue ADTs?</h3>
+                <p>
+                    Once again, the way an queue is implemented is fuild. You can use arrays or 
+                    LinkedLists to do so. Since the 'how' is uncearly, Queues are Abstract Data 
+                    Structures. This page will explain a Linked List implementation. 
+                </p>
+            </div>
+        </div>
     </div>
     <div>
         <h2>What are the Queue Operations?</h2>
@@ -155,8 +270,63 @@
         </ul>
     </div>
     <div>
-        <h3>Psuedocode for Queues</h3>
-        <p>Coming soon...</p>
+        <h2>Psuedocode</h2>
+        <div class="flex-row-container">
+            <div class="flex-item">
+                <h3>Stacks</h3>
+                <div class="flex-col-container code">
+                    <p>
+                        Stack {<br>
+                        &emsp; size &larr; 0<br>
+                        &emsp; arr &larr; new array[]<br>
+                        }<br>
+                    </p>
+                    <p>
+                        push(item) {<br>
+                        &emsp; <b>if</b> size == arr.length<br>
+                        &emsp; &emsp; resize()<br>
+                        <br>
+                        &emsp; arr[size] &larr; item <br>
+                        &emsp; size++<br>
+                        }<br>
+                    </p>
+                    <p>
+                        pop() { <br>
+                        &emsp; temp &larr; arr[size - 1] <br>
+                        &emsp; size-- <br>
+                        &emsp; <b>return</b> temp <br>
+                        }
+                    </p>
+                </div>
+            </div>
+            <div class="flex-item">
+                <h3>Queues</h3>
+                <div class="flex-col-container code">
+                    <p>
+                        Queues {<br>
+                        &emsp; size &larr; 0<br>
+                        &emsp; list &larr; new LinkedList()<br>
+                        }
+                    </p>
+                    <p>
+                        enqueue(item) {<br>
+                        &emsp; list.addBack(item) <br>
+                        &emsp; size++<br>
+                        }
+                    </p>
+                    <p>
+                        dequeue() { <br>
+                        &emsp; temp &larr; list.head <br>
+                        &emsp; list.head &larr; temp.next <br>
+                        &emsp; <b>return</b> temp.value <br>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header" style="height: 100px;">
     </div>
 </body>
 </html>
