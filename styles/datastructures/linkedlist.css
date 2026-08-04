@@ -1,0 +1,11 @@
+.text-box {
+    width: 70%;
+}
+
+.buttons-box {
+    width: 25%;
+}
+
+.buttons-box div {
+    margin: 5px;
+}

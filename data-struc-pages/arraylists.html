@@ -215,7 +215,7 @@
             <p>
                 addItem(item) {<br>
                 &emsp; <b>if</b> size == arr.length<br>
-                &emsp;&emsp; resize()<br>
+                &emsp; &emsp; resize()<br>
                 <br>
                 &emsp; arr[size] &larr; item <br>
                 &emsp; size++<br>
@@ -226,7 +226,7 @@
                 &emsp; temp &larr; arr <br>
                 &emsp; double &larr; size * 2 <br>
                 &emsp; <b>for</b> i &rarr; size <br>
-                &emsp;&emsp; temp[i] &larr; arr[i] <br>
+                &emsp; &emsp; temp[i] &larr; arr[i] <br>
                 &emsp; arr &larr; temp <br>
                 }
             </p>
@@ -235,7 +235,7 @@
                 &emsp; temp &larr; arr <br>
                 &emsp; capacity &larr; size + n<br>
                 &emsp; <b>for</b> i &rarr; size <br>
-                &emsp;&emsp; temp[i] &larr; arr[i] <br>
+                &emsp; &emsp; temp[i] &larr; arr[i] <br>
                 &emsp; arr &larr; temp <br>
                 }
             </p>
@@ -248,18 +248,24 @@
                 <p>
                     Enjoy messing around with this iteractive visual of ArrayLists. You 
                     can change the method of resizing and see how adding information 
-                    can 
+                    can change the underlying array. 
                 </p>
-                <!-- <label for="resize">Resize:</label>
-                <button id="resize" name="resize">Increase by n</button>
-
-                <label for="n">What is n?</label>
-                <input id="nValueInput" type="number" name="n">
-                <button id="nValueButton">Change n</button> -->
-
-                <label for="add">addItem(</label>
-                <input id="addItemInput" type="text" name="add">)
-                <button id="addItemButton">Add</button>
+                <div class="flex-row-container">
+                    <div>
+                        <label for="resize">Resize Method:</label>
+                        <button id="resize" name="resize">Increase by n</button>
+                    </div>
+                    <div id="change-n-container">
+                        <label for="n">changeN(</label>
+                        <input id="nValueInput" type="number" name="n">)
+                        <button id="nValueButton">Change</button>
+                    </div>
+                    <div>
+                        <label for="add">addItem(</label>
+                        <input id="addItemInput" type="text" name="add">)
+                        <button id="addItemButton">Add</button>
+                    </div>
+                </div>
             </div>
             <div class="interactiveVisual">
                 <div id="visualDiv" class="array-container">
@@ -274,7 +280,7 @@
         </div>
     </div>
 
-    <div class="header" style="height: 100px;">
+    <div class="header" style="height: 100px; margin-top: 20px;">
     </div>
 
     <script src="../scripts/datastructures.js"></script>
