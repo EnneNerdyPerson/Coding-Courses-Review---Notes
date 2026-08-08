@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/data-struc.css">
+    <link rel="stylesheet" href="../styles/datastructures/arraylist.css">
 </header>
 <body>
     <div class="header">
@@ -24,17 +25,21 @@
     <div>
         <h2>What is an Array List?</h2>
         <p>
-            First, we must understand what an array is. Arrays are a basic datastructure common in most 
-            programming languages. However, they are limited as for programming languages like Java and 
-            C/C++ where the size of an array is immultible (unchanging). This can often limit how arrays 
-            can be used. To still utilize the many strengths of arrays while allowing for the benefits of 
-            a dynamic data structure, Array Lists were created.
+            First, we must understand what an array is. Arrays are a basic data structure common in most 
+            programming languages. However, a common limitation of arrays is the fact they are immutable 
+            (they do not change in size). This is true for arrays in programming languages like Java and 
+            C/C++ and NumPy arrays in Python. The unchanging nature of arrays can limit its uses. To still 
+            utilize the many strengths of arrays while allowing for the benefits of a dynamic data structure, 
+            Array Lists were created.
         </p>
         <p>
-            Array Lists make use of arrays as a data structure but allow for dynamic sizing. They are useful
-            where there is no clear size limit to the number of elements that may be added.
+            To still utilize the many strengths of arrays while allowing for the benefits of a dynamic data 
+            structure, Array Lists were created. Array Lists make use of the benefits of arrays while still 
+            allowing dynamic sizing. They are useful when there is no clear size limit to the number of 
+            elements that may be added.
         </p>
     </div>
+
     <div class="flex-row-container">
         <div class="flex-row-container box">
             <div class="flex-col-container">
@@ -53,8 +58,8 @@
                     addItem("a")
                 </p>
                 <div class="thin-arrow-container">
-                    <div class="right-arrow-thin-body"></div>
-                    <div class="right-arrow-thin-head"></div>
+                    <div class="thin-arrow-body"></div>
+                    <div class="thin-arrow-head"></div>
                 </div>
             </div>
             <div class="flex-col-container">
@@ -86,22 +91,22 @@
                     addItem("d")
                 </p>
                 <div class="thin-arrow-container">
-                    <div class="right-arrow-thin-body"></div>
-                    <div class="right-arrow-thin-head"></div>
+                    <div class="thin-arrow-body"></div>
+                    <div class="thin-arrow-head"></div>
                 </div>
             </div>
             <div class="flex-col-container">
-                <div class="split-top-arrow-container">
+                <div id="split-top-arrow-container">
                     <p class="arrow-label">double<br> array</p>
                     <div class="thin-arrow-container north-east">
-                        <div class="right-arrow-thin-body"></div>
-                        <div class="right-arrow-thin-head"></div>
+                        <div class="thin-arrow-body"></div>
+                        <div class="thin-arrow-head"></div>
                     </div>
                 </div>
-                <div class="split-bottom-arrow-container">
+                <div id="split-bottom-arrow-container">
                     <div class="thin-arrow-container south-east">
-                        <div class="right-arrow-thin-body"></div>
-                        <div class="right-arrow-thin-head"></div>
+                        <div class="thin-arrow-body"></div>
+                        <div class="thin-arrow-head"></div>
                     </div>
                     <p class="arrow-label">increase<br> by n</p>
                 </div>
@@ -148,8 +153,15 @@
             </div>
         </div>
     </div>
+
     <div>
-        <h2>How to make an ArrayList?</h2>
+        <h2>How to make an Array List?</h2>
+        <p>
+            Array Lists use arrays to store their data but to make it dynamic, every time the 
+            array is full, a new array of a larger size is created. The information from the 
+            smaller array is thus moved into the new larger array. This resizing and re-allocation 
+            process is fundamental to Array Lists as a data structure.
+        </p>
         <div class="flex-row-container">
             <div class="flex-item">
                 <h3>Variables</h3>
@@ -158,13 +170,18 @@
                         Array - this is where information will be stored
                     </li>
                     <ul>
-                        <li>The type of this array should be the data type of the items you want to store</li>
+                        <li>
+                            If it's a typed language, the type of this array should be the data 
+                            type of the items you want to store
+                        </li>
                     </ul>
                     <li>
                         Size - this is the number of items that have been added to the array
                     </li>
                     <ul>
-                        <li>This variable is also used to add items into the ArrayList</li>
+                        <li>
+                            This variable is also used to add or remove items to/from the ArrayList
+                        </li>
                     </ul>
                 </ul>
             </div>
@@ -173,6 +190,7 @@
                 <ul>
                     <li>
                         Add Item - add an item to the ArrayList using the Size variable as an index
+                        for the array
                     </li>
                     <li>
                         Resize/Reallocate - when capacity is met, increase the size of the array
@@ -189,22 +207,47 @@
     </div>
     <div>
         <h3>How to Deal with Resizing/Reallocating</h3>
+        
         <div class="flex-row-container">
-            <p class="flex-item">
-                <b>Double Capacity:</b> <br> 
-                Doubling can lead to a substantial amount of wasted space, 
-                espcially as the size of the array grows incredbily large
-            </p>
-            <p class="flex-item">
-                <b>Increase Capacity by n:</b> <br>
-                Increase by n my be too slow when lots of elements 
-                are added to the array and many cause several calls to the Resize/Reallocate 
-                method, resulting in inefficency.
-            </p>
+            <div class="flex-item">
+                <h4>Double Capacity</h4>
+                <ul>
+                    <li>
+                        When the array is full, doubling the size of the array ensures 
+                        that there is a significant amount of time before the array fills 
+                        up once again.
+                    </li>
+                    <li>
+                        However, doubling can lead to a substantial amount 
+                        of wasted space, especially as the size of the array grows 
+                        incredibly large.
+                    </li>
+                </ul>
+            </div>
+            <div class="flex-item">
+                <h4>Increase Capacity by n</h4>
+                <ul>
+                    <li>
+                        Increasing the size by some number n, the array can contain more 
+                        information but will likely reduce the wasted space that can 
+                        occur from doubling.
+                    </li>
+                    <li>
+                        That said, increasing by n may be too slow when many items 
+                        are added to the array.
+                    </li>
+                    <ul>
+                        <li>
+                            The repeated calls to the Resize/Reallocate method which 
+                            runs slowly, O(n) time, is quite inefficient.
+                        </li>
+                    </ul>
+                </ul>
+            </div>
         </div>
     </div>
     <div>
-        <h2>Psuedocode for ArrayLists</h2>
+        <h2 class="right-h2">Psuedocode for ArrayLists</h2>
         <div class="flex-row-container code">
             <p>
                 ArrayList {<br>
@@ -241,6 +284,7 @@
             </p>
         </div>
     </div>
+    
     <div>
         <h2>Interative Visual: ArrayLists</h2>
         <div class="box">
@@ -269,12 +313,12 @@
             </div>
             <div class="interactiveVisual">
                 <div id="visualDiv" class="array-container">
-                <p class="array-item" id="array-0">
-                    
-                </p>
-                <p class="array-item" id="array-1">
-                    
-                </p>
+                    <p class="array-item" id="array-0">
+                        
+                    </p>
+                    <p class="array-item" id="array-1">
+                        
+                    </p>
                 </div>
             </div>
         </div>
