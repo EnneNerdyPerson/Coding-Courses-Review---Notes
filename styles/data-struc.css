@@ -1,9 +1,11 @@
+/* Datastructure Pages Tag Styling */
 h2 {
+    background-color: #5FA8D3;
+
+    /* Box Model Styling */
     width: max-content;
     padding: 10px 10vw 10px 10vw;
     margin: 45px 0 20px -10vw;
-
-    background-color: #5FA8D3;
 }
 
 h3 {
@@ -18,9 +20,13 @@ input {
     width: 100px;
 }
 
+/* Button Styling */
 button {
+    padding: 3px;
     font-size: 16px;
     background-color: #62b6cb79;
+
+    /* Border Styling */
     border: solid 1px black;
     border-radius: 3px;
 }
@@ -30,17 +36,52 @@ button:hover {
     box-shadow: black 1px 1px 4px;
 }
 
-/* p {
-    border: 10px solid transparent; 
-    border-image: url(../images/ChainToLink.png) 225 round;
-} */
+/* Class Styling */
+.rotate-90 {
+    transform: rotate(90deg);
+    aspect-ratio: 1;     
+    z-index: 2;
+}
+
+/* Margin-Spacing */
+.small-margin {
+    margin: 3px;
+}
+
+.margining {
+    margin: 30px;
+}
+
+/* Page Spacing */
+/* Full-ish Page Styling */
+.full-width {
+    width: 93%;
+}
+
+/* Half-Page Styling */
 .flex-item {
+    min-width: 325px;
     width: 38vw;
+
     padding: 0 10px;
 }
 
+/* 45-50 Space Styling */
+.fourty-five-50 {
+    width: 45%;
+    padding: 0 10px;
+}
+
+.fifty-45 {
+    width: 50%;
+    padding: 10px;
+}
+
+
+/* Third-Third-Third Page Styling */
 .flex-three-item {
     width: 22vw;
+    min-width: 330px;
 }
 
 .flex-three-item h4 {
@@ -51,58 +92,55 @@ button:hover {
     padding: 0 10px;
 }
 
+
+/* Outline Div */
 .box {
+    padding: 10px;
+
+    /* Border Styling */
     border: 1px solid black;
     border-radius: 2px;
-    padding: 10px;
-    margin: 3px 0;
 }
 
-.north-east {
-    transform: rotate(-28deg);
+/* Vertical Arrow Styling */
+.white-background {
+    background-color: white;
+    /* height: 15px; */
 }
 
-.south-east {
-    transform: rotate(28deg);
+.vertical-label {
+    position: relative;
+    width: 100%;
 }
 
-.split-top-arrow-container {
-    margin: 0 3px 10px 3px;
+.vertical-label p {
+    position: absolute;
+    top: 5px;
+    z-index: 3;
 }
 
-.split-bottom-arrow-container {
-    margin: 10px 3px 0 3px;
+/* Pseudocode Section Styling */
+.code {
+    font-family: "Google Sans Code", monospace;
 }
 
-.arrow-label {
-    font-size: 16px;
-    margin: 4px 0;
-    line-height: 13px;
-}
-
+/* Pseudocode Comment */
 .comment {
     color: grey;
     font-style: italic;
 }
 
+
+/*  */
 .interactiveVisual {
-    /* background-color: #1b496572; */
-    /* color: #1B4965; */
     width: 100%;
     padding: 10px;
     margin: 10px 0 30px 0;
 }
 
-.code {
-    font-family: "Google Sans Code", monospace;
-}
-
-/* Array List Styling */
-.transition-container {
-    margin: 0 10px 50px 10px;
-}
-
+/* Array Visual Styling */
 .array-container {
+    /* Flex Styling */
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -110,20 +148,24 @@ button:hover {
     align-items: center;
 }
 
+/* Array Element/Item Styling */
 .array-item {
     border: solid 1px black;
     background-color: #CAE9FF;
 
+    /* Text Styling */
     font-size: 22px;
     text-align: center;
     align-content: center;
     
+    /* Box Model Styling */
     width: 30px;
     height: 30px;
     padding: 5px;
     margin: 5px 0;
 }
 
+/* Transition/Change Arrow Styling */
 .thin-arrow-container {
     display: flex;
     flex-direction: row;
@@ -132,17 +174,19 @@ button:hover {
     align-items: center;
 }
 
-.right-arrow-thin-body {
-    width: 60px;
+/* Thin-transition arrow styling */
+.thin-arrow-body {
+    width: 60px; 
     height: 7px;
 
     background-color: black;
 }
 
-.right-arrow-thin-head {
+.thin-arrow-head {
     width: 0;
     height: 0;
 
+    /* Style for arrow-head (triangle) */
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-left: 20px solid black;
@@ -158,6 +202,67 @@ button:hover {
     align-items: center;
 }
 
+/* Node Styling (Large) */
+.node {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+
+    text-align: center;
+    align-content: center;
+    font-size: 20px;
+
+    border: solid black 1px;
+    border-radius: 100px;
+    
+    background-color: #CAE9FF;
+}
+
+/* Node Links Styling */
+.arrow-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin: 1px;
+}
+
+/* Arrow/Links Styling */
+.arrow-body {
+    width: 45px;
+    height: 10px;
+
+    background-color: #1B4965;
+}
+
+.right-arrow-head {
+    width: 0;
+    height: 0;
+
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 25px solid #1B4965;
+}
+.left-arrow-head {
+    width: 0;
+    height: 0;
+
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 25px solid #1B4965;
+}
+
+/* Null Styling */
+.null {
+    color: white;
+    background-color: black;
+    font-size: 24px;
+    padding: 5px;
+}
+
+/* Medium Linked List Styling */
 .medium .node {
     width: 60px;
     height: 60px;
@@ -182,6 +287,8 @@ button:hover {
     border-right: 16px solid #1B4965;
 }
 
+
+/* Small Linked List Styling */
 .small .node {
     width: 40px;
     height: 40px;
@@ -204,105 +311,19 @@ button:hover {
     border-right: 12px solid #1B4965;
 }
 
-.node {
-    width: 100px;
-    height: 100px;
-    margin: 0;
-
-    text-align: center;
-    align-content: center;
-    font-size: 20px;
-
-    border: solid black 1px;
-    border-radius: 100px;
-    
-    background-color: #CAE9FF;
-}
-
-.arrow-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: center;
-
-    margin: 1px;
-}
-
-.arrow-body {
-    width: 45px;
-    height: 10px;
-
-    background-color: #1B4965;
-}
-
-.right-arrow-head {
-    width: 0;
-    height: 0;
-
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-left: 25px solid #1B4965;
-}
-
-.left-arrow-head {
-    width: 0;
-    height: 0;
-
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-right: 25px solid #1B4965;
-}
-
-.null {
-    color: white;
-    background-color: black;
-
-    /* border: solid black 1px; */
-    font-size: 24px;
-
-    padding: 5px;
-}
-
-
-.big-curve {
-    width: 150px;
-    clip-path: shape(from bottom left, curve to bottom right with 50% 100%, line to 3px bottom, curve to bottom right with 50% 30%, line to bottom left);
-    height: 114px;
-    background-color: #1B4965;
-}
-
-.small-curve {
-   width: 132px;
-    clip-path: shape(from bottom left, curve to bottom right with 50% 100%, line to 3px bottom, curve to bottom right with 50% 30%, line to bottom left);
-    height: 98px;
-    background-color: white;
-    position: absolute;
-    top: 16px;
-    left: 8px;
-}
-
-.rotate-arrow-head {
-    transform: rotate(15deg);
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 16px solid #1B4965;
-    position: absolute;
-    bottom: -6px;
-    left: -4px;
-}
 
 /* Stack Styling */
-
 .stack-item {
     border: solid 1px black;
     background-color: #CAE9FF;
 
+    /* Box Model Styling */
     width: 100px;
     height: 30px;
     padding: 5px;
     margin: 0;
 
+    /* Text-Styling */
     font-size: 22px;
     text-align: center;
     align-content: center;
@@ -317,47 +338,42 @@ button:hover {
     margin: 10px 0;
 }
 
-.img-proxy {
-    width: 100%;
-    height: 100%;
-    background-color: grey;
+/* Tree Styling */
+.tree-col-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.rotate-90 {
-    transform: rotate(90deg);
-    aspect-ratio: 1;     
-    z-index: 2;
+/* Margin-Spacing */
+.tree-col-container .node {
+    margin: 1vw;
 }
 
-.full-width {
-    width: 93%;
+/* Hidden Node Styling */
+.hidden-node {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+
+    text-align: center;
+    align-content: center;
+    font-size: 20px;
+
+    border: solid transparent 1px;
+    border-radius: 100px;
+    
+    background-color: transparent;
 }
 
-.white-background {
-    background-color: white;
-    /* height: 15px; */
-}
-
-.vertical-label {
-    position: relative;
-}
-
-.vertical-label p {
-    position: absolute;
-    top: 5px;
-    z-index: 3;
-}
-
-.small-margin {
-    margin: 3px;
-}
-
-.person-body {
-    clip-path: shape(from bottom left, line to left 50px, curve to right 50px with 50% 0, line to bottom right, line to bottom left);
-    background-color: black;
-    width: 80px;
+.medium .hidden-node {
+    width: 60px;
     height: 60px;
 
-    position: relative;
-    top: -30px;
+    font-size: 20px;
+}
+
+.tree-col-container .hidden-node {
+    margin: 1vw;
 }

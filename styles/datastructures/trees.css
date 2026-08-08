@@ -1,0 +1,13 @@
+#visualDiv .node {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.card-img {
+    width: 80%;
+}
+
+#tree-diagram {
+    width: 100%;
+}

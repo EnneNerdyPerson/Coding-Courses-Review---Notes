@@ -1,3 +1,34 @@
+/* Outer curve of Arrow */
+.big-curve {
+    width: 150px;
+    clip-path: shape(from bottom left, curve to bottom right with 50% 100%, line to 3px bottom, curve to bottom right with 50% 30%, line to bottom left);
+    height: 114px;
+    background-color: #1B4965;
+}
+
+/* Inner Curve of Arrow */
+.small-curve {
+   width: 132px;
+    clip-path: shape(from bottom left, curve to bottom right with 50% 100%, line to 3px bottom, curve to bottom right with 50% 30%, line to bottom left);
+    height: 98px;
+    background-color: white;
+    position: absolute;
+    top: 16px;
+    left: 8px;
+}
+
+/* Rotation of Arrow to meet Curve */
+.rotate-arrow-head {
+    transform: rotate(15deg);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 16px solid #1B4965;
+    position: absolute;
+    bottom: -6px;
+    left: -4px;
+}
+
+/* Ineractive Visual Styling */
 .text-box {
     width: 70%;
 }

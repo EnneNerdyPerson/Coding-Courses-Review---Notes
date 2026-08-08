@@ -1,0 +1,18 @@
+.person-body {
+    clip-path: shape(from bottom left, line to left 50px, curve to right 50px with 50% 0, line to bottom right, line to bottom left);
+    background-color: black;
+    width: 80px;
+    height: 60px;
+
+    position: relative;
+    top: -30px;
+}
+
+.small .person-body {
+    width: 50px;
+    height: 50px;
+}
+
+.faces {
+    align-content: end;
+}
