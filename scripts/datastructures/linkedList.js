@@ -19,17 +19,20 @@ let getInput = document.getElementById("getInput");
 
 let message = document.getElementById("message");
 
-let doubleLinks = false;
-let doubleLinkArray = new Array();
-
-let singlyLinkedList = new LinkedListSingle();
-
+let valueArray = new Array();
 let nodeArray = new Array();
 let divArray = new Array();
+let doubleLinkArray = new Array();
+
 let numNodes = 0;
 
+let doubleLinks = false;
+let addMethod = "front";
+let deleteMethod = "front";
+let getMethod = "front";
+
 function makeNewNode(value, index) {
-    singlyLinkedList.addItem(value, index);
+    valueArray.splice(index, 0, value);
 
     let node = document.createElement("div");
     node.classList.add("node");
@@ -98,6 +101,7 @@ function makeNewNode(value, index) {
         divArray.splice(index, 0, div);
         doubleLinkArray.splice(index, 0, leftArrowContainer);
     } else {
+        console.log(index);
         let preDiv = divArray[index - 1];
         preDiv.after(div);
         preDiv.after(node);
@@ -111,14 +115,10 @@ function makeNewNode(value, index) {
 }
 
 function deleteNode(index) {
-    console.log(index);
-    console.log(nodeArray);
-
-    singlyLinkedList.deleteItem(index);
-
     let node = nodeArray[index];
     let div = divArray[index];
 
+    valueArray.splice(index, 1);
     nodeArray.splice(index, 1);
     divArray.splice(index, 1);
     doubleLinkArray.splice(index, 1);
@@ -140,11 +140,29 @@ function deleteNode(index) {
 
 function changeMethod(type, button) {
     if (type == "add") {
-        singlyLinkedList.updateAddItem();
+        if (addMethod == "front") {
+            addMethod = "end";
+        } else if (addMethod == "end") {
+            addMethod = "index";
+        } else {
+            addMethod = "front";
+        }
     } else if (type == "delete") {
-        singlyLinkedList.updateDeleteItem();
+        if (deleteMethod == "front") {
+            deleteMethod = "end";
+        } else if (deleteMethod == "end") {
+            deleteMethod = "index";
+        } else {
+            deleteMethod = "front";
+        }
     } else if (type == "get") {
-        singlyLinkedList.updateGetItem();
+        if (getMethod == "front") {
+            getMethod = "end";
+        } else if (getMethod == "end") {
+            getMethod = "index";
+        } else {
+            getMethod = "front";
+        }
     }
 
     if (button.innerHTML == "Front") {
@@ -170,17 +188,12 @@ function changeMethod(type, button) {
 
 addButton.addEventListener("click", function() {
     let addValue = addInput.value;
-    console.log(addValue);
     addInput.value = "";
-
-    let method = singlyLinkedList.getAddMethod();
-    console.log(method);
 
     if (addValue.indexOf(",") >= 0) {
         let array = addValue.split(",");
-        console.log(array);
 
-        if (method == "index") {
+        if (addMethod == "index") {
             if (array.length % 2 == 0) {
                 for (let i = 0; i < array.length; i = i + 2) {
                     let index = array[i + 1];
@@ -192,9 +205,9 @@ addButton.addEventListener("click", function() {
             let index = -1;
     
             for (let i = 0; i < array.length; i++) {
-                if (method == "end") {
+                if (addMethod == "end") {
                     index = numNodes;
-                } else if (method == "front") {
+                } else if (addMethod == "front") {
                     index = 0;
                 }
 
@@ -202,44 +215,36 @@ addButton.addEventListener("click", function() {
             }
         }
     } else {
-        if (method == "end") {
+        if (addMethod == "end") {
             makeNewNode(addValue, numNodes);
-        } else if (method == "front") {
+        } else if (addMethod == "front") {
             makeNewNode(addValue, 0);
         }
     }
 });
 
 deleteButton.addEventListener("click", function() {
-    console.log("delete");
     let deleteValue = deleteInput.value;
-    deleteValue.value = "";
+    deleteInput.value = "";
 
-    let method = singlyLinkedList.getDeleteMethod();
-    console.log(method);
-
-    if (deleteValue.indexOf(",") >= 0) {
+    if (deleteMethod == "index") {
         let array = deleteValue.split(",");
 
         for (let i = 0; i < array.length; i++) {
-            deleteNode(array[i]);
+            deleteNode(parseInt(array[i]));
         }
     } else {
-        if (method == "end") {
+        if (deleteMethod == "end") {
             deleteNode(numNodes - 1);
-        } else if (method == "front") {
+        } else if (deleteMethod == "front") {
             deleteNode(0);
         }
     }
 });
 
 getButton.addEventListener("click", function() {
-    console.log("get");
-
     let getValue = getInput.value;
-    getValue.value = "";
-
-    let method = singlyLinkedList.getGetMethod();
+    getInput.value = "";
 
     let messageValue = "Items Retrieved: "
 
@@ -248,18 +253,18 @@ getButton.addEventListener("click", function() {
 
         for (let i = 0; i < array.length; i++) {
             if (i == array.length - 1) {
-                messageValue += singlyLinkedList.getItem(array[i]);
+                messageValue += valueArray[parseInt(array[i])];
             } else {
-                messageValue += singlyLinkedList.getItem(array[i]) + ", ";
+                messageValue += valueArray[parseInt(array[i])] + ", ";
             }
         }
     } else {
-        if (method == "end") {
-            messageValue += singlyLinkedList.getItem(numNodes - 1);
-        } else if (method == "front") {
-            messageValue += singlyLinkedList.getItem(0);
-        } else if (method == "index") {
-            messageValue += singlyLinkedList.getItem(getValue);
+        if (getMethod == "end") {
+            messageValue += valueArray[numNodes - 1];
+        } else if (getMethod == "front") {
+            messageValue += valueArray[0];
+        } else if (getMethod == "index") {
+            messageValue += valueArray[getValue];
         }
     }
 
@@ -289,3 +294,4 @@ deleteMethodButton.addEventListener("click", function() {
 getMethodButton.addEventListener("click", function() {
     changeMethod("get", getMethodButton);
 });
+
