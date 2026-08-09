@@ -61,9 +61,9 @@ button:hover {
 /* Half-Page Styling */
 .flex-item {
     min-width: 325px;
-    width: 38vw;
+    width: 45%;
 
-    padding: 0 10px;
+    padding: 10px;
 }
 
 /* 45-50 Space Styling */
@@ -80,8 +80,9 @@ button:hover {
 
 /* Third-Third-Third Page Styling */
 .flex-three-item {
-    width: 22vw;
-    min-width: 330px;
+    width: 28%;
+    min-width: 300px;
+    margin: 10px 0;
 }
 
 .flex-three-item h4 {
@@ -96,6 +97,7 @@ button:hover {
 /* Outline Div */
 .box {
     padding: 10px;
+    margin: 10px 5px;
 
     /* Border Styling */
     border: 1px solid black;
