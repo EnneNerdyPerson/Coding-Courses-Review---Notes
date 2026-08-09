@@ -2,6 +2,8 @@
 <html>
 <header>
     <meta charset="UTF-8">
+    <title>Learning Array Lists</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
@@ -22,7 +24,7 @@
             are fundemental to understanding Array Lists.
         </p>
     </div> -->
-    <div>
+    <div id="whatis">
         <h2>What is an Array List?</h2>
         <p>
             First, we must understand what an array is. Arrays are a basic data structure common in most 
@@ -40,6 +42,7 @@
         </p>
     </div>
 
+    <!-- Array List Figure 1 and 2 -->
     <div class="flex-row-container">
         <div class="flex-row-container box">
             <div class="flex-col-container">
@@ -154,7 +157,7 @@
         </div>
     </div>
 
-    <div>
+    <div id="make-implement">
         <h2>How to make an Array List?</h2>
         <p>
             Array Lists use arrays to store their data but to make it dynamic, every time the 
@@ -180,7 +183,7 @@
                     </li>
                     <ul>
                         <li>
-                            This variable is also used to add or remove items to/from the ArrayList
+                            This variable is also used to add or remove items to/from the Array Lists
                         </li>
                     </ul>
                 </ul>
@@ -189,7 +192,7 @@
                 <h3>Methods</h3>
                 <ul>
                     <li>
-                        Add Item - add an item to the ArrayList using the Size variable as an index
+                        Add Item - add an item to the Array Lists using the Size variable as an index
                         for the array
                     </li>
                     <li>
@@ -205,6 +208,7 @@
             </div>
         </div>
     </div>
+
     <div>
         <h3>How to Deal with Resizing/Reallocating</h3>
         
@@ -246,8 +250,10 @@
             </div>
         </div>
     </div>
-    <div>
-        <h2 class="right-h2">Psuedocode for ArrayLists</h2>
+
+
+    <div id="psuedocode">
+        <h2 class="right-h2">Psuedocode for Array Lists</h2>
         <div class="flex-row-container code">
             <p>
                 ArrayList {<br>
@@ -266,8 +272,8 @@
             </p>
             <p>
                 resize() { <span class="comment">//doubling</span> <br>
-                &emsp; temp &larr; arr <br>
                 &emsp; double &larr; size * 2 <br>
+                &emsp; temp &larr; new array[double] <br>
                 &emsp; <b>for</b> i &rarr; size <br>
                 &emsp; &emsp; temp[i] &larr; arr[i] <br>
                 &emsp; arr &larr; temp <br>
@@ -275,8 +281,8 @@
             </p>
             <p>
                 resize() { <span class="comment">//increase by n</span> <br>
-                &emsp; temp &larr; arr <br>
                 &emsp; capacity &larr; size + n<br>
+                &emsp; temp &larr; new array[capacity] <br>
                 &emsp; <b>for</b> i &rarr; size <br>
                 &emsp; &emsp; temp[i] &larr; arr[i] <br>
                 &emsp; arr &larr; temp <br>
@@ -285,13 +291,15 @@
         </div>
     </div>
     
-    <div>
-        <h2>Interative Visual: ArrayLists</h2>
+    <div id="interactive-vis">
+        <h2>Interactive Visual: Array Lists</h2>
         <div class="box">
             <div>
                 <p>
-                    Enjoy messing around with this iteractive visual of ArrayLists. You 
+                    Enjoy messing around with this iteractive visual of Array Lists. You 
                     can change the method of resizing and see how resizing actually works. 
+                    Please note, for this visual there is a limit of 32 array elements 
+                    due to spacing concerns. 
                 </p>
                 <div class="flex-row-container">
                     <div class="interactive-input-containers">
