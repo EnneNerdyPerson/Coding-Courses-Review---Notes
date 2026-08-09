@@ -1,6 +1,8 @@
 let arrayListDiv = document.getElementById("visualDiv");
 let arrayListDiv2 = document.getElementById("visualDiv2");
 
+let message = document.getElementById("message");
+
 let sizeMethodButton = document.getElementById("resize");
 let increaseByN = true;
 let increasByNButtonText = "Increase by 5";
@@ -87,7 +89,18 @@ async function addArrayItem (item) {
 }
 
 nValueIButton.addEventListener("click", function() {
-    let newN = nValueInput.value;
+    let newN = DOMPurify.sanitize(nValueInput.value);
+
+    if (newN == "") {
+        message.style.color = "red";
+        message.innerText = "Please enter a number!";
+        nValueInput.value = "";
+        return;
+    }
+    
+
+    message.innerText = "";
+
     arrayList.changeN(newN);
 
     increasByNButtonText = "Increase by " + newN;
@@ -109,10 +122,13 @@ sizeMethodButton.addEventListener("click", function() {
 });
 
 addItemButton.addEventListener("click", async function () {
-    let value = addItemInput.value;
+    let value = DOMPurify.sanitize(addItemInput.value);
     
     let array = value.split(",");
     for (let i of array) {
+        if (i)
+
+
         await addArrayItem(i);
         addItemInput.value = addItemInput.value.substring(addItemInput.value.indexOf(",") + 1);
         await delay(800);

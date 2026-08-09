@@ -22,7 +22,7 @@ input {
 
 /* Button Styling */
 button {
-    padding: 3px;
+    padding: 3px 5px;
     font-size: 16px;
     background-color: #62b6cb79;
 
@@ -376,4 +376,49 @@ button:hover {
 
 .tree-col-container .hidden-node {
     margin: 1vw;
+}
+
+/* Drafting */
+.interactive-input-containers {
+    position: relative;
+
+    /* Flex Display Styling */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.question-info {
+    text-align: center;
+    background-color: #1B4965;
+    color: white;
+
+    width: 20px;
+    height:  20px;
+    padding: 2px;
+    margin: 2px;
+
+    border: solid rgb(127, 127, 127) 1px;
+    border-radius: 100px;
+}
+
+.question-info-answer {
+    display: none;
+    border: solid grey 1px;
+    background-color: #dceffde9;
+    text-align: center;
+
+    width: 100%;
+    padding: 5px;
+
+    position: absolute;
+    bottom: 50%;
+    right: -50%;
+}
+
+.question-info:hover + .question-info-answer {
+    display: flex;
+    cursor: help;
 }

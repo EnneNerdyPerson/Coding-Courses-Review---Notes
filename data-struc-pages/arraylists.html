@@ -291,26 +291,45 @@
             <div>
                 <p>
                     Enjoy messing around with this iteractive visual of ArrayLists. You 
-                    can change the method of resizing and see how adding information 
-                    can change the underlying array. 
+                    can change the method of resizing and see how resizing actually works. 
                 </p>
                 <div class="flex-row-container">
-                    <div>
+                    <div class="interactive-input-containers">
                         <label for="resize">Resize Method:</label>
                         <button id="resize" name="resize">Increase by 5</button>
+                        <p class="question-info">?</p>
+                        <p class="box question-info-answer">
+                            Click this button to toggle between
+                            increasing by n or doubling the array
+                        </p>
                     </div>
-                    <div id="change-n-container">
+                    <div id="change-n-container" class="interactive-input-containers">
                         <label for="n">changeN(</label>
                         <input id="nValueInput" type="number" name="n">)
                         <button id="nValueButton">Change</button>
+                        <p class="question-info">?</p>
+                        <p class="box question-info-answer">
+                            You can change the value which the 
+                            array increases when re-sized
+                        </p>
                     </div>
-                    <div>
+                    <div class="interactive-input-containers">
                         <label for="add">addItem(</label>
                         <input id="addItemInput" type="text" name="add">)
                         <button id="addItemButton">Add</button>
+                        <p class="question-info">?</p>
+                        <p class="box question-info-answer">
+                            You can add a single element at a time or 
+                            add multiple items by seperating them with 
+                            commas. For the best visuals, please have
+                            less than 3 characters per item.
+                        </p>
                     </div>
                 </div>
             </div>
+
+            <p id="message" class="center"></p>
+
             <div class="interactiveVisual">
                 <div id="visualDiv" class="array-container">
                     <p class="array-item" id="array-0">
@@ -335,7 +354,9 @@
     <div class="header" style="height: 100px; margin-top: 20px;">
     </div>
 
+    <script type="text/javascript" src="../node_modules/dompurify/dist/purify.min.js"></script>
     <script src="../scripts/datastructures.js"></script>
     <script src="../scripts/datastructures/arrayList.js"></script>
+    
 </body>
 </html>
