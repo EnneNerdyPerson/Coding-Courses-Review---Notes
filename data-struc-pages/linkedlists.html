@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <header>
+    <title>Learning Linked Lists</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
@@ -19,14 +21,18 @@
             This demonstration expects a reasonable understanding of Java classes and methods, and C structs.
         </p>
     </div> -->
-    <div>
+
+    <div id="whatis">
         <h2>What is a Linked List?</h2>
         <p>
-            Linked Lists are a dynamic datastructure with a multitude of uses. Unlike ArrayLists, they don't use 
-            arrays but rather create something called a Node. This Node is made up of at least two important 
-            peices of information, the data being stored, and the next Node in the Linked List
+            Linked Lists are a dynamic data structure with a multitude of uses. Unlike Array Lists, they don't use 
+            arrays but rather store new information as it is added. This is done through the creation of Nodes 
+            (which are implemented differently in different programming languages). This Node is made up of (at
+            minimum) two important pieces of information, the data being stored, and the next Node in the Linked
+            List.
         </p>
-        <!-- <img src="../images/ChainToLink.png" alt=""> -->
+
+        <!-- Visual of Figure 1: Linked List -->
         <div class="link-container">
             <div class="node">
                 head
@@ -58,134 +64,156 @@
             </div>
             <p class="null">NULL</p>
         </div>
+
+        <div class="interactive-input-containers">
+            <p class="center comment">
+                Figure 1: The above Linked List holds 4 items. The first item in the list has the value head. 
+                Learn More: 
+            </p>
+            <p class="question-info">?</p>
+            <p class="comment question-info-answer" style="right: 0;">
+                NULL is used as an indicator that the Link List has ended. In this visual, each 
+                Node knows only the next Node in the list. head knowns that node2 is next but 
+                node2 doesn't know head is even in the list in the first place.
+            </p>
+        </div>
+
         <p>
-            The above Linked List holds 4 items. The first item in the list has the value data1. You can think 
-            of Linked Lists as a long chain of nodes, linked together through knowing the next item in the list.
-            This is the simplest form of a Linked List. Linked Lists can have links to both the Node before and 
-            after them and depending on the information that is being kept track of, Linked List can 'transform'
-            into other data structures!
+            You can think of Linked Lists as a long chain of nodes, linked together through each Node knowing the 
+            next Node in the list. This is the simplest form of Linked List. Linked Lists can have links to both
+            the Node  before and after them and depending on the information that is being kept track of, Linked 
+            List can 'transform' into other data structures!
         </p>
 
-        <h3>Types of Linked Lists</h3>
-        <div class="flex-row-container">
-            <div class="box flex-three-item">
-                <h4>Singly Linked List</h4>
-                <p>
-                    A Node (or list item) only links to the next Node in the list (Figure 1).
-                    However this means that you can only traverse through the list forwards 
-                    and not backwards.
-                </p>
-                <div class="link-container small">
-                    <div class="node">
-                        
+        <div class="margin-top-bottom">
+            <h3>Types of Linked Lists</h3>
+            <div class="flex-row-container">
+                <div class="box flex-three-item">
+                    <h4>Singly Linked List</h4>
+                    <p>
+                        The simplest form of a Linked List. A Node (or list item) only links to 
+                        the next Node in the list (Figure 1). However this means that you can only 
+                        traverse through the list forwards and not backwards.
+                    </p>
+
+                    <!--Singly Linked List Visual-->
+                    <div class="link-container small">
+                        <div class="node">
+                            
+                        </div>
+                        <div class="arrow-container">
+                            <div class="arrow-body"></div>
+                            <div class="right-arrow-head"></div>
+                        </div>
+                        <div class="node">
+                            
+                        </div>
+                        <div class="arrow-container">
+                            <div class="arrow-body"></div>
+                            <div class="right-arrow-head"></div>
+                        </div>
+                        <div class="node">
+                            
+                        </div>
+                        <div class="arrow-container">
+                            <div class="arrow-body"></div>
+                            <div class="right-arrow-head"></div>
+                        </div>
+                        <p class="null">NULL</p>
                     </div>
-                    <div class="arrow-container">
-                        <div class="arrow-body"></div>
-                        <div class="right-arrow-head"></div>
-                    </div>
-                    <div class="node">
-                        
-                    </div>
-                    <div class="arrow-container">
-                        <div class="arrow-body"></div>
-                        <div class="right-arrow-head"></div>
-                    </div>
-                    <div class="node">
-                        
-                    </div>
-                    <div class="arrow-container">
-                        <div class="arrow-body"></div>
-                        <div class="right-arrow-head"></div>
-                    </div>
-                    <p class="null">NULL</p>
                 </div>
-            </div>
-            <div class="box flex-three-item">
-                <h4>Doubly Linked List</h4>
-                <p>
-                    A Node (or list item) links to both the next Node and the previous Node in 
-                    the list. This allows for someone to traverse the list both forwards and 
-                    backwards rather than only forwards.
-                </p>
-                <div class="link-container small">
-                    <div class="node">
-                        
-                    </div>
-                    <div class="flex-col-container">
-                        <div class="arrow-container">
-                            <div class="arrow-body"></div>
-                            <div class="right-arrow-head"></div>
+
+                <div class="box flex-three-item">
+                    <h4>Doubly Linked List</h4>
+                    <p>
+                        The next iteration of a Linked Lists. A Node (or list item) links to both 
+                        the next Node and the previous Node in the list. This allows for someone 
+                        to traverse the list both forwards and backwards rather than only forwards.
+                    </p>
+
+                    <!--Doubly Linked List Visual-->
+                    <div class="link-container small">
+                        <div class="node">
+                            
                         </div>
-                        <div class="arrow-container">
-                            <div class="left-arrow-head"></div>
-                            <div class="arrow-body"></div>
-                        </div>
-                    </div>
-                    <div class="node">
-                        
-                    </div>
-                    <div class="flex-col-container">
-                        <div class="arrow-container">
-                            <div class="arrow-body"></div>
-                            <div class="right-arrow-head"></div>
-                        </div>
-                        <div class="arrow-container">
-                            <div class="left-arrow-head"></div>
-                            <div class="arrow-body"></div>
-                        </div>
-                    </div>
-                    <div class="node">
-                        
-                    </div>
-                    <div class="flex-col-container">
-                        <div class="arrow-container">
-                            <div class="arrow-body"></div>
-                            <div class="right-arrow-head"></div>
-                        </div>
-                    </div>
-                    <p class="null">NULL</p>
-                </div>
-            </div>
-            <div class="box flex-three-item">
-                <h4>Circular Linked List</h4>
-                <p>
-                    The list item in the list points to the beginning of the list. Rather than 
-                    the last item pointing to NULL, the list repeats back at the beginning, allowing 
-                    for some addition flexibility.
-                </p>
-                <div class="flex-col-container" style="position: relative;">
-                    <div class="arrow-container" style="position: absolute;top: -90px;">
-                        <div style="position: relative;">
-                            <div style="position: relative;width: max-content;left: -8px;">
-                                <div class="arrow-body big-curve"></div>
-                                <div class="arrow-body small-curve"></div>
+                        <div class="flex-col-container">
+                            <div class="arrow-container">
+                                <div class="arrow-body"></div>
+                                <div class="right-arrow-head"></div>
                             </div>
-                            <div class="right-arrow-head rotate-arrow-head" ></div>
+                            <div class="arrow-container">
+                                <div class="left-arrow-head"></div>
+                                <div class="arrow-body"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="link-container small" style="top: 27px;position: relative;">
-                    <div class="node">
-                        
-                    </div>
-                    <div class="flex-col-container">
-                        <div class="arrow-container">
-                            <div class="arrow-body"></div>
-                            <div class="right-arrow-head"></div>
+                        <div class="node">
+                            
                         </div>
-                    </div>
-                    <div class="node">
-                        
-                    </div>
-                    <div class="flex-col-container">
-                        <div class="arrow-container">
-                            <div class="arrow-body"></div>
-                            <div class="right-arrow-head"></div>
+                        <div class="flex-col-container">
+                            <div class="arrow-container">
+                                <div class="arrow-body"></div>
+                                <div class="right-arrow-head"></div>
+                            </div>
+                            <div class="arrow-container">
+                                <div class="left-arrow-head"></div>
+                                <div class="arrow-body"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="node">
-                        
+                        <div class="node">
+                            
+                        </div>
+                        <div class="flex-col-container">
+                            <div class="arrow-container">
+                                <div class="arrow-body"></div>
+                                <div class="right-arrow-head"></div>
+                            </div>
+                        </div>
+                        <p class="null">NULL</p>
                     </div>
                 </div>
+                <div class="box flex-three-item">
+                    <h4>Circularly Linked List</h4>
+                    <p>
+                        The last item in the list points to the beginning of the list. Rather than 
+                        the last item pointing to NULL, the list repeats back at the beginning, allowing 
+                        for some additional flexibility in traversing and utilizing the list.
+                    </p>
+
+                    <!--Circularly Linked List Visual-->
+                    <div class="flex-col-container relative">
+                        <div class="arrow-container" style="position: absolute;top: -90px;">
+                            <div style="position: relative;">
+                                <div style="position: relative;width: max-content;left: -8px;">
+                                    <div class="arrow-body big-curve"></div>
+                                    <div class="arrow-body small-curve"></div>
+                                </div>
+                                <div class="right-arrow-head rotate-arrow-head" ></div>
+                            </div>
+                        </div>
+                        <div class="link-container small" style="top: 27px;position: relative;">
+                        <div class="node">
+                            
+                        </div>
+                        <div class="flex-col-container">
+                            <div class="arrow-container">
+                                <div class="arrow-body"></div>
+                                <div class="right-arrow-head"></div>
+                            </div>
+                        </div>
+                        <div class="node">
+                            
+                        </div>
+                        <div class="flex-col-container">
+                            <div class="arrow-container">
+                                <div class="arrow-body"></div>
+                                <div class="right-arrow-head"></div>
+                            </div>
+                        </div>
+                        <div class="node">
+                            
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -193,26 +221,27 @@
     <div>
         <h2>How to make a Linked List?</h2>
         <p>
-            Linked Lists require the create of both a Node and a Linked List class. The Linked List class will utilize 
-            the Node class in it's creation. Remember, how the Node is built also effects the abilities of the 
+            Linked Lists require the creation of both a Node and a Linked List. The Linked List will utilize 
+            the Node in it's creation. Remember, how the Node is built also affects the abilities of the 
             Linked List.
         </p>
         <div class="flex-row-container">
             <div class="flex-item">
-                 <h3>Node Class</h3>
+                <h3>Node Class</h3>
                 <ul>
-                    <li>Value/Data: the item stored within the Node</li>
-                    <li>Next: the next node in the list</li>
-                    <li>Previous (optional): the previous node in the list</li>
+                    <li><b>Value/Data</b>: the item stored within the Node</li>
+                    <li><b>Next</b>: the next node in the list</li>
+                    <li><b>Previous</b> (optional): the previous node in the list</li>
                     <ul>
                         <li>This is only when creating a doubly linked list</li>
                     </ul>
                 </ul>
-                <h3>Linked List Class: Feilds</h3>
+
+                <h3>Linked List Class: Fields</h3>
                 <ul>
-                    <li>Head: the begginning Node in the Linked List</li>
-                    <li>Size: the number of items/Nodes are in the Linked List</li>
-                    <li>Tail (optional): the last Node in the Linked List</li>
+                    <li><b>Head</b>: the beginning Node in the Linked List</li>
+                    <li><b>Size</b>: the number of items/Nodes are in the Linked List</li>
+                    <li><b>Tail</b> (optional): the last Node in the Linked List</li>
                     <ul>
                         <li>
                             Keeping track of the tail/last Node can decrease insertion time depending 
@@ -225,17 +254,13 @@
             <div class="flex-item">
                 <h3>Linked List Class: Methods</h3>
                 <ul>
-                    <li>Add Item/Value: add a new item to the list</li>
+                    <li><b>Add Item/Value</b>: add a new item to the list</li>
                     <ul>
                         <li>
-                            This requires the creation of a new Node and insertion of that Node in the correct place 
-                            in the list. Also increase size of Linked List
-                        </li>
-                        <li>
-                            Insertion can happen at the beginning, end, or middle of list. 
+                            Insertion can happen at the beginning, end, or middle of the list. 
                         </li>
                     </ul>
-                    <li>Get Item: get an item from the Linked List</li>
+                    <li><b>Get Item</b>: get an item from the Linked List</li>
                     <ul>
                         <li>
                             This can have multiple different methods, depending on what purpose the Linked List is being 
@@ -245,58 +270,118 @@
                             This can be retrieved by the index of the element or retrieving the first/last item.
                         </li>
                     </ul>
-                    <li>Delete: remove some item from a Linked List</li>
+                    <li><b>Delete</b>: remove some item from a Linked List</li>
                     <ul>
                         <li>
                             One of the benefits of Linked Lists is that deletion of an item in the middle of the list 
                             doesn't require moving all elements in the Linked List over like you might need to 
                             do for Array Lists. 
                         </li>
-                        <li>
+                        <!-- <li>
                             However, deletion is dependent on what is being kept track of, what part of the list 
                             is being deleted and more. In the best case, deletion is faster than Array Lists and 
                             in the worst case, it is the same as Array Lists.
-                        </li>
+                        </li> -->
                     </ul>
                 </ul>
             </div>
         </div>
 
-        <h3>How to Insert Items Into a Linked List?</h3>
-        <ul>
-            <li>
-                Insertion Anywhere: 
-            </li>
-            <ol>
-                <li>
-                    Walk through the Linked List to the desired section of the list. (It is 
-                    recommended to use a while loop to walk through a Linked List). Make sure 
-                    to keep track of the Node that will be before the new Node as it's next 
-                    value needs to be updated.
-                </li>
-                <li>
-                    Once this 'before' Node is found, save it's next Node, the Node that 
-                    will be after the new Node.
-                </li>
-                <li>
-                    Update the next value of the 'before' Node to our new Node.
-                </li>
-                <li>
-                    Update the next value of our new Node to the 'after' Node we saved earlier
-                </li>
-            </ol>
-            <li>
-                Beginning Insertion: Have new Node point to current Head. Have Head point to new node
-            </li>
-            <li>
-                End Insertion: If keeping track of tail, use similar method to beginning insertion. If 
-                not keeping track of the tail, you will need to iterate to the end of the list to 
-                add the new Node to the end
-            </li>
-        </ul>
+        <div class="margin-top-bottom">
+            <h3>How to Insert/Delete Items Into a Linked List?</h3>
+            <div class="flex-row-container">
+                <div class="flex-item">
+                    <h4>Insertion</h4>
+                    <ul>
+                        <li>
+                            <b>Insertion Anywhere</b>: 
+                        </li>
+                        <ol>
+                            <li>
+                                Walk through the Linked List to find the Node that will point to the new 
+                                Node being added, the 'before' Node.
+                            </li>
+                            <ul>
+                                <li> 
+                                    It is recommended to use a while loop to walk through a Linked List. 
+                                </li>
+                                <li>
+                                    Be careful of how you keep track of where you are in the list. If 
+                                    you aren't careful, you might add your Node later in the list 
+                                    than you prefer.
+                                </li>
+                            </ul>
+                            <li>
+                                Once this 'before' Node is found, save its next Node, our 'after' Node 
+                                (the Node that will be after the new Node).
+                            </li>
+                            <li>
+                                Update the next value of the 'before' Node to our new Node.
+                            </li>
+                            <li>
+                                Update the next value of our new Node to the 'after' Node we saved earlier
+                            </li>
+                        </ol>
+                        <li>
+                            <b>Beginning Insertion</b>: Have a new Node point to the current Head. Have Head 
+                            point to new node
+                        </li>
+                        <li>
+                            <b>End Insertion</b>: If keeping track of tail, use a similar method to beginning 
+                            insertion. If not keeping track of the tail, you will need to iterate to the end 
+                            of the list to add the new Node to the end
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-item">
+                    <h4>Deletion</h4>
+                    <ul>
+                        <li>
+                            <b>Deletion Anywhere</b>: 
+                        </li>
+                        <ol>
+                            <li>
+                                Walk through the Linked List to the Node before the to-be-deleted Node.
+                            </li>
+                            <li>
+                                Once this 'before' Node is found, save the Node to be deleted, the 
+                                'before' Node's next Node.
+                            </li>
+                            <li>
+                                After that, save the Node after the Node to be deleted as this 
+                                'after' Node needs to be moved after the 'before' Node.
+                            </li>
+                            <li>
+                                Update the next value of the 'before' Node to the 'after' Node.
+                            </li>
+                            <li>
+                                For best practice, update the next value of our to-be-deleted Node
+                                to NULL.
+                            </li>
+                            <ul>
+                                <li>
+                                    This avoids any accidental changes to the rest of the list, 
+                                    especially if this to-be-deleted Node may be returned or 
+                                    reused in some way
+                                </li>
+                            </ul>
+                        </ol>
+                        <li>
+                            <b>Beginning Deletion</b>: Save head to a temporary variable. Update the head 
+                            of the Linked List to the next value of the temporary variable.
+                        </li>
+                        <li>
+                            <b>End Deletion</b>: If it is a singly linked list or not keeping track of the tail 
+                            of the list, you will need to iterate to the end of the list before using a similar 
+                            method to Deletion Anywhere.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     <div>
-        <h2>Psuedocode for Linked List</h2>
+        <h2>Pseudocode for Linked List</h2>
         <div class="flex-row-container code">
             <p>
                 Node { <br>
@@ -350,23 +435,23 @@
     </div>
 
     <div>
-        <h2>Interative Visual: Linked Lists</h2>
+        <h2>Interactive Visual: Linked Lists</h2>
         <div class="box">
             <div>
-                <div class="flex-row-container">
-                    <div class="text-box">
-                        <p>
-                            Enjoy messing around with this iteractive visual of Linked Lists. You 
-                            can see either a singly linked list or a doubly linked list. You can 
-                            change the method of adding, deleting, and retrieving items. These methods 
-                            are front, end, or index.
-                        </p>
-                        <p>
-                            When the method of adding, deleting, or getting uses index, please input 
-                            values as (value, index).
-                        </p>
-                    </div>
-                    <div class="buttons-box flex-col-container">
+                <div class="margining">
+                    <p>
+                        Enjoy messing around with this interactive visual of Linked Lists. You 
+                        can see either a singly linked list or a doubly linked list. You can 
+                        change the method of adding, deleting, and retrieving items. These methods 
+                        are front, end, or index.
+                    </p>
+                    <p>
+                        When the method of adding, deleting, or getting uses an index, please input 
+                        values as (value, index).
+                    </p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <div class="flex-row-container">
                         <div class="small-margin">
                             <label for="type">Link Type:</label>
                             <button id="type" name="type">Single</button>
@@ -397,7 +482,7 @@
                     <div class="flex-row-container">
                         <div id="deleteContainer" class="hidden">
                             <label for="delete">deleteItem(</label>
-                            <input id="deleteInput" type="text" name="delete">)
+                            <input id="deleteInput" type="text" name="dRelete">)
                         </div>
                         <button id="deleteButton">Delete</button>
                     </div>
@@ -415,6 +500,11 @@
             </p>
             <div class="interactiveVisual">
                 <div id="visualDiv" class="link-container medium">
+                    <p id="visual-label" class="small-margin">head:</p>
+                    <p id="null" class="null">NULL</p>
+                </div>
+                <div id="tempVisualDiv" class="link-container medium hidden">
+                    <p id="temp-label" class="small-margin">newNode:</p>
                 </div>
             </div>
         </div>
@@ -423,6 +513,7 @@
     <div class="header" style="height: 100px; margin-top: 40px;">
     </div>
 
+    <script type="text/javascript" src="../node_modules/dompurify/dist/purify.min.js"></script>
     <script src="../scripts/datastructures.js"></script>
     <script src="../scripts/datastructures/linkedList.js"></script>
                         

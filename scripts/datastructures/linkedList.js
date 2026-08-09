@@ -1,4 +1,8 @@
 let visualDiv = document.getElementById("visualDiv");
+let tempVisualDiv = document.getElementById("tempVisualDiv");
+
+let visualLabel = document.getElementById("visual-label");
+let tempLabel = document.getElementById("temp-label");
 
 let linkTypeButton = document.getElementById("type");
 let addMethodButton = document.getElementById("addMethod");
@@ -31,7 +35,17 @@ let addMethod = "front";
 let deleteMethod = "front";
 let getMethod = "front";
 
-function makeNewNode(value, index) {
+/**
+ * Delay function that allows for some millsecond delay before
+ * moving onto the next instruction
+ * 
+ * Source: https://stackoverflow.com/questions/14226803/wait-5-seconds-before-executing-next-line
+ * @param {number} ms - number of milliseconds to wait before continuing
+ */
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
+
+async function makeNewNode(value, index) {
     valueArray.splice(index, 0, value);
 
     let node = document.createElement("div");
@@ -70,49 +84,126 @@ function makeNewNode(value, index) {
     div.append(rightArrowContainer);
     div.append(leftArrowContainer);
 
-    if (numNodes == 0) {
-        let nullNode = document.createElement("p");
-        nullNode.classList.add("null");
-        nullNode.innerText = "NULL";
-        nullNode.id = "null";
+    tempVisualDiv.classList.toggle("hidden");
+    let tempNull = document.createElement("p");
+    tempNull.classList.add("null");
+    tempNull.innerText = "NULL";
 
-        visualDiv.append(nullNode);
-    }
+    tempVisualDiv.append(node);
+    tempVisualDiv.append(div);
+    tempVisualDiv.append(tempNull);
 
-    if (numNodes == index) {
-        if (numNodes > 0 && doubleLinks) {
-            doubleLinkArray[index - 1].classList.toggle("hidden");
+    //Note: add additional animation or double link list
+
+    if (index == 0) {
+        await delay(800);
+
+        visualLabel.innerText = "head = temp:";
+
+        await delay(800);
+
+        visualLabel.innerText = "temp:";
+        tempLabel.innerText = "head = newNode:";
+
+        await delay(800);
+
+        tempNull.classList.remove("null");
+        tempNull.innerText = "temp;";
+
+        await delay(800);
+
+        visualLabel.innerText = "head:";
+        tempNull.remove();
+
+        node.classList.add("add-fade-in");
+        div.classList.add("add-fade-in");
+
+        if (nodeArray.length == 0) {
+            let nullNode = document.getElementById("null");
+            visualLabel.after(div);
+            visualLabel.after(node);
+        } else {
+            let beginning = nodeArray[0];
+            beginning.before(node);
+            beginning.before(div);
         }
-        
-        let nullNode = document.getElementById("null");
 
-        nullNode.before(node);
-        nullNode.before(div);
-
-        nodeArray.push(node);
-        divArray.push(div);
-        doubleLinkArray.push(leftArrowContainer);
-    } else if (index == 0) {
-        let beginning = nodeArray[0];
-        beginning.before(node);
-        beginning.before(div);
-
-        nodeArray.splice(index, 0, node);
-        divArray.splice(index, 0, div);
-        doubleLinkArray.splice(index, 0, leftArrowContainer);
     } else {
-        console.log(index);
-        let preDiv = divArray[index - 1];
-        preDiv.after(div);
-        preDiv.after(node);
+        let tempDiv = document.createElement("div");
+        tempDiv.classList.add("flex-row-container");
+        tempDiv.style.alignItems = "center";
 
-        nodeArray.splice(index, 0, node);
-        divArray.splice(index, 0, div);
-        doubleLinkArray.splice(index, 0, leftArrowContainer);
+        let beforeText = document.createElement("p");
+        beforeText.classList.add("small-margin");
+        beforeText.innerText = "";
+
+        let tempSpaceElement = document.createElement("div");
+        tempSpaceElement.classList.add("temp-space-linked-list");
+
+        let afterText = document.createElement("p");
+        afterText.classList.add("small-margin");
+        afterText.innerText = "";
+
+        tempDiv.append(beforeText);
+        tempDiv.append(tempSpaceElement);
+        tempDiv.append(afterText);
+
+        if (numNodes == index) {
+            if (numNodes > 0 && doubleLinks) {
+                doubleLinkArray[index - 1].classList.toggle("hidden");
+            }
+            
+            let nullNode = document.getElementById("null");
+            nullNode.before(tempDiv);
+        } else {
+            let preDiv = divArray[index - 1];
+            preDiv.after(tempDiv);
+        }
+
+        await delay(800);
+        tempSpaceElement.classList.add("increase-width");
+
+        await delay(400);
+        beforeText.innerText = "newNode;";
+        afterText.innerText = "temp:";
+
+        await delay(800);
+
+        tempNull.classList.remove("null");
+        tempNull.innerText = "temp;";
+
+        await delay(800);
+
+        tempDiv.remove();
+        tempNull.remove();
+
+        node.classList.add("add-fade-in");
+        div.classList.add("add-fade-in");
+
+        if (numNodes == index) {
+            let nullNode = document.getElementById("null");
+
+            nullNode.before(node);
+            nullNode.before(div);
+            
+        } else {
+            let preDiv = divArray[index - 1];
+            
+            preDiv.after(div);
+            preDiv.after(node);
+        }
     }
+
+    nodeArray.splice(index, 0, node);
+    divArray.splice(index, 0, div);
+    doubleLinkArray.splice(index, 0, leftArrowContainer);
+
+    tempVisualDiv.classList.toggle("hidden");
+    tempLabel.innerText = "newNode:";
 
     numNodes++;
 }
+
 
 function deleteNode(index) {
     let node = nodeArray[index];
@@ -132,10 +223,10 @@ function deleteNode(index) {
 
     numNodes--;
 
-    if (numNodes == 0) {
-        let nullElement = document.getElementById("null");
-        nullElement.remove();
-    }
+    // if (numNodes == 0) {
+    //     let nullElement = document.getElementById("null");
+    //     nullElement.remove();
+    // }
 }
 
 function changeMethod(type, button) {
@@ -186,7 +277,7 @@ function changeMethod(type, button) {
     }
 }
 
-addButton.addEventListener("click", function() {
+addButton.addEventListener("click", async function() {
     let addValue = addInput.value;
     addInput.value = "";
 
@@ -196,8 +287,9 @@ addButton.addEventListener("click", function() {
         if (addMethod == "index") {
             if (array.length % 2 == 0) {
                 for (let i = 0; i < array.length; i = i + 2) {
+                    await delay(800);
                     let index = array[i + 1];
-                    makeNewNode(array[i], index);
+                    await makeNewNode(array[i], index);
                     // makeNewNode(index);
                 }
             }
@@ -211,10 +303,12 @@ addButton.addEventListener("click", function() {
                     index = 0;
                 }
 
-                makeNewNode(array[i], index);
+                await delay(800);
+                await makeNewNode(array[i], index);
             }
         }
     } else {
+        await delay(800);
         if (addMethod == "end") {
             makeNewNode(addValue, numNodes);
         } else if (addMethod == "front") {
