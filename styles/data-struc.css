@@ -131,12 +131,66 @@ button:hover {
 }
 
 
-/*  */
+/* Interactive Visual Styling */
 .interactiveVisual {
     width: 100%;
     padding: 10px;
     margin: 10px 0 30px 0;
 }
+
+/* Button/Input Container Styling */
+.interactive-input-containers {
+    position: relative;
+
+    /* Flex Display Styling */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Question mark-dropdown styling */
+.question-info {
+    text-align: center;
+    background-color: #1B4965;
+    color: white;
+
+    /* Box Model Styling */
+    width: 20px;
+    height:  20px;
+    padding: 2px;
+    margin: 2px;
+
+    /* Border Styling */
+    border: solid rgb(127, 127, 127) 1px;
+    border-radius: 100px;
+}
+
+/* Dropdown-content Styling */
+.question-info-answer {
+    display: none;  /* Hidden until hover*/
+
+    border: solid grey 1px;
+    background-color: #dceffde9;
+    text-align: center;
+
+    /* Box Model Styling */
+    width: 100%;
+    padding: 5px;
+
+    /* Position Styling */
+    position: absolute;
+    bottom: 50%;
+    right: -50%;
+}
+
+/* Reveal dropdwon content on hover */
+.question-info:hover + .question-info-answer {
+    display: flex;
+    cursor: help;
+}
+
 
 /* Array Visual Styling */
 .array-container {
@@ -378,47 +432,3 @@ button:hover {
     margin: 1vw;
 }
 
-/* Drafting */
-.interactive-input-containers {
-    position: relative;
-
-    /* Flex Display Styling */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.question-info {
-    text-align: center;
-    background-color: #1B4965;
-    color: white;
-
-    width: 20px;
-    height:  20px;
-    padding: 2px;
-    margin: 2px;
-
-    border: solid rgb(127, 127, 127) 1px;
-    border-radius: 100px;
-}
-
-.question-info-answer {
-    display: none;
-    border: solid grey 1px;
-    background-color: #dceffde9;
-    text-align: center;
-
-    width: 100%;
-    padding: 5px;
-
-    position: absolute;
-    bottom: 50%;
-    right: -50%;
-}
-
-.question-info:hover + .question-info-answer {
-    display: flex;
-    cursor: help;
-}
