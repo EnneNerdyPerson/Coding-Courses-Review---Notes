@@ -84,6 +84,7 @@ async function makeNewNode(value, index) {
     div.append(rightArrowContainer);
     div.append(leftArrowContainer);
 
+
     tempVisualDiv.classList.toggle("hidden");
     let tempNull = document.createElement("p");
     tempNull.classList.add("null");
@@ -119,7 +120,6 @@ async function makeNewNode(value, index) {
         div.classList.add("add-fade-in");
 
         if (nodeArray.length == 0) {
-            let nullNode = document.getElementById("null");
             visualLabel.after(div);
             visualLabel.after(node);
         } else {
@@ -205,9 +205,184 @@ async function makeNewNode(value, index) {
 }
 
 
-function deleteNode(index) {
+async function deleteNode(index) {
+    console.log(index);
+    
+    if (numNodes == 0) {
+        message.innerText = "Error! Deletion cannot happen since the Linked List is empty";
+        message.style.color = "red";
+        return;
+    }
+
+    message.innerText = "";
+    message.style.color = "black";
+
     let node = nodeArray[index];
     let div = divArray[index];
+
+    let tempPreDiv = null;
+    let tempPostDiv = null;
+
+    if (index == 0) {
+        tempPreDiv = document.createElement("div");
+        tempPreDiv.classList.add("flex-row-container");
+        tempPreDiv.style.alignItems = "center";
+
+        let beforeText = document.createElement("p");
+        beforeText.classList.add("small-margin");
+        beforeText.innerText = "";
+
+        let tempSpaceElement = document.createElement("div");
+        tempSpaceElement.classList.add("temp-space-linked-list");
+
+        let afterText = document.createElement("p");
+        afterText.classList.add("small-margin");
+        afterText.innerText = "";
+
+        tempPreDiv.append(beforeText);
+        tempPreDiv.append(tempSpaceElement);
+        tempPreDiv.append(afterText);
+
+        div.after(tempPreDiv);
+        await delay(100);
+
+        tempSpaceElement.classList.add("increase-width");
+
+        await delay(800);
+
+        tempVisualDiv.classList.toggle("hidden");
+        tempLabel.innerText = "temp = head.next";
+
+        await delay(800);
+
+        afterText.innerText = "temp:";
+        tempLabel.innerText = "";
+
+        await delay(800);
+
+        beforeText.classList.add("null");
+        beforeText.innerText = "NULL";
+
+        await delay(800);
+
+        visualLabel.innerText = "head: temp";
+
+        let tempSpaceElementHead = document.createElement("div");
+        tempSpaceElementHead.classList.add("temp-space-linked-list");
+
+        visualLabel.after(tempSpaceElementHead);
+
+        await delay(100);
+        tempSpaceElementHead.classList.add("increase-width");
+        
+        await delay(800);
+
+        tempVisualDiv.append(node);
+        tempVisualDiv.append(div);
+        tempVisualDiv.append(beforeText);
+
+        await delay(800);
+
+        tempSpaceElementHead.remove();
+        tempPreDiv.remove();
+        visualLabel.innerText = "head:";
+
+        await delay(800);
+
+        node.classList.add("add-fade-out");
+        div.classList.add("add-fade-out");
+        beforeText.classList.add("add-fade-out");
+
+        await delay(500);
+        // return;
+    
+    } else {
+        tempPreDiv = document.createElement("div");
+        tempPreDiv.classList.add("flex-row-container");
+        tempPreDiv.style.alignItems = "center";
+
+        let beforePreText = document.createElement("p");
+        beforePreText.classList.add("small-margin");
+        beforePreText.innerText = "";
+
+        let tempSpacePreElement = document.createElement("div");
+        tempSpacePreElement.classList.add("temp-space-linked-list");
+
+        let afterPreText = document.createElement("p");
+        afterPreText.classList.add("small-margin");
+        afterPreText.innerText = "";
+
+        tempPreDiv.append(beforePreText);
+        tempPreDiv.append(tempSpacePreElement);
+        tempPreDiv.append(afterPreText);
+
+        tempPostDiv = document.createElement("div");
+        tempPostDiv.classList.add("flex-row-container");
+        tempPostDiv.style.alignItems = "center";
+
+        let beforePostText = document.createElement("p");
+        beforePostText.classList.add("small-margin");
+        beforePostText.innerText = "";
+
+        let tempSpacePostElement = document.createElement("div");
+        tempSpacePostElement.classList.add("temp-space-linked-list");
+
+        let afterPostText = document.createElement("p");
+        afterPostText.classList.add("small-margin");
+        afterPostText.innerText = "";
+
+        tempPostDiv.append(beforePostText);
+        tempPostDiv.append(tempSpacePostElement);
+        tempPostDiv.append(afterPostText);
+
+        div.after(tempPostDiv);
+        node.before(tempPreDiv);
+        await delay(100);
+
+        tempSpacePreElement.classList.add("increase-width");
+        tempSpacePostElement.classList.add("increase-width");
+
+        await delay(800);
+
+        tempVisualDiv.classList.toggle("hidden");
+        tempLabel.innerText = "temp = index.next";
+
+        await delay(800);
+
+        afterPostText.innerText = "temp:";
+        tempLabel.innerText = "";
+
+        await delay(800);
+
+        beforePreText.innerText = "temp;";
+
+        await delay(800);
+
+        beforePostText.classList.add("null");
+        beforePostText.innerText = "NULL";
+
+        await delay(800);
+
+        tempVisualDiv.append(node);
+        tempVisualDiv.append(div);
+        tempVisualDiv.append(beforePostText);
+
+        await delay(800);
+
+        tempPostDiv.remove();
+        tempPreDiv.remove();
+
+        await delay(800);
+
+        node.classList.add("add-fade-out");
+        div.classList.add("add-fade-out");
+        beforePostText.classList.add("add-fade-out");
+
+        await delay(500);
+
+        beforePostText.remove();
+    }
+
 
     valueArray.splice(index, 1);
     nodeArray.splice(index, 1);
@@ -220,13 +395,9 @@ function deleteNode(index) {
 
     node.remove();
     div.remove();
+    tempVisualDiv.classList.toggle("hidden");
 
     numNodes--;
-
-    // if (numNodes == 0) {
-    //     let nullElement = document.getElementById("null");
-    //     nullElement.remove();
-    // }
 }
 
 function changeMethod(type, button) {
@@ -278,6 +449,9 @@ function changeMethod(type, button) {
 }
 
 addButton.addEventListener("click", async function() {
+    message.style.color = "black";
+    message.innerText = "";
+
     let addValue = addInput.value;
     addInput.value = "";
 
@@ -317,7 +491,7 @@ addButton.addEventListener("click", async function() {
     }
 });
 
-deleteButton.addEventListener("click", function() {
+deleteButton.addEventListener("click", async function() {
     let deleteValue = deleteInput.value;
     deleteInput.value = "";
 
@@ -325,13 +499,13 @@ deleteButton.addEventListener("click", function() {
         let array = deleteValue.split(",");
 
         for (let i = 0; i < array.length; i++) {
-            deleteNode(parseInt(array[i]));
+            await deleteNode(parseInt(array[i]));
         }
     } else {
         if (deleteMethod == "end") {
-            deleteNode(numNodes - 1);
+            await  deleteNode(numNodes - 1);
         } else if (deleteMethod == "front") {
-            deleteNode(0);
+            await  deleteNode(0);
         }
     }
 });
@@ -340,6 +514,7 @@ getButton.addEventListener("click", function() {
     let getValue = getInput.value;
     getInput.value = "";
 
+    message.style.color = "black";
     let messageValue = "Items Retrieved: "
 
     if (getValue.indexOf(",") >= 0) {
