@@ -40,3 +40,40 @@
 .buttons-box div {
     margin: 5px;
 }
+
+/* Linked List Animations Styling */
+.temp-space-linked-list {
+    width: 0px;
+    height: 60px;
+}
+
+/* Show Increase in Space */
+.increase-width {
+    width: 30px;
+    transform-origin: center; 
+  
+    /* Smooth transition configuration */
+    transition: width  0.8s ease-in-out; 
+}
+
+/* Fade in Animation */
+.add-fade-in {
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Fade Out Animation */
+.add-fade-out {
+    animation-name: fade-out;
+    animation-duration: 2s;
+}
+
+@keyframes fade-out {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}

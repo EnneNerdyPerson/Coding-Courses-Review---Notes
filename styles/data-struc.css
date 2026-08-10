@@ -166,6 +166,27 @@ button:hover {
     align-items: center;
 }
 
+/* Selected/Unselected Button Styling */
+.selected-button {
+    background-color: #62b6cbba;
+    border: inset black 2px;
+}
+
+.selected-button:hover {
+    box-shadow: none;
+}
+
+.unselected-button {
+    background-color: #62b6cb3d;
+    border: outset black 2px;
+}
+
+.unselected-button:hover {
+    background-color: #62b6cb3d;
+    box-shadow: black 1px 1px 4px;
+}
+
+
 /* Question mark-dropdown styling */
 .question-info {
     text-align: center;
@@ -189,17 +210,18 @@ button:hover {
     display: none;  /* Hidden until hover*/
 
     border: solid grey 1px;
-    background-color: #dceffde9;
+    background-color: #dceffdf6;
     text-align: center;
 
     /* Box Model Styling */
     width: 100%;
+    min-width: 200px;
     max-width: 400px;
     padding: 5px;
 
     /* Position Styling */
     position: absolute;
-    bottom: 50%;
+    bottom: 70%;
     right: -50%;
 }
 
@@ -288,6 +310,11 @@ button:hover {
     border-radius: 100px;
     
     background-color: #CAE9FF;
+}
+
+/* Styling for 'selected' Node */
+.selected-item {
+    border: black solid 2px;
 }
 
 /* Node Links Styling */
@@ -383,7 +410,6 @@ button:hover {
     border-right: 12px solid #1B4965;
 }
 
-
 /* Stack Styling */
 .stack-item {
     border: solid 1px black;
@@ -448,60 +474,4 @@ button:hover {
 
 .tree-col-container .hidden-node {
     margin: 1vw;
-}
-
-/* Drafting */
-.temp-space-linked-list {
-    width: 0px;
-    height: 60px;
-}
-
-.increase-width {
-    width: 30px;
-    transform-origin: center; 
-  
-    /* Smooth transition configuration */
-    transition: width  0.8s ease-in-out; 
-}
-
-.add-fade-in {
-    animation-name: fade-in;
-    animation-duration: 2s;
-}
-
-@keyframes fade-in {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-.add-fade-out {
-    animation-name: fade-out;
-    animation-duration: 2s;
-}
-
-@keyframes fade-out {
-    from {opacity: 1;}
-    to {opacity: 0;}
-}
-
-.selected-item {
-    border: black solid 2px;
-}
-
-.selected-button {
-    background-color: #62b6cbba;
-    border: inset black 2px;
-}
-
-.selected-button:hover {
-    box-shadow: black 1px 1px 4px;
-}
-
-.unselected-button {
-    border: outset black 2px;
-}
-
-.unselected-button:hover {
-    background-color: #62b6cb79;
-    box-shadow: black 1px 1px 4px;
 }
