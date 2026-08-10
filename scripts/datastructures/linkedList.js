@@ -294,7 +294,6 @@ async function deleteNode(index) {
         beforeText.classList.add("add-fade-out");
 
         await delay(500);
-        // return;
     
     } else {
         tempPreDiv = document.createElement("div");
@@ -398,6 +397,22 @@ async function deleteNode(index) {
     tempVisualDiv.classList.toggle("hidden");
 
     numNodes--;
+}
+
+async function getAnimation(index) {
+    for (let i = 0; i <= index; i++) {
+        let curNode = nodeArray[i];
+        curNode.classList.add("selected-item");
+
+        await delay(800);
+
+        if (i == index) {
+            message.innerText = "Value at index " + index + ": " + valueArray[index];
+            await delay(800);
+        }
+
+        curNode.classList.remove("selected-item");
+    }
 }
 
 function changeMethod(type, button) {
@@ -510,17 +525,25 @@ deleteButton.addEventListener("click", async function() {
     }
 });
 
-getButton.addEventListener("click", function() {
+getButton.addEventListener("click", async function() {
     let getValue = getInput.value;
     getInput.value = "";
 
     message.style.color = "black";
-    let messageValue = "Items Retrieved: "
+    let messageValue = "Item(s) Retrieved: ";
+
+    message.innerText = "Processing...";
 
     if (getValue.indexOf(",") >= 0) {
         let array = getValue.split(",");
 
         for (let i = 0; i < array.length; i++) {
+            await getAnimation(parseInt(array[i]));
+
+            await delay(800);
+
+            message.innerText = "Processing...";
+
             if (i == array.length - 1) {
                 messageValue += valueArray[parseInt(array[i])];
             } else {
@@ -530,12 +553,17 @@ getButton.addEventListener("click", function() {
     } else {
         if (getMethod == "end") {
             messageValue += valueArray[numNodes - 1];
+            await getAnimation(numNodes - 1);
         } else if (getMethod == "front") {
             messageValue += valueArray[0];
+            await getAnimation(0);
         } else if (getMethod == "index") {
-            messageValue += valueArray[getValue];
+            messageValue += valueArray[parseInt(getValue)];
+            await getAnimation(parseInt(getValue));
         }
     }
+
+    await delay(200);
 
     message.innerText = messageValue;
 });
