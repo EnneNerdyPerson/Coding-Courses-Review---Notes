@@ -1,3 +1,8 @@
+h3 {
+    background-color: transparent;
+    padding: 5px 0;
+}
+
 .person-body {
     clip-path: shape(from bottom left, line to left 50px, curve to right 50px with 50% 0, line to bottom right, line to bottom left);
     background-color: black;
@@ -15,4 +20,76 @@
 
 .faces {
     align-content: end;
+}
+
+/* Linked List Animations Styling */
+.temp-space-linked-list {
+    width: 0px;
+    height: 60px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Show Increase in Space */
+.increase-width {
+    width: 60px;
+    transform-origin: center; 
+  
+    /* Smooth transition configuration */
+    transition: width 1s ease-in-out; 
+}
+
+/* Fade in Animation */
+.add-fade-in {
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Fade Out Animation */
+.add-fade-out {
+    animation-name: fade-out;
+    animation-duration: 2s;
+}
+
+@keyframes fade-out {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.add-walk-in {
+    animation-name: walk-in;
+    animation-duration: 3s;
+}
+
+@keyframes walk-in {
+    from {position: relative; left: 40vw; opacity: 0.2;}
+    to {left: 0; opacity: 1;}
+}
+
+.add-walk-off {
+    opacity: 0;
+    
+    animation-name: walk-off;
+    animation-duration: 3s;
+}
+
+@keyframes walk-off {
+    from {position: relative; right: 0; opacity: 1;}
+    to {right: 40vw; opacity: 0;}
+}
+
+.above-label {
+    position: absolute;
+    bottom: 70%;
+    width: 100%;
+    text-align: center;
+}
+
+#head-label {
+    text-align: center;
 }
