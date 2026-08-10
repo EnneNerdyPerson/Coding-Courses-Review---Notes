@@ -603,7 +603,7 @@
                 </div>
             </div>
             
-            <div id="stack-operation-container" class="flex-row-container">
+            <div id="stack-operation-container" class="flex-row-container margin-top-bottom">
                 <div class="flex-row-container">
                     <div>
                         <label for="push">push(</label>
@@ -616,7 +616,7 @@
                 <button id="pop-button">Pop</button>
             </div>
 
-            <div id="queue-operation-container" class="hidden flex-row-container">
+            <div id="queue-operation-container" class="hidden flex-row-container margin-top-bottom">
                 <div class="flex-row-container">
                     <div>
                         <label for="enqueue">enqueue(</label>
@@ -632,58 +632,67 @@
             <p id="message" class="center">
                 
             </p>
+
             <div class="interactiveVisual">
                 <div id="visualDiv-stack" class="flex-row-container">
-                    <div class="array-container">
-                        <p class="array-item" id="array-0">
+                    <div class="flex-col-container">
+                        <p id="stack-size">
+                            size: 0
+                        </p>
                         
-                        </p>
-                        <p class="array-item" id="array-1">
+
+                        <div class="array-container">
+                            <p class="array-item" id="array-0">
                             
-                        </p>
-                        <p class="array-item" id="array-2">
-                            
-                        </p>
-                        <p class="array-item" id="array-3">
-                            
-                        </p>
-                        <p class="array-item" id="array-4">
-                            
-                        </p>
-                        <p class="array-item" id="array-5">
-                            
-                        </p>
-                        <p class="array-item" id="array-6">
-                            
-                        </p>
-                        <p class="array-item" id="array-7">
-                            
-                        </p>
-                        <p class="array-item" id="array-8">
-                            
-                        </p>
-                        <p class="array-item" id="array-9">
-                            
-                        </p>
-                        <p class="array-item" id="array-10">
-                            
-                        </p>
-                        <p class="array-item" id="array-11">
-                            
-                        </p>
-                        <p class="array-item" id="array-12">
-                            
-                        </p>
-                        <p class="array-item" id="array-13">
-                            
-                        </p>
-                        <p class="array-item" id="array-14">
-                            
-                        </p>
-                        <p class="array-item" id="array-15">
-                            
-                        </p>
+                            </p>
+                            <p class="array-item" id="array-1">
+                                
+                            </p>
+                            <p class="array-item" id="array-2">
+                                
+                            </p>
+                            <p class="array-item" id="array-3">
+                                
+                            </p>
+                            <p class="array-item" id="array-4">
+                                
+                            </p>
+                            <p class="array-item" id="array-5">
+                                
+                            </p>
+                            <p class="array-item" id="array-6">
+                                
+                            </p>
+                            <p class="array-item" id="array-7">
+                                
+                            </p>
+                            <p class="array-item" id="array-8">
+                                
+                            </p>
+                            <p class="array-item" id="array-9">
+                                
+                            </p>
+                            <p class="array-item" id="array-10">
+                                
+                            </p>
+                            <p class="array-item" id="array-11">
+                                
+                            </p>
+                            <p class="array-item" id="array-12">
+                                
+                            </p>
+                            <p class="array-item" id="array-13">
+                                
+                            </p>
+                            <p class="array-item" id="array-14">
+                                
+                            </p>
+                            <p class="array-item" id="array-15">
+                                
+                            </p>
+                        </div>
                     </div>
+
                     <div class="stack-container">
                         <div id="stack-visual" class="flex-col-container">
                             <div id="stack-visual-bottom" class="stack-bottom"></div>
@@ -693,7 +702,14 @@
 
                 <div id="visualDiv-queue" class="hidden flex-col-container">
                     <div id="link-container" class="link-container medium">
-
+                        <div class="flex-col-container">
+                            <p id="head-label" class="small-margin">
+                                head: <br> tail:
+                            </p>
+                            <!-- <p id="tail-label" class="small-margin">tail: </p> -->
+                        </div>
+                        
+                        <p id="null" class="null">NULL</p>
                     </div>
                     <div id="queue-container" class="link-container medium">
 
@@ -706,7 +722,7 @@
     <div class="header" style="height: 100px;">
     </div>
 
-    <script src="../scripts/datastructures.js"></script>
+    <script type="text/javascript" src="../node_modules/dompurify/dist/purify.min.js"></script>
     <script src="../scripts/datastructures/stackAndQueues.js"></script>
 </body>
 </html>
