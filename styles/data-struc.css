@@ -483,3 +483,25 @@ button:hover {
     from {opacity: 1;}
     to {opacity: 0;}
 }
+
+.selected-item {
+    border: black solid 2px;
+}
+
+.selected-button {
+    background-color: #62b6cbba;
+    border: inset black 2px;
+}
+
+.selected-button:hover {
+    box-shadow: black 1px 1px 4px;
+}
+
+.unselected-button {
+    border: outset black 2px;
+}
+
+.unselected-button:hover {
+    background-color: #62b6cb79;
+    box-shadow: black 1px 1px 4px;
+}
