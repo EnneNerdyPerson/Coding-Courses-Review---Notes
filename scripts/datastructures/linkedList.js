@@ -8,7 +8,7 @@ let visualLabel = document.getElementById("visual-label");          //regular vi
 let tempLabel = document.getElementById("temp-label");              //label for temp visual
 
 //buttons for changing methods and link type
-let linkTypeButton = document.getElementById("type");           
+// let linkTypeButton = document.getElementById("type");           
 
 //add method buttons
 let addFrontButton = document.getElementById("addFront");
@@ -843,21 +843,21 @@ getButton.addEventListener("click", async function() {
  * update corresponding variable, and hide or un-hide all left 
  * arrows (double links)
  */
-linkTypeButton.addEventListener("click", function() {
-    //switch doubleLinks value
-    if (!doubleLinks) {
-        linkTypeButton.innerText = "Double";
-        doubleLinks = true;
-    } else {
-        linkTypeButton.innerText = "Single";
-        doubleLinks = false;
-    }
+// linkTypeButton.addEventListener("click", function() {
+//     //switch doubleLinks value
+//     if (!doubleLinks) {
+//         linkTypeButton.innerText = "Double";
+//         doubleLinks = true;
+//     } else {
+//         linkTypeButton.innerText = "Single";
+//         doubleLinks = false;
+//     }
 
-    //hide or un-hide the left arrows in visual display
-    for (let i = 0; i < doubleLinkArray.length - 1; i++) {
-        doubleLinkArray[i].classList.toggle("hidden");
-    }
-});
+//     //hide or un-hide the left arrows in visual display
+//     for (let i = 0; i < doubleLinkArray.length - 1; i++) {
+//         doubleLinkArray[i].classList.toggle("hidden");
+//     }
+// });
 
 
 //add change method function to each button based on which button was presed
