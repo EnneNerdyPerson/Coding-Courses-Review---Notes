@@ -447,7 +447,7 @@
                     </p>
                     <p>
                         When the method of adding, deleting, or getting uses an index, please input 
-                        values as (value, index).
+                        values as: value, index. 
                     </p>
                 </div>
                 <div style="margin-bottom: 20px;">
@@ -457,17 +457,23 @@
                             <button id="type" name="type">Single</button>
                             <br>
                         </div>
-                        <div class="small-margin">
+                        <div class="interactive-input-containers small-margin">
                             <label for="addMethod">Add Method:</label>
-                            <button id="addMethod" name="addMethod">Front</button>
+                            <button id="addFront" name="addMethod" class="small-margin selected-button">Front</button>
+                            <button id="addEnd" name="addMethod" class="small-margin unselected-button">End</button>
+                            <button id="addIndex" name="addMethod" class="small-margin unselected-button">Index</button>
                         </div>
                         <div class="small-margin">
                             <label for="deleteMethod">Deletion Method:</label>
-                            <button id="deleteMethod" name="deleteMethod">Front</button>
+                            <button id="deleteFront" name="deleteMethod" class="small-margin selected-button">Front</button>
+                            <button id="deleteEnd" name="deleteMethod" class="small-margin unselected-button">End</button>
+                            <button id="deleteIndex" name="deleteMethod" class="small-margin unselected-button">Index</button>
                         </div>
                         <div class="small-margin">
                             <label for="getMethod">Get Method:</label>
-                            <button id="getMethod" name="getMethod">Front</button>
+                            <button id="getFront" name="getMethod" class="small-margin selected-button">Front</button>
+                            <button id="getEnd" name="getMethod" class="small-margin unselected-button">End</button>
+                            <button id="getIndex" name="getMethod" class="small-margin unselected-button">Index</button>
                         </div>
                     </div>
                 </div>
@@ -514,7 +520,6 @@
     </div>
 
     <script type="text/javascript" src="../node_modules/dompurify/dist/purify.min.js"></script>
-    <script src="../scripts/datastructures.js"></script>
     <script src="../scripts/datastructures/linkedList.js"></script>
                         
 </body>
