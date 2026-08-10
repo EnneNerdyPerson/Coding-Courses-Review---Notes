@@ -603,31 +603,50 @@
             <div id="stack-operation-container" class="flex-row-container margin-top-bottom">
                 <button id="stack-switch" class="center">Change to Queues</button>
 
-                <div class="flex-row-container">
-                    <div>
-                        <label for="push">push(</label>
-                        <input id="push-input" name="push" type="text">)
-                    
-                    </div>
+                <div class="flex-row-container interactive-input-containers">
+                    <label for="push">push(</label>
+                    <input id="push-input" name="push" type="text">)
                     <button id="push-button">Push</button>
+
+                    <p class="question-info">?</p>
+                    <p class="box question-info-answer">
+                        Input values to be added to stack
+                    </p>
                 </div>
                 
-                <button id="pop-button">Pop</button>
+                <div class="interactive-input-containers">
+                    <button id="pop-button">Pop</button>
+                    
+                    <p class="question-info">?</p>
+                    <p class="box question-info-answer">
+                        Press to remove item from top of stack
+                    </p>
+                </div>
+                
             </div>
 
             <div id="queue-operation-container" class="hidden flex-row-container margin-top-bottom">
                 <button id="queue-switch" class="center">Change to Stacks</button>
 
-                <div class="flex-row-container">
-                    <div>
-                        <label for="enqueue">enqueue(</label>
-                        <input id="enqueue-input" name="enqueue" type="text">)
-                    </div>
-                    
+                <div class="flex-row-container interactive-input-containers">
+                    <label for="enqueue">enqueue(</label>
+                    <input id="enqueue-input" name="enqueue" type="text">)
                     <button id="enqueue-button">Enqueue</button>
+
+                    <p class="question-info">?</p>
+                    <p class="box question-info-answer">
+                        Input values to be added to the queue
+                    </p>
                 </div>
                 
-                <button id="dequeue-button">Dequeue</button>
+                <div class="interactive-input-containers">
+                    <button id="dequeue-button">Dequeue</button>
+                    
+                    <p class="question-info">?</p>
+                    <p class="box question-info-answer">
+                        Remove item at the beginning of queue
+                    </p>
+                </div>
             </div>
                     
             <p id="message" class="center">
