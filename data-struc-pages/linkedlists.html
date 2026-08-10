@@ -440,14 +440,13 @@
             <div>
                 <div class="margining">
                     <p>
-                        Enjoy messing around with this interactive visual of Linked Lists. You 
-                        can see either a singly linked list or a doubly linked list. You can 
-                        change the method of adding, deleting, and retrieving items. These methods 
-                        are front, end, or index.
+                        Enjoy messing around with this interactive visual of Linked Lists. This display
+                        showcases the simplest Linked List with singly linked nodes and only head is 
+                        saved. You can change the method of adding, deleting, and retrieving items. 
+                        These methods are front, end, or index.
                     </p>
                     <p>
-                        When the method of adding, deleting, or getting uses an index, please input 
-                        values as: value, index. 
+                        When the method of adding index, please input values as: value, index. 
                     </p>
                 </div>
                 <div style="margin-bottom: 20px;">
@@ -457,7 +456,7 @@
                             <button id="type" name="type">Single</button>
                             <br>
                         </div> -->
-                        <div class="interactive-input-containers small-margin">
+                        <div class="small-margin">
                             <label for="addMethod">Add Method:</label>
                             <button id="addFront" name="addMethod" class="small-margin selected-button">Front</button>
                             <button id="addEnd" name="addMethod" class="small-margin unselected-button">End</button>
@@ -478,26 +477,48 @@
                     </div>
                 </div>
                 <div class="flex-row-container">
-                    <div class="flex-row-container">
+                    <div class="flex-row-container interactive-input-containers">
                         <div id="addContainer">
                             <label for="add">addItem(</label>
                             <input id="addInput" type="text" name="add">)
                         </div>
                         <button id="addButton">Add</button>
+
+                        <p class="question-info">?</p>
+                        <p class="box question-info-answer">
+                            Input the values you would like to add to the 
+                            linked list. If you have method as index, have 
+                            value and index pairs. <br>
+                            Ex: value1, index1, value2, index2, etc...
+                        </p>
                     </div>
-                    <div class="flex-row-container">
+                    <div class="flex-row-container interactive-input-containers">
                         <div id="deleteContainer" class="hidden">
                             <label for="delete">deleteItem(</label>
                             <input id="deleteInput" type="text" name="dRelete">)
                         </div>
                         <button id="deleteButton">Delete</button>
+
+                        <p class="question-info">?</p>
+                        <p class="box question-info-answer">
+                            Delete item from list. If method is index, input 
+                            the index of the items you want to remove. Rememebr, 
+                            index values begin at 0.
+                        </p>
                     </div>
-                    <div class="flex-row-container">
+                    <div class="flex-row-container interactive-input-containers">
                         <div id="getContainer" class="hidden">
                             <label for="get">getItem(</label>
                             <input id="getInput" type="text" name="get">)
                         </div>
                         <button id="getButton">Get Value</button>
+
+                        <p class="question-info">?</p>
+                        <p class="box question-info-answer">
+                            Get value of items from list. If method is index, input 
+                            the index of the items you want to retrieve. Rememebr, 
+                            index values begin at 0.
+                        </p>
                     </div>
                 </div>
             </div>
