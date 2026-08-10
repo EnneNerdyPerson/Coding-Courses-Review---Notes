@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html>
 <header>
+    <title>Learning Stacks and Queues</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/data-struc.css">
+    <link rel="stylesheet" href="../styles/datastructures/stacksqueues.css">
 </header>
 <body>
     <div class="header">
         <h1>Learning: Stacks and Queues</h1>
     </div>
-    <!-- <div>
-        <h3>Prerequisite Knowledge</h3>
-        <p>
-            This demonstration expects a reasonable understanding of Java classes and methods, and C structs 
-            and LinkedLists.
-        </p>
-    </div> -->
+    
     <div>
         <h2>Why Stacks and Queues?</h2>
         <p>
-            Stacks and queues are reletively similar in their implementation and how they operate.
+            Stacks and Queues are reletively similar in their implementation and how they operate.
             Because of their similarity, they are often taught togehter since understanding one can 
             give insight into the other.
         </p>
-        <h3>Abstract Data Type (ADT)</h3>
+
+        <h3 >Abstract Data Type (ADT)</h3>
         <p>
             One of their similarities is that they are both Abstract Data Types (ADT). ADTs are a 
-            conceptual model which describes the behavior of the data type (in Java, it is class)
-            without a concrete outline of the implementation. As such, these focus on the 'what'
-            (what the data type does) rather than the 'how' (how the data type does these things).
+            conceptual model which describes the behavior of the data type without a concrete outline 
+            of the implementation. As such, these focus on the 'what' (what the data type does) rather 
+            than the 'how' (how the data type does these things).
         </p>
         <p>
-            Why aren't LinkedLists or ArrayLists ADTs? These things aren't ADTs because the 
-            underlying implementation details are clearly outlined. For ArrayLists, we know that 
-            an array must be used to store the data. For our LinkedList we know we must create a 
-            Node, with each Node linking to some other Node. Now the specifics can change and 
-            maybe different, but the important points are the same across the board.
+            Why aren't Linked Lists or Array Lists ADTs? These things aren't ADTs because the 
+            underlying implementation details are clearly outlined. For Array Lists, we know that 
+            an array must be used to store the data. For our Linked List we know we must create a 
+            Node, with each Node linking to some other Node. Though the specifics of the implementation 
+            can change for different uses, the important implementation points are the same across 
+            the board.
         </p>
     </div>
     <div>
@@ -47,7 +46,7 @@
             <div class="flex-item">
                 <p>
                     You can think of a Stack like a stack of plates. With a stack of plates, you put the 
-                    most recent plate on the top of the stack. Then, when you are trying to grab a new 
+                    plate on the top of the stack. Then, when you are trying to grab a new 
                     plate, you also take from the top of the stack of plates. This is the same with 
                     Stacks in computer science. The last item added to the stack is the first item out of
                     the stack (Last In First Out: LIFO).
@@ -55,9 +54,10 @@
                 <p>
                     Stacks are helpful in more complex aglorithms (Kosaraju’s Algorithm) or when computing 
                     mathematical equations with Reverse Polish Notation. In general, stacks are helpful 
-                    when the Last In First Out property is necessary. 
+                    when the most recent item added to the stack should be the item used next. 
                 </p>
-                <h3>How are Stacks ADTs?</h3>
+
+                <h3 >How are Stacks ADTs?</h3>
                 <p>
                     There are many ways to implement a Stack. You can use Linked Lists, arrays, or some other 
                     data structure to implement a stack. Within this explaination, we will be showcasing 
@@ -75,8 +75,8 @@
                     <div class="flex-col-container">
                         <p>pop()</p>
                         <div class="thin-arrow-container">
-                            <div class="right-arrow-thin-body"></div>
-                            <div class="right-arrow-thin-head"></div>
+                            <div class="thin-arrow-body"></div>
+                            <div class="thin-arrow-head"></div>
                         </div>
                     </div>
                     <div class="flex-col-container">
@@ -95,8 +95,8 @@
                     <div class="flex-col-container">
                         <p>push('c')</p>
                         <div class="thin-arrow-container">
-                            <div class="right-arrow-thin-body"></div>
-                            <div class="right-arrow-thin-head"></div>
+                            <div class="thin-arrow-body"></div>
+                            <div class="thin-arrow-head"></div>
                         </div>
                     </div>
                     <div class="flex-col-container">
@@ -152,8 +152,8 @@
                             push('c')
                         </p>
                         <div class="thin-arrow-container rotate-90">
-                            <div class="right-arrow-thin-body"></div>
-                            <div class="right-arrow-thin-head"></div>
+                            <div class="thin-arrow-body"></div>
+                            <div class="thin-arrow-head"></div>
                         </div>
                     </div>
                     <div class="array-container">
@@ -199,8 +199,8 @@
                     <div class="flex-col-container">
                         <p>push('c')</p>
                         <div class="thin-arrow-container">
-                            <div class="right-arrow-thin-body"></div>
-                            <div class="right-arrow-thin-head"></div>
+                            <div class="thin-arrow-body"></div>
+                            <div class="thin-arrow-head"></div>
                         </div>
                     </div>
                     <div class="flex-col-container">
@@ -214,9 +214,9 @@
             </div>
             <div class="flex-item">
                 <p>
-                    Remember, Stacks are ADTs and thus specific implementations is not clearly
+                    Remember, Stacks are ADTs and thus specific implementations are not clearly
                     outlined. Instead we have some operations that are integral to the Stack 
-                    but how it is implemented is up to the developer. 
+                    data structure, but how it is implemented is up to the developer. 
                 </p>
                 <ul>
                     <li>
@@ -225,30 +225,23 @@
                     <li>
                         pop(): remove and return the item at the top of the Stack
                     </li>
-                    <!-- <li>
-                        isEmpty(): checks if Stack is empty (size equals 0) or not
-                    </li>
-                    <li>
-                        size(): returns the number of items in the stack
-                    </li> -->
                     <li>
                         peek(): return the value of the item at the top of the Stack without
                         removing it
                     </li>
                 </ul>
                 
-                <h3>How to Implement Stacks with arrays:</h3>
+                <h3 >How to Implement Stacks with arrays:</h3>
                 <ul>
                     <li>Array: how the data is stored in the stack</li>
-                    <!-- <li>Size: the number of items added to the stack</li> -->
+                    <li>Size: the number of items added to the stack</li>
                     <li>
                         Top Index: the index of the most recently added item in the stack 
-                        array
+                        array or Size - 1
                     </li>
                     <ul>
-                        <li>When getting the most recent item, simply return the value at this index</li>
-                        <li>If using the pop() function, the index with decrease</li>
-                        <li>When adding an item, increase this index and add increase the index</li>
+                        <li>When getting the most recent item, simply return the value at size - 1</li>
+                        <li>When adding an item, add it using the size variable as an index</li>
                     </ul>
                 </ul>
             </div>
@@ -270,6 +263,8 @@
                     Algorithms like Breath First Search or when there are virtual 'lines' (i.e., 
                     a line for buying tickets) are when Queues shine the most.
                 </p>
+                <!-- Can think of it as the only people who can enter what they are waiting in 
+                 line for must have their name down as a registered guest. A currently en -->
             </div>
 
             <div class="flex-row-container">
@@ -277,20 +272,20 @@
                     <div>
                         <div class="link-container medium">
                             <div class="flex-col-container relative">
-                                <div class="node rotate-90">
+                                <div class="node rotate-90 faces">
                                     :)
                                 </div>
                                 <div class="person-body"></div>
                             </div>
                             <div class="flex-col-container relative">
-                                <div class="node rotate-90">
+                                <div class="node rotate-90 faces">
                                     :(
                                 </div>
                                 <div class="person-body"></div>
                             </div>
                             <div class="flex-col-container relative">
-                                <div class="node">
-                                    -_-
+                                <div class="node rotate-90 faces">
+                                    :|
                                 </div>
                                 <div class="person-body"></div>
                             </div>
@@ -301,32 +296,32 @@
                                 enqueue(':{|')
                             </p>
                             <div class="thin-arrow-container rotate-90">
-                                <div class="right-arrow-thin-body"></div>
-                                <div class="right-arrow-thin-head"></div>
+                                <div class="thin-arrow-body"></div>
+                                <div class="thin-arrow-head"></div>
                             </div>
                         </div>
                     <div>
                         <div class="link-container medium">
                             <div class="flex-col-container relative">
-                                <div class="node rotate-90">
+                                <div class="node rotate-90 faces">
                                     :)
                                 </div>
                                 <div class="person-body"></div>
                             </div>
                             <div class="flex-col-container relative">
-                                <div class="node rotate-90">
+                                <div class="node rotate-90 faces">
                                     :(
                                 </div>
                                 <div class="person-body"></div>
                             </div>
                             <div class="flex-col-container relative">
-                                <div class="node">
-                                    -_-
+                                <div class="node rotate-90 faces">
+                                    :|
                                 </div>
                                 <div class="person-body"></div>
                             </div>
                             <div class="flex-col-container relative">
-                                <div class="node rotate-90">
+                                <div class="node rotate-90 faces">
                                     :{|
                                 </div>
                                 <div class="person-body"></div>
@@ -338,7 +333,7 @@
                     <div>
                         <div class="link-container medium">
                             <div class="flex-col-container relative">
-                                <div class="node rotate-90">
+                                <div class="node rotate-90 faces">
                                     :)
                                 </div>
                                 <div class="person-body"></div>
@@ -348,14 +343,14 @@
                                 <div class="right-arrow-head"></div>
                             </div> -->
                             <div class="flex-col-container relative">
-                                <div class="node rotate-90">
+                                <div class="node rotate-90 faces">
                                     :(
                                 </div>
                                 <div class="person-body"></div>
                             </div>
                             <div class="flex-col-container relative">
-                                <div class="node">
-                                    -_-
+                                <div class="node rotate-90 faces">
+                                    :|
                                 </div>
                                 <div class="person-body"></div>
                             </div>
@@ -366,21 +361,21 @@
                                 dequeue()
                             </p>
                             <div class="thin-arrow-container rotate-90">
-                                <div class="right-arrow-thin-body"></div>
-                                <div class="right-arrow-thin-head"></div>
+                                <div class="thin-arrow-body"></div>
+                                <div class="thin-arrow-head"></div>
                             </div>
                         </div>
                     <div>
                         <div class="link-container medium">
                             <div class="flex-col-container relative">
-                                <div class="node rotate-90">
+                                <div class="node rotate-90 faces">
                                     :(
                                 </div>
                                 <div class="person-body"></div>
                             </div>
                             <div class="flex-col-container relative">
-                                <div class="node">
-                                    -_-
+                                <div class="node rotate-90 faces">
+                                    :|
                                 </div>
                                 <div class="person-body"></div>
                             </div>
@@ -389,25 +384,134 @@
                 </div>
             </div>
             <div>
-                <h3>How are Queue ADTs?</h3>
+                <h3 >How are Queue ADTs?</h3>
                 <p>
                     Once again, the way an queue is implemented is fulid. You can use arrays or 
-                    LinkedLists to do so. Since the 'how' is unclear, Queues are Abstract Data 
-                    Structures. This page will explain a Linked List implementation of Queues. 
+                    Linked Lists to do so. Since the 'how' is unclear, Queues are an Abstract Data 
+                    Structure. This page will explain a Linked List implementation of Queues. 
                 </p>
             </div>
         </div>
     </div>
     <div>
         <h2>What are the Queue Operations?</h2>
+        <p>
+            As always, Queues have operations for getting and adding items to the data structures. 
+            However, their names are clear indicators of the fact they are queue operations which 
+            follow the FIFO property.
+        </p>
         <ul>
             <li>enqueue(item): inserts the item at the end of the queue</li>
             <li>dequeue(): removes and returns item at the front of the queue</li>
-            <!-- <li>isEmpty(): checks whetehr the queue is empty or not</li>
-            <li>size(): returns the number of items in the queue</li> -->
             <li>peek(): returns the item at the front of the queue without removing it</li>
         </ul>
-        
+
+        <div class="flex-row-container">
+            <div class="flex-item flex-col-container box small-margin small">
+                <div>
+                    <div class="link-container medium">
+                        <div class="flex-col-container relative">
+                            <div class="node rotate-90 faces">
+                                :O
+                            </div>
+                            <div class="person-body"></div>
+                        </div>
+                        <div class="flex-col-container relative">
+                            <div class="node rotate-90 faces">
+                                :()
+                            </div>
+                            <div class="person-body"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row-container vertical-label">
+                        <p class="white-background">
+                            enqueue(':]')
+                        </p>
+                        <div class="thin-arrow-container rotate-90">
+                            <div class="thin-arrow-body"></div>
+                            <div class="thin-arrow-head"></div>
+                        </div>
+                    </div>
+                <div>
+                    <div class="link-container medium">
+                        <div class="flex-col-container relative">
+                            <div class="node rotate-90 faces">
+                                :O
+                            </div>
+                            <div class="person-body"></div>
+                        </div>
+                        <div class="flex-col-container relative">
+                            <div class="node rotate-90 faces">
+                                :()
+                            </div>
+                            <div class="person-body"></div>
+                        </div>
+                        <div class="flex-col-container relative">
+                            <div class="node rotate-90 faces">
+                                :]
+                            </div>
+                            <div class="person-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-item flex-col-container box small-margin">
+                <div class="link-container small">
+                    <div class="node rotate-90 faces">
+                        :O
+                    </div>
+                    <div class="arrow-container">
+                        <div class="arrow-body"></div>
+                        <div class="right-arrow-head"></div>
+                    </div>
+                    <div class="node rotate-90 faces">
+                        :()
+                    </div>
+                    <div class="arrow-container">
+                        <div class="arrow-body"></div>
+                        <div class="right-arrow-head"></div>
+                    </div>
+                    <p class="null">NULL</p>
+                </div>
+                <div class="flex-row-container vertical-label">
+                        <p class="white-background">
+                            enqueue(':]')
+                        </p>
+                        <div class="thin-arrow-container rotate-90">
+                            <div class="thin-arrow-body"></div>
+                            <div class="thin-arrow-head"></div>
+                        </div>
+                    </div>
+                <div>
+                <div class="link-container small">
+                    <div class="node rotate-90 faces">
+                        :O
+                    </div>
+                    <div class="arrow-container">
+                        <div class="arrow-body"></div>
+                        <div class="right-arrow-head"></div>
+                    </div>
+                    <div class="node rotate-90 faces">
+                        :()
+                    </div>
+                    <div class="arrow-container">
+                        <div class="arrow-body"></div>
+                        <div class="right-arrow-head"></div>
+                    </div>
+                    <div class="node rotate-90 faces">
+                        :]
+                    </div>
+                    <div class="arrow-container">
+                        <div class="arrow-body"></div>
+                        <div class="right-arrow-head"></div>
+                    </div>
+                    <p class="null">NULL</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
         <h3>How to Implement Queue with Linked Lists:</h3>
         <ul>
             <li>Linked List: how the data is stored in the queue</li>
@@ -424,8 +528,9 @@
             <!-- <li>Size: the number of elements in the Queue</li> -->
         </ul>
     </div>
+
     <div>
-        <h2>Psuedocode</h2>
+        <h2>Pseudocode</h2>
         <div class="flex-row-container">
             <div class="flex-item">
                 <h3>Stacks</h3>
@@ -481,7 +586,127 @@
         </div>
     </div>
 
+    <div>
+        <h2>Interactive Visual</h2>
+        <div class="box">
+            <div class="flex-row-container">
+                <div class="text-box">
+                    <p class="margining">
+                        As mentioned before, the implementation of Stacks and Queues are varying but 
+                        we will focus on an array implementation for Stacks and Linked List implementation 
+                        for Queues. Feel free to play around with this visual to try to understand their 
+                        behvaior in more detail. 
+                    </p>
+                </div>
+                <div>
+                    <button id="switch" class="center">STACKS</button>
+                </div>
+            </div>
+            
+            <div id="stack-operation-container" class="flex-row-container">
+                <div class="flex-row-container">
+                    <div>
+                        <label for="push">push(</label>
+                        <input id="push-input" name="push" type="text">)
+                    
+                    </div>
+                    <button id="push-button">Push</button>
+                </div>
+                
+                <button id="pop-button">Pop</button>
+            </div>
+
+            <div id="queue-operation-container" class="hidden flex-row-container">
+                <div class="flex-row-container">
+                    <div>
+                        <label for="enqueue">enqueue(</label>
+                        <input id="enqueue-input" name="enqueue" type="text">)
+                    </div>
+                    
+                    <button id="enqueue-button">Enqueue</button>
+                </div>
+                
+                <button id="dequeue-button">Dequeue</button>
+            </div>
+                    
+            <p id="message" class="center">
+                
+            </p>
+            <div class="interactiveVisual">
+                <div id="visualDiv-stack" class="flex-row-container">
+                    <div class="array-container">
+                        <p class="array-item" id="array-0">
+                        
+                        </p>
+                        <p class="array-item" id="array-1">
+                            
+                        </p>
+                        <p class="array-item" id="array-2">
+                            
+                        </p>
+                        <p class="array-item" id="array-3">
+                            
+                        </p>
+                        <p class="array-item" id="array-4">
+                            
+                        </p>
+                        <p class="array-item" id="array-5">
+                            
+                        </p>
+                        <p class="array-item" id="array-6">
+                            
+                        </p>
+                        <p class="array-item" id="array-7">
+                            
+                        </p>
+                        <p class="array-item" id="array-8">
+                            
+                        </p>
+                        <p class="array-item" id="array-9">
+                            
+                        </p>
+                        <p class="array-item" id="array-10">
+                            
+                        </p>
+                        <p class="array-item" id="array-11">
+                            
+                        </p>
+                        <p class="array-item" id="array-12">
+                            
+                        </p>
+                        <p class="array-item" id="array-13">
+                            
+                        </p>
+                        <p class="array-item" id="array-14">
+                            
+                        </p>
+                        <p class="array-item" id="array-15">
+                            
+                        </p>
+                    </div>
+                    <div class="stack-container">
+                        <div id="stack-visual" class="flex-col-container">
+                            <div id="stack-visual-bottom" class="stack-bottom"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="visualDiv-queue" class="hidden flex-col-container">
+                    <div id="link-container" class="link-container medium">
+
+                    </div>
+                    <div id="queue-container" class="link-container medium">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="header" style="height: 100px;">
     </div>
+
+    <script src="../scripts/datastructures.js"></script>
+    <script src="../scripts/datastructures/stackAndQueues.js"></script>
 </body>
 </html>
