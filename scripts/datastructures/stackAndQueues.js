@@ -1,10 +1,10 @@
 //============================================================================================================
 // Get DOM Elements and set up global variables
 //============================================================================================================
-let switchButton = document.getElementById("switch");           //for switching between queue and stacks
 let message = document.getElementById("message");               //for error messages and communication
 
 //Stack DOM Element
+let stackSwitchButton = document.getElementById("stack-switch");                //button for switching to queue
 let visualDivStack = document.getElementById("visualDiv-stack");                //div for stack display items
 let stackOpContainer = document.getElementById("stack-operation-container");    //div for stack operations
 
@@ -18,6 +18,7 @@ let pushButton = document.getElementById("push-button");                        
 let popButton = document.getElementById("pop-button");                          //button for pop()
 
 //Queue DOM Element
+let queueSwitchButton = document.getElementById("queue-switch");                //button for switching to stack
 let visualDivQueue = document.getElementById("visualDiv-queue");                //div for queue display items
 let queueOpContainer = document.getElementById("queue-operation-container");    //div for queue operations
 
@@ -617,6 +618,22 @@ async function dequeue() {
     }
 }
 
+/**
+ * Switch which display is visable
+ */
+function switchDisplay() {
+    //clear message
+    message.innerText = "";
+
+    //switch which display is visable
+    visualDivStack.classList.toggle("hidden");
+    visualDivQueue.classList.toggle("hidden");
+
+    //switch which operations are visable
+    stackOpContainer.classList.toggle("hidden");
+    queueOpContainer.classList.toggle("hidden");
+}
+
 //========================================================================================================
 // Event listeners for buttons
 //========================================================================================================
@@ -699,25 +716,13 @@ enqueueButton.addEventListener("click", async function() {
 dequeueButton.addEventListener("click", dequeue);
 
 /**
- * When switch button is pressed, change which display is 
- * visable, ethier stacks or queues. 
+ * When stack switch button is pressed, show queue 
+ * display and stack display
  */
-switchButton.addEventListener("click", function() {
-    //clear message
-    message.innerText = "";
+stackSwitchButton.addEventListener("click", switchDisplay);
 
-    //switch which display is visable
-    visualDivStack.classList.toggle("hidden");
-    visualDivQueue.classList.toggle("hidden");
-
-    //switch which operations are visable
-    stackOpContainer.classList.toggle("hidden");
-    queueOpContainer.classList.toggle("hidden");
-
-    //update switch button to show what is visable
-    if (switchButton.innerText == "STACKS") {
-        switchButton.innerText = "QUEUES";
-    } else {
-        switchButton.innerText = "STACKS";
-    }
-});
+/**
+ * When stack switch button is pressed, show queue 
+ * display and stack display
+ */
+queueSwitchButton.addEventListener("click", switchDisplay);

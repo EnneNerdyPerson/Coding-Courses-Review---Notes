@@ -3,6 +3,10 @@ h3 {
     padding: 5px 0;
 }
 
+button {
+    min-width: 50px;
+}
+
 .person-body {
     clip-path: shape(from bottom left, line to left 50px, curve to right 50px with 50% 0, line to bottom right, line to bottom left);
     background-color: black;
@@ -73,7 +77,7 @@ h3 {
 
 .add-walk-off {
     opacity: 0;
-    
+
     animation-name: walk-off;
     animation-duration: 3s;
 }
@@ -92,4 +96,17 @@ h3 {
 
 #head-label {
     text-align: center;
+}
+
+#stack-display {
+    margin: 10px 0;
+    align-content: end;
+}
+
+#fourty-30-30 {
+    width: 40%;
+}
+
+.thirty {
+    width: 25%;
 }
