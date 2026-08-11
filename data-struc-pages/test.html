@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/data-struc.css">
+</header>
+<body>
+    <!-- 
+// addArrow('#root-node', '#node1');
+// addArrow('#root-node', '#node2');
+// addArrow('#root-node', '#node3');
+// addArrow('#node1', '#node4-1');
+// addArrow('#node2', '#node5-2');
+// addArrow('#node2', '#node6-2');
+// addArrow('#node5-2', '#node7-5'); -->
+    <div class="tree-div">
+        <div class="flex-row-container margining">
+            <div id="root-node" class="node"></div>
+        </div>
+        <div class="flex-row-container margining">
+            <div class="tree-col-container">
+                <div id="node1" class="node"></div>
+                <div id="node4-1" class="node margining"></div>
+            </div>
+            <div class="tree-col-container">
+                <div id="node2" class="node"></div>
+                <div class="flex-row-container">
+                    <div class="tree-col-container">
+                        <div id="node5-2" class="node"></div>
+                        <div id="node7-5" class="node"></div>
+                    </div>
+                    
+                    <div id="node6-2" class="node"></div>
+                </div>
+            </div>
+            
+            <div id="node3" class="node"></div>
+        </div>
+
+        <div class="header" style="height: 40px;">
+        </div>
+
+        <!-- <div class="tree-col-container">
+            <div>
+                <div id="root-node" class="node"></div>
+            </div>
+            <div>
+                <div id="child1-1" class="node"></div>
+                <div id="child1-2" class="node"></div>
+                <div id="child1-3" class="node"></div>
+            </div>
+            <div>
+                <div id="child1-11" class="node"></div>
+                <div class="flex-row-container">
+                    <div id="child2-21" class="node"></div>
+                    <div id="child3-21" class="node"></div>
+                </div>
+                <div class="fake-node"></div>
+            </div>
+            <div>
+                <div id="child3-22" class="node"></div>
+            </div>
+        </div> -->
+
+        <!-- <div class="flex-row-container margining">
+            <div>
+                <div id="child2-11" class="node"></div>
+            </div>
+            
+            <div class="flex-row-container">
+                <div id="child2-21" class="node"></div>
+                <div id="child2-22" class="node"></div>
+            </div>
+        </div>
+        <div class="flex-row-container margining">
+            <div id="child3-21" class="node"></div>
+        </div> -->
+    </div>
+
+    <script  src="../node_modules/arrow-line/dist/arrow-line.min.js"></script>   
+    <script src="../scripts/datastructures/treesSimple.js"></script>
+</body>
+</html>
