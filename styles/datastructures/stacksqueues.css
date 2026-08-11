@@ -94,6 +94,10 @@ button {
     text-align: center;
 }
 
+#stack-visual {
+    width: 150px;
+}
+
 #head-label {
     text-align: center;
 }
