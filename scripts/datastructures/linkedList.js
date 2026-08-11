@@ -1,6 +1,10 @@
 //========================================================================================================
 // Get DOM Elements
 //========================================================================================================
+let speedChangeDial = document.getElementById("speed");             //to change animation speed
+let speedLabel = document.getElementById("speed-label");            //to show change in animation speed
+let message = document.getElementById("message");                   //for error messages and get info
+
 let visualDiv = document.getElementById("visualDiv");               //linked list visual
 let tempVisualDiv = document.getElementById("tempVisualDiv");       //temp visual for animation
 
@@ -39,8 +43,6 @@ let getContainer = document.getElementById("getContainer");
 let getButton = document.getElementById("getButton");
 let getInput = document.getElementById("getInput");
 
-let message = document.getElementById("message");                   //for error messages and get info
-
 //arrays for node, arrow, and value for editing and the like
 let valueArray = new Array();
 let nodeArray = new Array();
@@ -54,6 +56,10 @@ let doubleLinks = false;
 let addMethod = "front";
 let deleteMethod = "front";
 let getMethod = "front";
+
+let speed = 800;                    //current speed
+let fullSpeed = 1600;               //'full speed'
+speedChangeDial.value = 50;         //reset speed dial
 
 let animationRunning = false;       //variable for if animation is running or not
 
@@ -109,12 +115,12 @@ async function iterateThroughList(index, get) {
         curNode.classList.add("selected-item");
 
         //delay for clear animation
-        await delay(800);
+        await delay(speed);
 
         //if used for get and at index, update message to show retrieved value
         if (i == index && get) {
             message.innerText = "Value at index " + index + ": " + valueArray[index];
-            await delay(800);
+            await delay(speed);
         }
 
         //remove styling of 'selection' of node
@@ -197,24 +203,24 @@ async function makeNewNode(value, index) {
     //check if added to beginning of list
     if (index == 0) {
         //delay for clear change (animation)
-        await delay(800);
+        await delay(speed);
 
         //show creation of temp variable
         visualLabel.innerText = "head = temp:";
 
-        await delay(800);
+        await delay(speed);
 
         //move 'head' to point to newNode
         visualLabel.innerText = "temp:";
         tempLabel.innerText = "head = newNode:";
 
-        await delay(800);
+        await delay(speed);
 
         //set newNode next to temp (list)
         tempNull.classList.remove("null");
         tempNull.innerText = "temp;";
 
-        await delay(800);
+        await delay(speed);
 
         //move head back to visual display
         visualLabel.innerText = "head:";
@@ -278,28 +284,28 @@ async function makeNewNode(value, index) {
         }
 
         //delay for clear change (animation)
-        await delay(800);
+        await delay(speed);
 
         //animation for showing increase in space in list
         tempSpaceElement.classList.add("increase-width");
 
-        await delay(400);
+        await delay(speed / 2);
 
         //show that temp points the the back end of the list
         afterText.innerText = "temp:";
 
-        await delay(800);
+        await delay(speed);
 
         //show newNode is added in the list
         beforeText.innerText = "newNode;";
 
-        await delay(800);
+        await delay(speed);
 
         //newNode next now points to temp
         tempNull.classList.remove("null");
         tempNull.innerText = "temp;";
 
-        await delay(800);
+        await delay(speed);
 
         //remove tempDiv and tempNull
         tempDiv.remove();
@@ -370,31 +376,31 @@ async function deleteNode(index) {//get elements to be deleted
         div.after(tempDiv);
 
         //delay done to showcase clear change for animation
-        await delay(100);
+        await delay(speed / 8);
 
         //animate increase space in list
         tempSpaceElement.classList.add("increase-width");
 
-        await delay(800);
+        await delay(speed);
 
         //show temp visual-display and show temp points to 
         //element after head
         tempVisualDiv.classList.toggle("hidden");
         tempLabel.innerText = "temp = head.next";
 
-        await delay(800);
+        await delay(speed);
 
         //temp points to list after node to be deleted
         afterText.innerText = "temp:";
         tempLabel.innerText = "";
 
-        await delay(800);
+        await delay(speed);
 
         //to be deleted node points to null
         beforeText.classList.add("null");
         beforeText.innerText = "NULL";
 
-        await delay(800);
+        await delay(speed);
 
         //head points to temp
         visualLabel.innerText = "head: temp";
@@ -406,19 +412,19 @@ async function deleteNode(index) {//get elements to be deleted
         //add spacing element after head
         visualLabel.after(tempSpaceElementHead);
 
-        await delay(100);
+        await delay(speed / 8);
 
         //animate increase in space
         tempSpaceElementHead.classList.add("increase-width");
         
-        await delay(800);
+        await delay(speed);
 
         //add node and arrows to be deleted, and null to temp visual-display
         tempVisualDiv.append(node);
         tempVisualDiv.append(div);
         tempVisualDiv.append(beforeText);
 
-        await delay(800);
+        await delay(speed);
 
         //remove spaces from list
         tempSpaceElementHead.remove();
@@ -427,14 +433,14 @@ async function deleteNode(index) {//get elements to be deleted
         //show head now pointing to last part of list
         visualLabel.innerText = "head:";
 
-        await delay(800);
+        await delay(speed);
 
         //add fade out animation for node, arrow, and null to be deleted
         node.classList.add("add-fade-out");
         div.classList.add("add-fade-out");
         beforeText.classList.add("add-fade-out");
 
-        await delay(500);
+        await delay(speed / 2);
 
         beforeText.remove();
     
@@ -492,13 +498,13 @@ async function deleteNode(index) {//get elements to be deleted
         node.before(tempPreDiv);
 
         //delay for clarity and animation
-        await delay(100);
+        await delay(speed / 8);
 
         //increase-space animation
         tempSpacePreElement.classList.add("increase-width");
         tempSpacePostElement.classList.add("increase-width");
 
-        await delay(800);
+        await delay(speed);
 
         //show temp visual display
         tempVisualDiv.classList.toggle("hidden");
@@ -506,44 +512,44 @@ async function deleteNode(index) {//get elements to be deleted
         //show the temp points to second list
         tempLabel.innerText = "temp = index.next";
 
-        await delay(800);
+        await delay(speed);
 
         //show temp poitns to second list
         afterPostText.innerText = "temp:";
         tempLabel.innerText = "";
 
-        await delay(800);
+        await delay(speed);
 
         //show temp is end of first list
         beforePreText.innerText = "temp;";
 
-        await delay(800);
+        await delay(speed);
     
         //have node to be deleted point to null
         beforePostText.classList.add("null");
         beforePostText.innerText = "NULL";
 
-        await delay(800);
+        await delay(speed);
 
         //add node to be deleted to temp visual display
         tempVisualDiv.append(node);
         tempVisualDiv.append(div);
         tempVisualDiv.append(beforePostText);
 
-        await delay(800);
+        await delay(speed);
 
         //remove space divs
         tempPostDiv.remove();
         tempPreDiv.remove();
 
-        await delay(800);
+        await delay(speed);
 
         //add fade out animation to node, arrow, and null to be deleted
         node.classList.add("add-fade-out");
         div.classList.add("add-fade-out");
         beforePostText.classList.add("add-fade-out");
 
-        await delay(500);
+        await delay(speed / 4);
 
         //remove null element
         beforePostText.remove();
@@ -691,7 +697,7 @@ addButton.addEventListener("click", async function() {
                 addInput.value = firstString.substring(firstString.indexOf(",") + 1);
 
                 //delay for animation
-                await delay(800);
+                await delay(speed);
 
                 //wait for creation and animation is finished
                 await makeNewNode(value, index);
@@ -721,7 +727,7 @@ addButton.addEventListener("click", async function() {
             addInput.value = addInput.value.substring(addInput.value.indexOf(",") + 1);
 
             //delay for animation
-            await delay(800);
+            await delay(speed);
 
             //wait for creation and animation is finished
             await makeNewNode(array[i], index);
@@ -887,7 +893,7 @@ getButton.addEventListener("click", async function() {
 
             //run iteration animation
             await iterateThroughList(parseInt(array[i]), true);
-            await delay(800);
+            await delay(speed);
 
             //update message value for later (ensure commas added correctly)
             if (i == array.length - 1) {
@@ -908,7 +914,7 @@ getButton.addEventListener("click", async function() {
         await iterateThroughList(0, true);
     } 
 
-    await delay(200);
+    await delay(speed / 4);
 
     //clear input value
     getInput.value = "";
@@ -977,4 +983,26 @@ getEndButton.addEventListener("click", function () {
 });
 getIndexButton.addEventListener("click", function () {
  changeMethod("get", "index", getIndexButton, getEndButton, getFrontButton);
+});
+
+/**
+ * When the speed dial is changed, the speed value 
+ * will update and the speed of the animation will be
+ * updated
+ */
+speedChangeDial.addEventListener("change", function() {
+    let speedPrecent = speedChangeDial.value;
+    
+    if (speedPrecent == 100) {
+        speed = 0;
+    } else if (speedPrecent < 15) {
+        speed = ((100 - speedPrecent) * (fullSpeed * 3)) / 100;
+    
+    } else if (speedPrecent < 30) {
+        speed = ((100 - speedPrecent) * (fullSpeed * 2)) / 100;
+    } else {
+        speed = ((100 - speedPrecent) * fullSpeed) / 100;
+    }
+
+    speedLabel.innerText = speedPrecent + "%";
 });

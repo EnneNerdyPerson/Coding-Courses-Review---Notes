@@ -1,6 +1,8 @@
 //============================================================================================================
 // Get DOM Elements and set up global variables
 //============================================================================================================
+let speedChangeDial = document.getElementById("speed");         //to change animation speed
+let speedLabel = document.getElementById("speed-label");        //to show change in animation speed
 let message = document.getElementById("message");               //for error messages and communication
 
 //Stack DOM Element
@@ -40,6 +42,10 @@ let topLabelArray = new Array();    //array for top-label elements
 let queueArray = new Array();       //array for queue elements
 
 let lastTailLabel = null;           //saves last top-label to label tail
+
+let speed = 800;                    //current speed
+let fullSpeed = 1600;               //'full speed'
+speedChangeDial.value = 50;         //reset speed dial
 
 let animationRunning = false;       //variable for if animation is running or not
 
@@ -98,7 +104,7 @@ async function addPushItem(value) {
         message.innerText = "add item at arr[size] = arr[" + stackNumElements + "]";
 
         //delay for animation and clarity
-        await delay(800);
+        await delay(speed);
         
         //add style to show which array item is being altered
         index.classList.add("selected-item");
@@ -109,7 +115,7 @@ async function addPushItem(value) {
         newStackItem.id = stackId;
         newStackItem.innerText = value;
 
-        await delay(800);
+        await delay(speed);
 
         //check if stack is empty or not
         if (stackNumElements == 0) {
@@ -126,7 +132,7 @@ async function addPushItem(value) {
         //update array item's value
         index.innerText = value;
         
-        await delay(800);
+        await delay(speed);
 
         //increase number of stack elements
         stackNumElements++;
@@ -184,12 +190,12 @@ async function popItem() {
         message.innerText = "remove item at arr[size - 1] = arr[" + (stackNumElements - 1) + "]";
     
         //add delay for animation and clarity
-        await delay(800);
+        await delay(speed);
         
         //show which item is being edited
         index.classList.add("selected-item");
 
-        await delay(800);
+        await delay(speed);
 
         //save value being removed
         let poppedValue = index.innerText;
@@ -204,7 +210,7 @@ async function popItem() {
         let oldTopStack = document.getElementById("stack-" + (stackNumElements - 1));
         oldTopStack.remove();
 
-        await delay(800);
+        await delay(speed);
 
         //decrease num of stack element
         stackNumElements--;
@@ -312,7 +318,7 @@ async function addLinkedListItem(value) {
     let nullElement = document.getElementById("null");
 
     //delays for animations
-    await delay(800);
+    await delay(speed);
 
     //check if adding to empty list or not
     //communicate relevent operations
@@ -322,7 +328,7 @@ async function addLinkedListItem(value) {
         message.innerText = "tail = newNode";
     }
     
-    await delay(800);
+    await delay(speed);
 
     //add tempDiv bfore null and un-hide
     nullElement.before(tempDiv);
@@ -336,7 +342,7 @@ async function addLinkedListItem(value) {
     //show increase in space animation
     tempSpaceElement.classList.add("increase-width");
 
-    await delay(800);
+    await delay(speed);
 
     //label new node with fade-in
     afterText.innerText = "newNode: ";
@@ -353,7 +359,7 @@ async function addLinkedListItem(value) {
     nodeDiv.classList.add("add-fade-in");
     div.classList.add("add-fade-in");
 
-    await delay(800);
+    await delay(speed);
 
     //remove temp null
     tempNull.remove();
@@ -361,7 +367,7 @@ async function addLinkedListItem(value) {
     //show list now points to new node
     beforeText.innerText = "newNode;";
 
-    await delay(800);
+    await delay(speed);
 
     //remove temp elements
     tempDiv.remove();
@@ -371,12 +377,12 @@ async function addLinkedListItem(value) {
         topLabel.classList.remove("hidden");
     }
 
-    await delay(800);
+    await delay(speed);
 
     //if adding new element, show process to user
     if (queueNumElements != 0) {
         message.innerText = "tail = newNode";
-        await delay(800);
+        await delay(speed);
     }
     
     //if second element to be added, remove tail for head label
@@ -400,7 +406,7 @@ async function addLinkedListItem(value) {
         topLabel.innerText = "";
     }
 
-    await delay(800);
+    await delay(speed);
 
     //clear message
     message.innerText = "";
@@ -525,13 +531,13 @@ async function dequeue() {
         message.innerText = "temp = head.next";
 
         //add delay for animation 
-        await delay(800);
+        await delay(speed);
 
         //set top label to temp and unhide top label
         topLabel.innerText = "temp";
         topLabel.classList.remove("hidden");
 
-        await delay(800);
+        await delay(speed);
 
         //add temp div after first item in list
         div.after(tempDiv);
@@ -539,67 +545,67 @@ async function dequeue() {
         //update user of next step
         message.innerText = "head.next = NULL";
 
-        await delay(100);
+        await delay(speed / 8);
 
         //add space increase animation
         tempSpaceElement.classList.add("increase-width");
 
-        await delay(800);
+        await delay(speed);
 
         //unhide temp null
         tempNull.classList.remove("hidden");
         tempNull.classList.add("add-fade-in");
 
-        await delay(800);
+        await delay(speed);
 
         //update user of next step
         message.innerText = "head = temp";
 
-        await delay(800);
+        await delay(speed);
 
         //hide head label and move it above second item in list
         headLabel.classList.add("hidden");
         topLabel.innerText = "head";
 
-        await delay(800);
+        await delay(speed);
 
     //last item in list is about to be removed
     } else {
         //user user of next step
         message.innerText = "temp = head.next";
 
-        await delay(800);
+        await delay(speed);
 
         //add temporary elements after first node
         div.after(tempDiv);
 
-        await delay(100);
+        await delay(speed / 8);
 
         //run spacing animation
         tempSpaceElement.classList.add("increase-width");
 
-        await delay(800);
+        await delay(speed);
 
         //show temp pointing to null
         afterText.innerText = "temp:";
 
-        await delay(800);
+        await delay(speed);
     
         //update user of next step
         message.innerText = "head.next = NULL";
 
-        await delay(800);
+        await delay(speed);
 
         //unhide null value with fade in animation
         tempNull.classList.remove("hidden");
         tempNull.classList.add("add-fade-in");
 
-        await delay(800);
+        await delay(speed);
 
         //alert user of next step
         message.innerText = "head = temp";
 
-        await delay(800);
+        await delay(speed);
 
         //move head to point to null
         afterText.innerText = "head:";
@@ -610,7 +616,7 @@ async function dequeue() {
     //add queue item walk off animation
     queueItem.classList.add("add-walk-off");
 
-    await delay(800);
+    await delay(speed);
 
     //show user value of item that was removed
     message.innerText = "Retrieved Item: " + queueItem.innerText;
@@ -619,7 +625,7 @@ async function dequeue() {
     node.classList.add("add-fade-out");
     div.classList.add("add-fade-out");
 
-    await delay(800);
+    await delay(speed);
 
     //remove temporary elements
     tempDiv.remove();
@@ -637,7 +643,7 @@ async function dequeue() {
     div.remove();
     queueItem.remove();
 
-    await delay(800);
+    await delay(speed);
 
     //decrement number of queue elements
     queueNumElements--;
@@ -785,7 +791,7 @@ enqueueButton.addEventListener("click", async function() {
         addQueueItem(i);
 
         //delay for clarity
-        await delay(800);        
+        await delay(speed);        
     }
     
     //update animation running variable
@@ -815,3 +821,25 @@ stackSwitchButton.addEventListener("click", switchDisplay);
  * display and stack display
  */
 queueSwitchButton.addEventListener("click", switchDisplay);
+
+/**
+ * When the speed dial is changed, the speed value 
+ * will update and the speed of the animation will be
+ * updated
+ */
+speedChangeDial.addEventListener("change", function() {
+    let speedPrecent = speedChangeDial.value;
+    
+    if (speedPrecent == 100) {
+        speed = 0;
+    } else if (speedPrecent < 15) {
+        speed = ((100 - speedPrecent) * (fullSpeed * 3)) / 100;
+    
+    } else if (speedPrecent < 30) {
+        speed = ((100 - speedPrecent) * (fullSpeed * 2)) / 100;
+    } else {
+        speed = ((100 - speedPrecent) * fullSpeed) / 100;
+    }
+
+    speedLabel.innerText = speedPrecent + "%";
+});

@@ -4,6 +4,8 @@
 let arrayListDiv = document.getElementById("visualDiv");            //regular array list
 let secondArrayListDiv = document.getElementById("visualDiv2");     //second array (for resize)
 
+let speedChangeDial = document.getElementById("speed");             //to change animation speed
+let speedLabel = document.getElementById("speed-label");            //to show change in animation speed
 let message = document.getElementById("message");                   //for error messages
 
 let sizeMethodButton = document.getElementById("resize");           //re-size method
@@ -25,8 +27,12 @@ let addItemButton = document.getElementById("addItemButton");
 let size = 0;
 let capacity = 2;
 
+let speed = 800;        //current speed
+let fullSpeed = 1600;   //'full speed'
+speedChangeDial.value = 50;         //reset speed dial
+
 //variable for if animation is running or not
-let animationRunning = false;                                       
+let animationRunning = false; 
 
 //========================================================================================================
 // Functions for interactive array list visual
@@ -110,7 +116,7 @@ async function displayResize(size, capacity) {
 
     //add items from first (small) array to second (larger) array
     for (let i = 0; i < size; i++) {
-        await delay(800);   //wait for clear change
+        await delay(speed);   //wait for clear change
 
         //get array items from small and large array
         let smallArrayElement = document.getElementById("array-" + i);
@@ -120,7 +126,7 @@ async function displayResize(size, capacity) {
         bigArrayElement.innerText = smallArrayElement.innerText;
     }
 
-    await delay(800);   //wait for clear change
+    await delay(speed);   //wait for clear change
 
     //hide smaller array
     arrayListDiv.classList.toggle("hidden");
@@ -142,7 +148,7 @@ async function displayResize(size, capacity) {
     }
 
     //last delay for clear change of next added item
-    await delay(800);
+    await delay(speed);
 }
 
 /**
@@ -292,7 +298,7 @@ addItemButton.addEventListener("click", async function () {
         size++;
 
         //wait before next update
-        await delay(800);
+        await delay(speed);
     }
 
     //clear input
@@ -303,4 +309,26 @@ addItemButton.addEventListener("click", async function () {
 
     //un-grey buttons
     toggleButtonFunction();
+});
+
+/**
+ * When the speed dial is changed, the speed value 
+ * will update and the speed of the animation will be
+ * updated
+ */
+speedChangeDial.addEventListener("change", function() {
+    let speedPrecent = speedChangeDial.value;
+    
+    if (speedPrecent == 100) {
+        speed = 0;
+    } else if (speedPrecent < 15) {
+        speed = ((100 - speedPrecent) * (fullSpeed * 3)) / 100;
+    
+    } else if (speedPrecent < 30) {
+        speed = ((100 - speedPrecent) * (fullSpeed * 2)) / 100;
+    } else {
+        speed = ((100 - speedPrecent) * fullSpeed) / 100;
+    }
+
+    speedLabel.innerText = speedPrecent + "%";
 });
