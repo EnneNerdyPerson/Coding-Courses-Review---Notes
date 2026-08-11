@@ -7,121 +7,323 @@
     
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/data-struc.css">
+    <link rel="stylesheet" href="../styles/datastructures/trees.css">
 </header>
 <body>
     <div class="header">
         <h1>Learning: Trees & Binary Search Trees</h1>
     </div>
-    <div>
+    <!-- <div>
         <h3>Prerequisite Knowledge</h3>
         <p>
             This demonstration expects a reasonable understanding of Java classes and methods, and C structs 
             and LinkedLists.
         </p>
-    </div>
+    </div> -->
+
     <div>
         <h2>What is a Tree?</h2>
-        <p>
-            This is a dynamic data structure which is defined by having a 'root' node that is used 
-            to access the rest of the tree. Similar to a Linked List, Trees use Nodes in there 
-            creation. However, for Trees are non-linear, allows for uses outside of those for 
-            LinkedLists. This non-linearity happens as each Node in a tree can have multiple children, 
-            unlike LinkedLists which have at most a 'next' and 'previous' connection.
-        </p>
-        <h3>Terminology</h3>
-        <ul>
-            <li>Root: the Node which the Tree uses to access all other Nodes inside the Tree</li>
-            <li>
-                Parent and Child: in this case, the children of a Node are the Nodes that some 
-                parent Node points to.
-            </li>
-            <ul>
-                <li>The parent of some Node called node1 is the Node that points to node1</li>
-                <li>The children of some Node called node3 is the Nodes that node3 points to</li>
-            </ul>
-            <li>
-                Leaf Node: the Nodes with no children are Leaf Nodes
-            </li>
-            <li>
-                Internal Node: any node that is not a Leaf Node is an Internal Node
-            </li>
-            <li>Non-linear: poltting out a Tree will NOT result in a line</li>
-        </ul>
+        <div class="flex-row-container">
+            <div class="fifty-45">
+                <p>
+                    This is a dynamic data structure which is defined by having a 'root' node that is used 
+                    to access the rest of the tree. Similar to a Linked List, Trees use Nodes in there 
+                    creation. However, for Trees are non-linear, allows for uses outside of those for 
+                    LinkedLists. This non-linearity happens as each Node in a tree can have multiple children, 
+                    unlike LinkedLists which have at most a 'next' and 'previous' connection.
+                </p>
+                <h3>Terminology</h3>
+                <ul>
+                    <li>Root: the Node which the Tree uses to access all other Nodes inside the Tree</li>
+                    <li>
+                        Parent and Child: in this case, the children of a Node are the Nodes that some 
+                        parent Node points to.
+                    </li>
+                    <ul>
+                        <li>The parent of some Node called node1 is the Node that points to node1</li>
+                        <li>The children of some Node called node3 is the Nodes that node3 points to</li>
+                    </ul>
+                    <li>
+                        Leaf Node: the Nodes with no children are Leaf Nodes
+                    </li>
+                    <li>
+                        Internal Node: any node that is not a Leaf Node is an Internal Node
+                    </li>
+                    <li>Non-linear: poltting out a Tree will NOT result in a line</li>
+                </ul>
+            </div>
+            <div class="fourty-five-50">
+                <img id="tree-diagram" src="../images/TreeDiagram.png" alt="">
+                <!-- <div class="img-proxy">
+
+                </div> -->
+            </div>
+        </div>
     </div>
     <div>
-        <h2>What is a Binary Tree?</h2>
-        <p>
-            Binary Trees, like the name implies are a type of Tree. However, there are 
-            some restrictions/properities that Binary Trees have that regular Trees do 
-            not. In additional to the properities of Trees, every Node in a Binary Tree 
-            have at most two (&lt;=2) children. These children are often labels as left 
-            and right.
-        </p>
+        <h2>What is a Binary Search Tree?</h2>
 
-        <h3>What is the Difference Between Trees and Binary Trees?</h3>
-        <p>
-            Similiar to how all squares are recentangles but not all rectangles are 
-            squares, all Binary Trees are Trees but not all Trees are Binary Trees.
-            What determines if a Tree is a Binary Tree or not, is if a Tree has 
-            at most two (0, 1, or 2) child Nodes.
-        </p>
+        <div class="flex-row-container">
+            <div class="flex-item">
+                <div class="tree-col-container medium">
+                    <div id="d1-root" class="node">16</div>
 
-        <h3>Binary Tree Terminology</h3>
-        <ul>
-            <li>Full Binary Tree: every node other than the leaf nodes have two children</li>
-            <li>
-                Complete Binary Tree: every level, except the bottom level is completely filled
-                where the last level has nodes that are as far left as possible
-            </li>
-            <li>
-                Balanced Binary Tree: the path from the Root node to each NULL value is the same 
-                length
-            </li>
-        </ul>
+                    <div id="d1-root-children" class="flex-row-container">
+                        <!--Every tree-col-container is the beginning of a subtree-->
+                        <div class="tree-col-container">
+                            <div id="d1-node1" class="node">12</div>
+                            <div class="flex-row-container">
+                                <div id="d1-node3-1" class="node">3</div>
+                                <div class="hidden-node"></div>
+                            </div>
+                        </div>
 
-        <div>
-            <div>
-                <div>
-                    Full Binary Tree
-                </div>
-                <div>
-                    Not Full Binary Tree
+                        <div class="tree-col-container">
+                            <div id="d1-node2" class="node">27</div>
+
+                            <!--Every flex-row-ctonainer indicates there are multiple children-->
+                            <div class="flex-row-container">
+                                <div class="tree-col-container">
+                                    <div id="d1-node4-2" class="node">20</div>
+
+                                    <div class="flex-row-container">
+                                        <div id="d1-node5-4" class="node">18</div>
+                                        <div id="d1-node6-4" class="node">24</div>
+                                    </div>
+                                </div>
+                                
+                                <div id="d1-node7-2" class="node">35</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
+            <div class="flex-item">
                 <div>
-                    Complete Binary Tree
+                    <h3>What is a Binary Tree?</h3>
+                    <p>
+                        Binary Trees, like the name implies are a type of Tree. However, there are 
+                        some restrictions/properities that Binary Trees have that regular Trees do 
+                        not. In additional to the properities of Trees, every Node in a Binary Tree 
+                        have at most two (&lt;=2) children. These children are often labels as left 
+                        and right.
+                    </p>
                 </div>
+
                 <div>
-                    Not Complete Binary Tree
-                </div>
-            </div>
-            <div>
-                <div>
-                    Balenced Binary Tree
-                </div>
-                <div>
-                    Not Balenced Binary Tree
+                    <h3>What is a Binary Search Tree?</h3>
+                    <p>
+                        Similiar to how all squares are recentangles but not all rectangles are 
+                        squares, all Binary Trees are Trees but not all Trees are Binary Trees.
+                        What determines if a Tree is a Binary Tree or not, is if a Tree has 
+                        at most two (0, 1, or 2) child Nodes.
+                    </p>
+                    <p>
+                        A Binary Search Tree (BST) is a specical type of Binary Tree. The search in its name 
+                        highlights this additional sepcification. At any Node x in the BST, all values stored in 
+                        Nodes to the left of the Node x are smaller than the value stored at Node x. Additionally 
+                        all values stored in Nodes to the right of Node x are greater than the value stored at 
+                        Node x.
+                    </p>
                 </div>
             </div>
         </div>
-    <div>
-        <h2>What is a Binary Search Tree?</h2>
-        <p>
-            A Binary Search Tree (BST) is a specical type of Binary Tree. The search in its name 
-            highlights this additional sepcification. At any Node x in the BST, all values stored in 
-            Nodes to the left of the Node x are smaller than the value stored at Node x. Additionally 
-            all values stored in Nodes to the right of Node x are greater than the value stored at 
-            Node x.
-        </p>
+
+        <h3>Binary Tree Terminology</h3>
+        <div class="flex-row-container">
+            <div class="box flex-three-item">
+                <div>
+                    <h4>Full Binary Tree</h4>
+                    <p>
+                        Every node other than the leaf nodes has two children.
+                    </p>
+                </div>
+                <div>
+                    <img src="../images/FullTreeDiagram.png" alt=""
+                        class="card-img">
+                </div>
+            </div>
+            <div class="box flex-three-item">
+                <div>
+                    <h4>Balanced Binary Tree</h4>
+                    <p>
+                        The path from the Root node to each NULL value is the same 
+                        length
+                    </p>
+                </div>
+                <div>
+                    <img src="../images/BalancedTreeDiagram.png" alt=""
+                        class="card-img">
+                </div>
+            </div>
+            <div class="box flex-three-item">
+                <div>
+                    <h4>Complete Binary Tree</h4>
+                    <p>
+                        Every level, except the bottom level is completely filled
+                        where the last level has nodes that are as far left as possible
+                    </p>
+                </div>
+                <div>
+                    <img src="../images/CompleteTreeDiagram.png" alt=""
+                        class="card-img">
+                </div>
+            </div>
+        </div>
     </div>
+
     <div>
-        <h3>Psuedocode for Tree</h3>
-        <p>Coming soon...</p>
+        <h2>Pseudocode</h2>
+        <div>
+            <h3>Tree</h3>
+            <p>Coming soon...</p>
+        </div>
+        <div>
+            <h3>Binary Search Trees</h3>
+            <p>Coming soon...</p>
+        </div>
     </div>
+
     <div>
-        <h3>Psuedocode for Binary Search Trees</h3>
-        <p>Coming soon...</p>
+        <h2>Interactive Visual: Trees and Binary Trees</h2>
+        <div class="box">
+            <div>
+                
+            </div>
+            <div class="interactiveVisual">
+                <div id="visualDiv">
+                    <div class="tree-col-container small">
+                        <div id="vd-root" class="node"></div>
+
+                        <div class="flex-row-container">
+                            <!--Every tree-col-container is the beginning of a subtree-->
+                            <div class="tree-col-container">
+                                <div id="vd-node1" class="node"></div>
+
+                                <div class="flex-row-container">
+                                    <!--Every tree-col-container is the beginning of a subtree-->
+                                    <div class="tree-col-container">
+                                        <div id="vd-node3" class="node"></div>
+
+                                        <div class="flex-row-container">
+                                            <!--Every tree-col-container is the beginning of a subtree-->
+                                            <div class="tree-col-container">
+                                                <div id="vd-node7" class="node"></div>
+
+                                                <div class="flex-row-container">
+                                                    <div id="vd-node15" class="node"></div>
+                                                    <div id="vd-node16" class="node"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tree-col-container">
+                                                <div id="vd-node8-3" class="node"></div>
+
+                                                <div class="flex-row-container">
+                                                    <div id="vd-node17" class="node"></div>
+                                                    <div id="vd-node18" class="node"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tree-col-container">
+                                        <div id="vd-node4" class="node"></div>
+
+                                        <div class="flex-row-container">
+                                            <!--Every tree-col-container is the beginning of a subtree-->
+                                            <div class="tree-col-container">
+                                                <div id="vd-node9" class="node"></div>
+
+                                                <div class="flex-row-container">
+                                                    <div id="vd-node19" class="node"></div>
+                                                    <div id="vd-node20" class="node"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tree-col-container">
+                                                <div id="vd-node10" class="node"></div>
+
+                                                <div class="flex-row-container">
+                                                    <div id="vd-node21" class="node"></div>
+                                                    <div id="vd-node22" class="node"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tree-col-container">
+                                <div id="vd-node2" class="node"></div>
+
+                                <div class="flex-row-container">
+                                    <!--Every tree-col-container is the beginning of a subtree-->
+                                    <div class="tree-col-container">
+                                        <div id="vd-node5" class="node"></div>
+
+                                        <div class="flex-row-container">
+                                            <!--Every tree-col-container is the beginning of a subtree-->
+                                            <div class="tree-col-container">
+                                                <div id="vd-node11" class="node"></div>
+
+                                                <div class="flex-row-container">
+                                                    <div id="vd-node23" class="node"></div>
+                                                    <div id="vd-node24" class="node"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tree-col-container">
+                                                <div id="vd-node12" class="node"></div>
+
+                                                <div class="flex-row-container">
+                                                    <div id="vd-node25" class="node"></div>
+                                                    <div id="vd-node26" class="node"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tree-col-container">
+                                        <div id="vd-node6" class="node"></div>
+
+                                        <div class="flex-row-container">
+                                            <!--Every tree-col-container is the beginning of a subtree-->
+                                            <div class="tree-col-container">
+                                                <div id="vd-node13" class="node"></div>
+
+                                                <div class="flex-row-container">
+                                                    <div id="vd-node27" class="node"></div>
+                                                    <div id="vd-node28" class="node"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tree-col-container">
+                                                <div id="vd-node14" class="node"></div>
+
+                                                <div class="flex-row-container">
+                                                    <div id="vd-node29" class="node"></div>
+                                                    <div id="vd-node30" class="node"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="header" style="height: 100px;">
+    </div>
+
+
+    <script type="text/javascript"  src="../node_modules/leader-line/leader-line.min.js"></script>  
+    <script type="text/javascript"  src="../node_modules/arrow-line/dist/arrow-line.min.js"></script>  
+    <script type="text/javascript" src="../scripts/modules/purify.min.js"></script> 
+    <script src="../scripts/datastructures/treesSimple.js"></script>
 </body>
 </html>
