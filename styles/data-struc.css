@@ -30,6 +30,10 @@ input {
     width: 100px;
 }
 
+input[type="range"] {
+    accent-color: #1B4965;
+}
+
 /* Button Styling */
 button {
     padding: 3px 5px;
@@ -161,6 +165,17 @@ button:hover {
     width: 100%;
     padding: 10px;
     margin: 10px 0 30px 0;
+}
+
+/* Speed Changer Styling  */
+.speed-dial-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+
+    margin: 30px 0;
 }
 
 /* Button/Input Container Styling */
