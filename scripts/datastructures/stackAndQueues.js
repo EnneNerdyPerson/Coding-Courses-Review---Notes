@@ -41,6 +41,7 @@ let queueArray = new Array();       //array for queue elements
 
 let lastTailLabel = null;           //saves last top-label to label tail
 
+let animationRunning = false;       //variable for if animation is running or not
 
 //========================================================================================================
 // Functions for interactive array list visual
@@ -55,6 +56,19 @@ let lastTailLabel = null;           //saves last top-label to label tail
  */
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
+/**
+ * Greys or un-greys buttons that affect the visual display to 
+ * showcase when user can and cannot press them.
+ */
+function toggleButtonFunction() {
+    stackSwitchButton.classList.toggle("unuseable-button");
+    pushButton.classList.toggle("unuseable-button");
+    popButton.classList.toggle("unuseable-button");
+
+    queueSwitchButton.classList.toggle("unuseable-button");
+    enqueueButton.classList.toggle("unuseable-button");
+    dequeueButton.classList.toggle("unuseable-button");
+}
 
 /**
  * Add the value parameter to the stack-array visual and 
@@ -150,6 +164,18 @@ async function popItem() {
 
     //check to make sure there are elements to remove
     if (stackNumElements > 0) {
+        //check if animation is running
+        if (animationRunning) {
+            //if running, do not run animation
+            return;
+        } else {
+            //grey out buttons
+            toggleButtonFunction();
+
+            //update animation running varibale
+            animationRunning = true;
+        }
+
         //get array item that will be changed
         let id = "array-" + (stackNumElements - 1);
         let index = document.getElementById(id);
@@ -188,6 +214,12 @@ async function popItem() {
 
         //de-select array item
         index.classList.remove("selected-item");
+
+        //update animation running variable
+        animationRunning = false;
+
+        //un-grey buttons
+        toggleButtonFunction();
 
     //no items in stack, error
     } else {
@@ -383,7 +415,7 @@ async function addLinkedListItem(value) {
  * 
  * @param {*} value - value of item added to queue
  */
-function addQueueItem(value) {    
+async function addQueueItem(value) {    
     //create div for person
     let div = document.createElement("div");
     div.classList.add("flex-col-container");
@@ -425,6 +457,17 @@ async function dequeue() {
         message.style.color = "red";
         message.innerText = "There are no items to dequeue! The queue is empty";
         return;
+    }
+
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
     }
 
     //reset message style
@@ -616,12 +659,24 @@ async function dequeue() {
     } else {
         topLabelArray.splice(0, 1);
     }
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
 }
 
 /**
  * Switch which display is visable
  */
 function switchDisplay() {
+    //check if animation is running
+    if (animationRunning) {
+        //do not continue if animation is running
+        return;
+    }
+
     //clear message
     message.innerText = "";
 
@@ -643,6 +698,17 @@ function switchDisplay() {
  * by commas, and add elements with animation
  */
 pushButton.addEventListener("click", async function() {
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+
     //get and sanitize input
     let input = DOMPurify.sanitize(pushInput.value);
     
@@ -663,6 +729,12 @@ pushButton.addEventListener("click", async function() {
         //add item and run animation
         await addPushItem(i);
     }
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
     
     //have push input to empty
     pushInput.value = "";
@@ -679,6 +751,17 @@ popButton.addEventListener("click", popItem);
  * by commas, and add elements with animation
  */
 enqueueButton.addEventListener("click", async function() {
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+
     //sanitize input
     let input = DOMPurify.sanitize(enqueueInput.value);
     
@@ -705,6 +788,12 @@ enqueueButton.addEventListener("click", async function() {
         await delay(800);        
     }
     
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
+
     //clear input
     enqueueInput.value = "";
 });

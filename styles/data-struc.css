@@ -46,6 +46,15 @@ button:hover {
     box-shadow: black 1px 1px 4px;
 }
 
+.unuseable-button {
+    background-color: #adbbc4d4 !important;;
+}
+
+.unuseable-button:hover {
+    background-color: #adbbc4d4 !important;;
+    box-shadow: black 1px 1px 4px;
+}
+
 /* Class Styling */
 .rotate-90 {
     transform: rotate(90deg);

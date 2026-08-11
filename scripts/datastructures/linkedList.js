@@ -55,6 +55,8 @@ let addMethod = "front";
 let deleteMethod = "front";
 let getMethod = "front";
 
+let animationRunning = false;       //variable for if animation is running or not
+
 //========================================================================================================
 // Functions for interactive array list visual
 //========================================================================================================
@@ -67,6 +69,28 @@ let getMethod = "front";
  * @param {number} ms - number of milliseconds to wait before continuing
  */
 const delay = ms => new Promise(res => setTimeout(res, ms));
+
+/**
+ * Greys or un-greys buttons that affect the visual display to 
+ * showcase when user can and cannot press them.
+ */
+function toggleButtonFunction() {
+    addFrontButton.classList.toggle("unuseable-button");
+    addEndButton.classList.toggle("unuseable-button");
+    addIndexButton.classList.toggle("unuseable-button");
+
+    deleteFrontButton.classList.toggle("unuseable-button");
+    deleteEndButton.classList.toggle("unuseable-button");
+    deleteIndexButton.classList.toggle("unuseable-button");
+
+    getFrontButton.classList.toggle("unuseable-button");
+    getEndButton.classList.toggle("unuseable-button");
+    getIndexButton.classList.toggle("unuseable-button");
+
+    addButton.classList.toggle("unuseable-button");
+    deleteButton.classList.toggle("unuseable-button");
+    getButton.classList.toggle("unuseable-button");
+}
 
 /**
  * Animation of iterating through list. Additionallly, if used for 
@@ -302,6 +326,8 @@ async function makeNewNode(value, index) {
 
     //increase number of nodes
     numNodes++;
+
+
 }
 
 /**
@@ -310,8 +336,7 @@ async function makeNewNode(value, index) {
  * 
  * @param {number} index - index of element to be removed
  */
-async function deleteNode(index) {
-    //get elements to be deleted
+async function deleteNode(index) {//get elements to be deleted
     let node = nodeArray[index];
     let div = divArray[index];
 
@@ -557,6 +582,12 @@ async function deleteNode(index) {
  * @param {*} otherButtonTwo - one of two buttons NOT pushed
  */
 function changeMethod(type, method, button, otherButtonOne, otherButtonTwo) {
+    //check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } 
+
     //check what is being changed (add, deleted, or get)
     if (type == "add") {
         //update add method
@@ -604,6 +635,18 @@ function changeMethod(type, method, button, otherButtonOne, otherButtonTwo) {
  * calling makeNewNode method to showcase adding an item to linked list
  */
 addButton.addEventListener("click", async function() {
+    //check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+
     //rest message values for clarity
     message.style.color = "black";
     message.innerText = "";
@@ -687,6 +730,12 @@ addButton.addEventListener("click", async function() {
 
     //clear input
     addInput.value = "";
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
 });
 
 /**
@@ -694,6 +743,18 @@ addButton.addEventListener("click", async function() {
  * calling deleteNode method to showcase removing an item from a linked list
  */
 deleteButton.addEventListener("click", async function() {
+    //check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+
     //check if there are nodes in the list
     if (numNodes == 0) {
 
@@ -751,6 +812,12 @@ deleteButton.addEventListener("click", async function() {
 
     //clear delete input
     deleteInput.value = "";
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
 });
 
 /**
@@ -759,6 +826,18 @@ deleteButton.addEventListener("click", async function() {
  * to get the value at front/end/some index
  */
 getButton.addEventListener("click", async function() {
+    //check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+    
     //check if there are nodes in the list
     if (numNodes == 0) {
         //alert use of error
@@ -836,6 +915,12 @@ getButton.addEventListener("click", async function() {
 
     //update message to show all values retrieved
     message.innerText = messageValue;
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
 });
 
 /**

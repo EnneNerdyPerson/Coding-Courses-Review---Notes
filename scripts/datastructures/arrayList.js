@@ -25,6 +25,9 @@ let addItemButton = document.getElementById("addItemButton");
 let size = 0;
 let capacity = 2;
 
+//variable for if animation is running or not
+let animationRunning = false;                                       
+
 //========================================================================================================
 // Functions for interactive array list visual
 //========================================================================================================
@@ -38,6 +41,15 @@ let capacity = 2;
  */
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
+/**
+ * Greys or un-greys buttons that affect the visual display to 
+ * showcase when user can and cannot press them.
+ */
+function toggleButtonFunction() {
+    sizeMethodButton.classList.toggle("unuseable-button");
+    nValueButton.classList.toggle("unuseable-button");
+    addItemButton.classList.toggle("unuseable-button");
+}
 
 /**
  * Add another arrayList item to visual display.
@@ -140,7 +152,6 @@ async function displayResize(size, capacity) {
  * @param {*} item - value of item being added to array list
  */
 async function addArrayItem (item) {
-
     //get id of array item to be added to
     let id = "array-" + size;
 
@@ -188,7 +199,12 @@ async function addArrayItem (item) {
  * When size method button is pressed, change the 
  * increase method and associated variables.
  */
-sizeMethodButton.addEventListener("click", function() {
+sizeMethodButton.addEventListener("click", function() {//check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } 
+
     //check what method is current in use
     if (increaseByN) {
         //update to doubling and showcase through button
@@ -210,6 +226,12 @@ sizeMethodButton.addEventListener("click", function() {
  * update the Increase by n button's display
  */
 nValueButton.addEventListener("click", function() {
+    //check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } 
+
     //get input and sanitize
     let newN = DOMPurify.sanitize(nValueInput.value);
     nValueInput.value = "";
@@ -240,6 +262,18 @@ nValueButton.addEventListener("click", function() {
  * showcase items being added.
  */
 addItemButton.addEventListener("click", async function () {
+    //check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+
     //get value of add item input
     let value = DOMPurify.sanitize(addItemInput.value);
     
@@ -263,4 +297,10 @@ addItemButton.addEventListener("click", async function () {
 
     //clear input
     addItemInput.value = "";
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
 });
