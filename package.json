@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "arrow-line": "^0.7.5",
-    "dompurify": "^3.4.13"
+    "dompurify": "^3.4.13",
+    "leader-line": "^1.0.8"
   }
 }
