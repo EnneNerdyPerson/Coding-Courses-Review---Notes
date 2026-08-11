@@ -475,6 +475,13 @@ button:hover {
     font-size: 20px;
 }
 
+.small .hidden-node {
+    width: 40px;
+    height: 40px;
+
+    font-size: 20px;
+}
+
 .tree-col-container .hidden-node {
     margin: 1vw;
 }

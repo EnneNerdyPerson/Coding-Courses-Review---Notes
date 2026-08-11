@@ -1,3 +1,9 @@
+// given parent, left child = 2*p + 1, right child = 2*p + 2
+// get number by .substring(indexOf("e") + 1)
+// parent = Math.floor((child - 1) / 2)
+//========================================================================================================
+// Get DOM Elements
+//========================================================================================================
 const whatBrowser = navigator.userAgent; 
 
 let firefox = false;
@@ -13,6 +19,10 @@ let displayDest = new Array();
 let arrowArray = new Array();
 let sourceArray = new Array();
 let destArray = new Array();
+
+//========================================================================================================
+// Functions for interactive array list visual
+//========================================================================================================
 
 function addDisplayArrow(parentId, childId) {
     let arrow = null;
@@ -58,11 +68,12 @@ function addArrow(parentId, childId) {
     destArray.push(childId);
 };
 
-// given parent, left child = 2*p + 1, right child = 2*p + 2
-// get number by .substring(indexOf("e") + 1)
-// parent = Math.floor((child - 1) / 2)
+//========================================================================================================
+// Event listeners 
+//========================================================================================================
 
 window.addEventListener('load', function() {
+    //regular display arrows
     addDisplayArrow('#d1-root', '#d1-node1');
     addDisplayArrow('#d1-root', '#d1-node2');
     addDisplayArrow('#d1-node1', '#d1-node3-1');
@@ -70,6 +81,24 @@ window.addEventListener('load', function() {
     addDisplayArrow('#d1-node4-2', '#d1-node5-4');
     addDisplayArrow('#d1-node4-2', '#d1-node6-4');
     addDisplayArrow('#d1-node2', '#d1-node7-2');
+
+    addDisplayArrow('#full-root', '#full-1');
+    addDisplayArrow('#full-root', '#full-2');
+    addDisplayArrow('#full-2', '#full-3');
+    addDisplayArrow('#full-2', '#full-4');
+
+    addDisplayArrow('#bala-root', '#bala-1');
+    addDisplayArrow('#bala-root', '#bala-2');
+    addDisplayArrow('#bala-1', '#bala-3');
+    addDisplayArrow('#bala-1', '#bala-4');
+    addDisplayArrow('#bala-2', '#bala-5');
+    addDisplayArrow('#bala-2', '#bala-6');
+
+    addDisplayArrow('#comp-root', '#comp-1');
+    addDisplayArrow('#comp-root', '#comp-2');
+    addDisplayArrow('#comp-1', '#comp-3');
+    addDisplayArrow('#comp-1', '#comp-4');
+    addDisplayArrow('#comp-2', '#comp-5');
 });
 
 window.addEventListener('resize', function() {
