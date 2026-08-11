@@ -1,0 +1,5 @@
+For Math:
+Should go in header and allows for LaTeX math scripting:
+    <script src="https://jsdelivr.net"></script>
+OR
+<math></math> tag but requires learning new math tat items
