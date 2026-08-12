@@ -1006,3 +1006,30 @@ speedChangeDial.addEventListener("change", function() {
 
     speedLabel.innerText = speedPrecent + "%";
 });
+
+window.addEventListener("resize", function() {
+    let figureOne = document.getElementById("figure-1");
+
+    if (window.innerWidth <= 400) {
+        figureOne.classList.remove("medium");
+        figureOne.classList.add("small");
+    } else if (window.innerWidth <= 850) {
+        figureOne.classList.add("medium");
+        figureOne.classList.remove("small");
+    } else {
+        figureOne.classList.remove("medium");
+        figureOne.classList.remove("small");
+    }
+});
+
+if (window.innerWidth <= 400) {
+    figureOne = document.getElementById("figure-1");
+
+    figureOne.classList.remove("medium");
+    figureOne.classList.add("small");
+} else if (window.innerWidth <= 850) {
+    figureOne = document.getElementById("figure-1");
+
+    figureOne.classList.add("medium");
+    figureOne.classList.remove("small");
+}
