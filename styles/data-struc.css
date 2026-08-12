@@ -153,6 +153,11 @@ button:hover {
     font-family: "Google Sans Code", monospace;
 }
 
+.code p{
+    max-width: 85vw;
+}
+
+
 /* Pseudocode Comment */
 .comment {
     color: grey;
@@ -162,7 +167,7 @@ button:hover {
 
 /* Interactive Visual Styling */
 .interactiveVisual {
-    width: 100%;
+    width: 93%;
     padding: 10px;
     margin: 10px 0 30px 0;
 }
@@ -440,7 +445,7 @@ button:hover {
     background-color: #CAE9FF;
 
     /* Box Model Styling */
-    width: 100px;
+    width: 75%;
     height: 30px;
     padding: 5px;
     margin: 0;
@@ -452,7 +457,7 @@ button:hover {
 }
 
 .stack-bottom {
-    width: 150px;
+    width: 100%;
     border: solid 2px black;
 }
 
@@ -461,6 +466,8 @@ button:hover {
     flex-direction: column;
     justify-content: end;
     align-items: center;
+
+    width: 30%;
 }
 
 /* Tree Styling */
@@ -502,3 +509,17 @@ button:hover {
 .tree-col-container .hidden-node {
     margin: 1vw;
 }
+
+
+@media (max-width: 950px) {
+    button {margin: 5px 0;}
+    h1, h2, h3, h4 {max-width: 80vw;}
+    .array-container {flex-wrap: wrap; margin-left: 5px;}
+    .flex-item {min-width: 400px; margin: 10px 0;}
+} 
+
+@media (max-width: 450px) {
+    button {font-size: 15px;}
+    .flex-item {min-width: 80vw;}
+    .array-item {width: 25px; height: 25px;}
+} 
