@@ -1007,6 +1007,11 @@ speedChangeDial.addEventListener("change", function() {
     speedLabel.innerText = speedPrecent + "%";
 });
 
+/**
+ * When window is resized, change displays for Figure 1 if 
+ * window size is less than 850px or an additional smaller 
+ * reszing for screens/windows smaller than 400px. 
+ */
 window.addEventListener("resize", function() {
     let figureOne = document.getElementById("figure-1");
 
@@ -1022,6 +1027,10 @@ window.addEventListener("resize", function() {
     }
 });
 
+/**
+ * Done to ensure that when reloading the window/screen in
+ * smaller sizes that Figure 1 looks good
+ */
 if (window.innerWidth <= 400) {
     figureOne = document.getElementById("figure-1");
 

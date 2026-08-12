@@ -511,15 +511,38 @@ button:hover {
 }
 
 
+/* Small Screen Size Styling */
 @media (max-width: 950px) {
-    button {margin: 5px 0;}
-    h1, h2, h3, h4 {max-width: 80vw;}
-    .array-container {flex-wrap: wrap; margin-left: 5px;}
-    .flex-item {min-width: 400px; margin: 10px 0;}
+    button {
+        margin: 5px 0;
+    }
+
+    h1, h2, h3, h4 {
+        max-width: 80vw;
+    }
+
+    .array-container {
+        flex-wrap: wrap; 
+        margin-left: 5px;
+    }
+
+    .flex-item {
+        min-width: 400px; 
+        margin: 10px 0;
+    }
 } 
 
 @media (max-width: 450px) {
-    button {font-size: 15px;}
-    .flex-item {min-width: 80vw;}
-    .array-item {width: 25px; height: 25px;}
+    button {
+        font-size: 15px;
+    }
+
+    .flex-item {
+        min-width: 80vw;
+    }
+
+    .array-item {
+        width: 25px; 
+        height: 25px;
+    }
 } 
