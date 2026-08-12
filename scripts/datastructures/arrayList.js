@@ -332,3 +332,29 @@ speedChangeDial.addEventListener("change", function() {
 
     speedLabel.innerText = speedPrecent + "%";
 });
+
+window.addEventListener("resize", function() {
+    let splitElement = document.getElementById("split-resize");
+    let doubleElement = document.getElementById("double-resize");
+    let increaseElement = document.getElementById("increase-resize");
+
+    if (window.innerWidth <= 700) {
+        splitElement.classList.add("hidden");
+        doubleElement.classList.remove("hidden");
+        increaseElement.classList.remove("hidden");
+    } else {
+        splitElement.classList.remove("hidden");
+        doubleElement.classList.add("hidden");
+        increaseElement.classList.add("hidden");
+    }
+});
+
+if (window.innerWidth <= 700) {
+    let splitElement = document.getElementById("split-resize");
+    let doubleElement = document.getElementById("double-resize");
+    let increaseElement = document.getElementById("increase-resize");
+
+    splitElement.classList.add("hidden");
+    doubleElement.classList.remove("hidden");
+    increaseElement.classList.remove("hidden");
+}
