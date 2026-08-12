@@ -1006,3 +1006,39 @@ speedChangeDial.addEventListener("change", function() {
 
     speedLabel.innerText = speedPrecent + "%";
 });
+
+/**
+ * When window is resized, change displays for Figure 1 if 
+ * window size is less than 850px or an additional smaller 
+ * reszing for screens/windows smaller than 400px. 
+ */
+window.addEventListener("resize", function() {
+    let figureOne = document.getElementById("figure-1");
+
+    if (window.innerWidth <= 400) {
+        figureOne.classList.remove("medium");
+        figureOne.classList.add("small");
+    } else if (window.innerWidth <= 850) {
+        figureOne.classList.add("medium");
+        figureOne.classList.remove("small");
+    } else {
+        figureOne.classList.remove("medium");
+        figureOne.classList.remove("small");
+    }
+});
+
+/**
+ * Done to ensure that when reloading the window/screen in
+ * smaller sizes that Figure 1 looks good
+ */
+if (window.innerWidth <= 400) {
+    figureOne = document.getElementById("figure-1");
+
+    figureOne.classList.remove("medium");
+    figureOne.classList.add("small");
+} else if (window.innerWidth <= 850) {
+    figureOne = document.getElementById("figure-1");
+
+    figureOne.classList.add("medium");
+    figureOne.classList.remove("small");
+}

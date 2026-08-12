@@ -332,3 +332,39 @@ speedChangeDial.addEventListener("change", function() {
 
     speedLabel.innerText = speedPrecent + "%";
 });
+
+/**
+ * When window is resized, change displays for Figure 2 if 
+ * window size is less than 700px. This is done to ensure 
+ * Figure 2 looks good on smaller screens/in smaller windows
+ */
+window.addEventListener("resize", function() {
+    let splitElement = document.getElementById("split-resize");
+    let doubleElement = document.getElementById("double-resize");
+    let increaseElement = document.getElementById("increase-resize");
+
+    if (window.innerWidth <= 700) {
+        splitElement.classList.add("hidden");
+        doubleElement.classList.remove("hidden");
+        increaseElement.classList.remove("hidden");
+    } else {
+        splitElement.classList.remove("hidden");
+        doubleElement.classList.add("hidden");
+        increaseElement.classList.add("hidden");
+    }
+});
+
+/**
+ * Done to ensure that when reloading the window/screen in
+ * smaller sizes (less than 700px) that Figure 2 is slpit 
+ * in two.
+ */
+if (window.innerWidth <= 700) {
+    let splitElement = document.getElementById("split-resize");
+    let doubleElement = document.getElementById("double-resize");
+    let increaseElement = document.getElementById("increase-resize");
+
+    splitElement.classList.add("hidden");
+    doubleElement.classList.remove("hidden");
+    increaseElement.classList.remove("hidden");
+}

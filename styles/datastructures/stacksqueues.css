@@ -94,6 +94,10 @@ button {
     text-align: center;
 }
 
+#stack-visual {
+    width: 150px;
+}
+
 #head-label {
     text-align: center;
 }
@@ -109,4 +113,9 @@ button {
 
 .thirty {
     width: 25%;
+}
+
+@media (max-width: 400px) {
+    .medium .node {width: 50px !important; height: 50px !important;}
+    .person-body{width: 60px; height: 50px;}
 }
