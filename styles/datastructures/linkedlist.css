@@ -1,3 +1,14 @@
+/* Small Screen/Window Size Styling */
+.box {
+    padding-bottom: 40px;
+}
+.small .node {
+    font-size: 14px;
+}
+.small .null {
+    font-size: 16px;
+}
+
 /* Outer curve of Arrow */
 .big-curve {
     width: 150px;
@@ -56,21 +67,23 @@
     transition: width  0.8s ease-in-out; 
 }
 
+/* Classes to Add Animations */
 /* Fade in Animation */
 .add-fade-in {
     animation-name: fade-in;
     animation-duration: 2s;
 }
 
-@keyframes fade-in {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
 /* Fade Out Animation */
 .add-fade-out {
     animation-name: fade-out;
     animation-duration: 2s;
+}
+
+/* Animations */
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 @keyframes fade-out {

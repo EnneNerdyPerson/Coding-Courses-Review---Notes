@@ -1,6 +1,8 @@
 //============================================================================================================
 // Get DOM Elements and set up global variables
 //============================================================================================================
+let speedChangeDial = document.getElementById("speed");         //to change animation speed
+let speedLabel = document.getElementById("speed-label");        //to show change in animation speed
 let message = document.getElementById("message");               //for error messages and communication
 
 //Stack DOM Element
@@ -41,6 +43,11 @@ let queueArray = new Array();       //array for queue elements
 
 let lastTailLabel = null;           //saves last top-label to label tail
 
+let speed = 800;                    //current speed
+let fullSpeed = 1600;               //'full speed'
+speedChangeDial.value = 50;         //reset speed dial
+
+let animationRunning = false;       //variable for if animation is running or not
 
 //========================================================================================================
 // Functions for interactive array list visual
@@ -55,6 +62,19 @@ let lastTailLabel = null;           //saves last top-label to label tail
  */
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
+/**
+ * Greys or un-greys buttons that affect the visual display to 
+ * showcase when user can and cannot press them.
+ */
+function toggleButtonFunction() {
+    stackSwitchButton.classList.toggle("unuseable-button");
+    pushButton.classList.toggle("unuseable-button");
+    popButton.classList.toggle("unuseable-button");
+
+    queueSwitchButton.classList.toggle("unuseable-button");
+    enqueueButton.classList.toggle("unuseable-button");
+    dequeueButton.classList.toggle("unuseable-button");
+}
 
 /**
  * Add the value parameter to the stack-array visual and 
@@ -84,7 +104,7 @@ async function addPushItem(value) {
         message.innerText = "add item at arr[size] = arr[" + stackNumElements + "]";
 
         //delay for animation and clarity
-        await delay(800);
+        await delay(speed);
         
         //add style to show which array item is being altered
         index.classList.add("selected-item");
@@ -95,7 +115,7 @@ async function addPushItem(value) {
         newStackItem.id = stackId;
         newStackItem.innerText = value;
 
-        await delay(800);
+        await delay(speed);
 
         //check if stack is empty or not
         if (stackNumElements == 0) {
@@ -112,7 +132,7 @@ async function addPushItem(value) {
         //update array item's value
         index.innerText = value;
         
-        await delay(800);
+        await delay(speed);
 
         //increase number of stack elements
         stackNumElements++;
@@ -150,6 +170,18 @@ async function popItem() {
 
     //check to make sure there are elements to remove
     if (stackNumElements > 0) {
+        //check if animation is running
+        if (animationRunning) {
+            //if running, do not run animation
+            return;
+        } else {
+            //grey out buttons
+            toggleButtonFunction();
+
+            //update animation running varibale
+            animationRunning = true;
+        }
+
         //get array item that will be changed
         let id = "array-" + (stackNumElements - 1);
         let index = document.getElementById(id);
@@ -158,12 +190,12 @@ async function popItem() {
         message.innerText = "remove item at arr[size - 1] = arr[" + (stackNumElements - 1) + "]";
     
         //add delay for animation and clarity
-        await delay(800);
+        await delay(speed);
         
         //show which item is being edited
         index.classList.add("selected-item");
 
-        await delay(800);
+        await delay(speed);
 
         //save value being removed
         let poppedValue = index.innerText;
@@ -178,7 +210,7 @@ async function popItem() {
         let oldTopStack = document.getElementById("stack-" + (stackNumElements - 1));
         oldTopStack.remove();
 
-        await delay(800);
+        await delay(speed);
 
         //decrease num of stack element
         stackNumElements--;
@@ -188,6 +220,12 @@ async function popItem() {
 
         //de-select array item
         index.classList.remove("selected-item");
+
+        //update animation running variable
+        animationRunning = false;
+
+        //un-grey buttons
+        toggleButtonFunction();
 
     //no items in stack, error
     } else {
@@ -280,7 +318,7 @@ async function addLinkedListItem(value) {
     let nullElement = document.getElementById("null");
 
     //delays for animations
-    await delay(800);
+    await delay(speed);
 
     //check if adding to empty list or not
     //communicate relevent operations
@@ -290,7 +328,7 @@ async function addLinkedListItem(value) {
         message.innerText = "tail = newNode";
     }
     
-    await delay(800);
+    await delay(speed);
 
     //add tempDiv bfore null and un-hide
     nullElement.before(tempDiv);
@@ -304,7 +342,7 @@ async function addLinkedListItem(value) {
     //show increase in space animation
     tempSpaceElement.classList.add("increase-width");
 
-    await delay(800);
+    await delay(speed);
 
     //label new node with fade-in
     afterText.innerText = "newNode: ";
@@ -321,7 +359,7 @@ async function addLinkedListItem(value) {
     nodeDiv.classList.add("add-fade-in");
     div.classList.add("add-fade-in");
 
-    await delay(800);
+    await delay(speed);
 
     //remove temp null
     tempNull.remove();
@@ -329,7 +367,7 @@ async function addLinkedListItem(value) {
     //show list now points to new node
     beforeText.innerText = "newNode;";
 
-    await delay(800);
+    await delay(speed);
 
     //remove temp elements
     tempDiv.remove();
@@ -339,12 +377,12 @@ async function addLinkedListItem(value) {
         topLabel.classList.remove("hidden");
     }
 
-    await delay(800);
+    await delay(speed);
 
     //if adding new element, show process to user
     if (queueNumElements != 0) {
         message.innerText = "tail = newNode";
-        await delay(800);
+        await delay(speed);
     }
     
     //if second element to be added, remove tail for head label
@@ -368,7 +406,7 @@ async function addLinkedListItem(value) {
         topLabel.innerText = "";
     }
 
-    await delay(800);
+    await delay(speed);
 
     //clear message
     message.innerText = "";
@@ -383,7 +421,7 @@ async function addLinkedListItem(value) {
  * 
  * @param {*} value - value of item added to queue
  */
-function addQueueItem(value) {    
+async function addQueueItem(value) {    
     //create div for person
     let div = document.createElement("div");
     div.classList.add("flex-col-container");
@@ -425,6 +463,17 @@ async function dequeue() {
         message.style.color = "red";
         message.innerText = "There are no items to dequeue! The queue is empty";
         return;
+    }
+
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
     }
 
     //reset message style
@@ -482,13 +531,13 @@ async function dequeue() {
         message.innerText = "temp = head.next";
 
         //add delay for animation 
-        await delay(800);
+        await delay(speed);
 
         //set top label to temp and unhide top label
         topLabel.innerText = "temp";
         topLabel.classList.remove("hidden");
 
-        await delay(800);
+        await delay(speed);
 
         //add temp div after first item in list
         div.after(tempDiv);
@@ -496,67 +545,67 @@ async function dequeue() {
         //update user of next step
         message.innerText = "head.next = NULL";
 
-        await delay(100);
+        await delay(speed / 8);
 
         //add space increase animation
         tempSpaceElement.classList.add("increase-width");
 
-        await delay(800);
+        await delay(speed);
 
         //unhide temp null
         tempNull.classList.remove("hidden");
         tempNull.classList.add("add-fade-in");
 
-        await delay(800);
+        await delay(speed);
 
         //update user of next step
         message.innerText = "head = temp";
 
-        await delay(800);
+        await delay(speed);
 
         //hide head label and move it above second item in list
         headLabel.classList.add("hidden");
         topLabel.innerText = "head";
 
-        await delay(800);
+        await delay(speed);
 
     //last item in list is about to be removed
     } else {
         //user user of next step
         message.innerText = "temp = head.next";
 
-        await delay(800);
+        await delay(speed);
 
         //add temporary elements after first node
         div.after(tempDiv);
 
-        await delay(100);
+        await delay(speed / 8);
 
         //run spacing animation
         tempSpaceElement.classList.add("increase-width");
 
-        await delay(800);
+        await delay(speed);
 
         //show temp pointing to null
         afterText.innerText = "temp:";
 
-        await delay(800);
+        await delay(speed);
     
         //update user of next step
         message.innerText = "head.next = NULL";
 
-        await delay(800);
+        await delay(speed);
 
         //unhide null value with fade in animation
         tempNull.classList.remove("hidden");
         tempNull.classList.add("add-fade-in");
 
-        await delay(800);
+        await delay(speed);
 
         //alert user of next step
         message.innerText = "head = temp";
 
-        await delay(800);
+        await delay(speed);
 
         //move head to point to null
         afterText.innerText = "head:";
@@ -567,7 +616,7 @@ async function dequeue() {
     //add queue item walk off animation
     queueItem.classList.add("add-walk-off");
 
-    await delay(800);
+    await delay(speed);
 
     //show user value of item that was removed
     message.innerText = "Retrieved Item: " + queueItem.innerText;
@@ -576,7 +625,7 @@ async function dequeue() {
     node.classList.add("add-fade-out");
     div.classList.add("add-fade-out");
 
-    await delay(800);
+    await delay(speed);
 
     //remove temporary elements
     tempDiv.remove();
@@ -594,7 +643,7 @@ async function dequeue() {
     div.remove();
     queueItem.remove();
 
-    await delay(800);
+    await delay(speed);
 
     //decrement number of queue elements
     queueNumElements--;
@@ -616,12 +665,24 @@ async function dequeue() {
     } else {
         topLabelArray.splice(0, 1);
     }
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
 }
 
 /**
  * Switch which display is visable
  */
 function switchDisplay() {
+    //check if animation is running
+    if (animationRunning) {
+        //do not continue if animation is running
+        return;
+    }
+
     //clear message
     message.innerText = "";
 
@@ -643,6 +704,17 @@ function switchDisplay() {
  * by commas, and add elements with animation
  */
 pushButton.addEventListener("click", async function() {
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+
     //get and sanitize input
     let input = DOMPurify.sanitize(pushInput.value);
     
@@ -663,6 +735,12 @@ pushButton.addEventListener("click", async function() {
         //add item and run animation
         await addPushItem(i);
     }
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
     
     //have push input to empty
     pushInput.value = "";
@@ -679,6 +757,17 @@ popButton.addEventListener("click", popItem);
  * by commas, and add elements with animation
  */
 enqueueButton.addEventListener("click", async function() {
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+
     //sanitize input
     let input = DOMPurify.sanitize(enqueueInput.value);
     
@@ -702,9 +791,15 @@ enqueueButton.addEventListener("click", async function() {
         addQueueItem(i);
 
         //delay for clarity
-        await delay(800);        
+        await delay(speed);        
     }
     
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
+
     //clear input
     enqueueInput.value = "";
 });
@@ -726,3 +821,25 @@ stackSwitchButton.addEventListener("click", switchDisplay);
  * display and stack display
  */
 queueSwitchButton.addEventListener("click", switchDisplay);
+
+/**
+ * When the speed dial is changed, the speed value 
+ * will update and the speed of the animation will be
+ * updated
+ */
+speedChangeDial.addEventListener("change", function() {
+    let speedPrecent = speedChangeDial.value;
+    
+    if (speedPrecent == 100) {
+        speed = 0;
+    } else if (speedPrecent < 15) {
+        speed = ((100 - speedPrecent) * (fullSpeed * 3)) / 100;
+    
+    } else if (speedPrecent < 30) {
+        speed = ((100 - speedPrecent) * (fullSpeed * 2)) / 100;
+    } else {
+        speed = ((100 - speedPrecent) * fullSpeed) / 100;
+    }
+
+    speedLabel.innerText = speedPrecent + "%";
+});

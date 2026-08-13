@@ -1,6 +1,10 @@
 //========================================================================================================
 // Get DOM Elements
 //========================================================================================================
+let speedChangeDial = document.getElementById("speed");             //to change animation speed
+let speedLabel = document.getElementById("speed-label");            //to show change in animation speed
+let message = document.getElementById("message");                   //for error messages and get info
+
 let visualDiv = document.getElementById("visualDiv");               //linked list visual
 let tempVisualDiv = document.getElementById("tempVisualDiv");       //temp visual for animation
 
@@ -39,8 +43,6 @@ let getContainer = document.getElementById("getContainer");
 let getButton = document.getElementById("getButton");
 let getInput = document.getElementById("getInput");
 
-let message = document.getElementById("message");                   //for error messages and get info
-
 //arrays for node, arrow, and value for editing and the like
 let valueArray = new Array();
 let nodeArray = new Array();
@@ -55,6 +57,12 @@ let addMethod = "front";
 let deleteMethod = "front";
 let getMethod = "front";
 
+let speed = 800;                    //current speed
+let fullSpeed = 1600;               //'full speed'
+speedChangeDial.value = 50;         //reset speed dial
+
+let animationRunning = false;       //variable for if animation is running or not
+
 //========================================================================================================
 // Functions for interactive array list visual
 //========================================================================================================
@@ -67,6 +75,28 @@ let getMethod = "front";
  * @param {number} ms - number of milliseconds to wait before continuing
  */
 const delay = ms => new Promise(res => setTimeout(res, ms));
+
+/**
+ * Greys or un-greys buttons that affect the visual display to 
+ * showcase when user can and cannot press them.
+ */
+function toggleButtonFunction() {
+    addFrontButton.classList.toggle("unuseable-button");
+    addEndButton.classList.toggle("unuseable-button");
+    addIndexButton.classList.toggle("unuseable-button");
+
+    deleteFrontButton.classList.toggle("unuseable-button");
+    deleteEndButton.classList.toggle("unuseable-button");
+    deleteIndexButton.classList.toggle("unuseable-button");
+
+    getFrontButton.classList.toggle("unuseable-button");
+    getEndButton.classList.toggle("unuseable-button");
+    getIndexButton.classList.toggle("unuseable-button");
+
+    addButton.classList.toggle("unuseable-button");
+    deleteButton.classList.toggle("unuseable-button");
+    getButton.classList.toggle("unuseable-button");
+}
 
 /**
  * Animation of iterating through list. Additionallly, if used for 
@@ -85,12 +115,12 @@ async function iterateThroughList(index, get) {
         curNode.classList.add("selected-item");
 
         //delay for clear animation
-        await delay(800);
+        await delay(speed);
 
         //if used for get and at index, update message to show retrieved value
         if (i == index && get) {
             message.innerText = "Value at index " + index + ": " + valueArray[index];
-            await delay(800);
+            await delay(speed);
         }
 
         //remove styling of 'selection' of node
@@ -173,24 +203,24 @@ async function makeNewNode(value, index) {
     //check if added to beginning of list
     if (index == 0) {
         //delay for clear change (animation)
-        await delay(800);
+        await delay(speed);
 
         //show creation of temp variable
         visualLabel.innerText = "head = temp:";
 
-        await delay(800);
+        await delay(speed);
 
         //move 'head' to point to newNode
         visualLabel.innerText = "temp:";
         tempLabel.innerText = "head = newNode:";
 
-        await delay(800);
+        await delay(speed);
 
         //set newNode next to temp (list)
         tempNull.classList.remove("null");
         tempNull.innerText = "temp;";
 
-        await delay(800);
+        await delay(speed);
 
         //move head back to visual display
         visualLabel.innerText = "head:";
@@ -254,28 +284,28 @@ async function makeNewNode(value, index) {
         }
 
         //delay for clear change (animation)
-        await delay(800);
+        await delay(speed);
 
         //animation for showing increase in space in list
         tempSpaceElement.classList.add("increase-width");
 
-        await delay(400);
+        await delay(speed / 2);
 
         //show that temp points the the back end of the list
         afterText.innerText = "temp:";
 
-        await delay(800);
+        await delay(speed);
 
         //show newNode is added in the list
         beforeText.innerText = "newNode;";
 
-        await delay(800);
+        await delay(speed);
 
         //newNode next now points to temp
         tempNull.classList.remove("null");
         tempNull.innerText = "temp;";
 
-        await delay(800);
+        await delay(speed);
 
         //remove tempDiv and tempNull
         tempDiv.remove();
@@ -302,6 +332,8 @@ async function makeNewNode(value, index) {
 
     //increase number of nodes
     numNodes++;
+
+
 }
 
 /**
@@ -310,8 +342,7 @@ async function makeNewNode(value, index) {
  * 
  * @param {number} index - index of element to be removed
  */
-async function deleteNode(index) {
-    //get elements to be deleted
+async function deleteNode(index) {//get elements to be deleted
     let node = nodeArray[index];
     let div = divArray[index];
 
@@ -345,31 +376,31 @@ async function deleteNode(index) {
         div.after(tempDiv);
 
         //delay done to showcase clear change for animation
-        await delay(100);
+        await delay(speed / 8);
 
         //animate increase space in list
         tempSpaceElement.classList.add("increase-width");
 
-        await delay(800);
+        await delay(speed);
 
         //show temp visual-display and show temp points to 
         //element after head
         tempVisualDiv.classList.toggle("hidden");
         tempLabel.innerText = "temp = head.next";
 
-        await delay(800);
+        await delay(speed);
 
         //temp points to list after node to be deleted
         afterText.innerText = "temp:";
         tempLabel.innerText = "";
 
-        await delay(800);
+        await delay(speed);
 
         //to be deleted node points to null
         beforeText.classList.add("null");
         beforeText.innerText = "NULL";
 
-        await delay(800);
+        await delay(speed);
 
         //head points to temp
         visualLabel.innerText = "head: temp";
@@ -381,19 +412,19 @@ async function deleteNode(index) {
         //add spacing element after head
         visualLabel.after(tempSpaceElementHead);
 
-        await delay(100);
+        await delay(speed / 8);
 
         //animate increase in space
         tempSpaceElementHead.classList.add("increase-width");
         
-        await delay(800);
+        await delay(speed);
 
         //add node and arrows to be deleted, and null to temp visual-display
         tempVisualDiv.append(node);
         tempVisualDiv.append(div);
         tempVisualDiv.append(beforeText);
 
-        await delay(800);
+        await delay(speed);
 
         //remove spaces from list
         tempSpaceElementHead.remove();
@@ -402,14 +433,14 @@ async function deleteNode(index) {
         //show head now pointing to last part of list
         visualLabel.innerText = "head:";
 
-        await delay(800);
+        await delay(speed);
 
         //add fade out animation for node, arrow, and null to be deleted
         node.classList.add("add-fade-out");
         div.classList.add("add-fade-out");
         beforeText.classList.add("add-fade-out");
 
-        await delay(500);
+        await delay(speed / 2);
 
         beforeText.remove();
     
@@ -467,13 +498,13 @@ async function deleteNode(index) {
         node.before(tempPreDiv);
 
         //delay for clarity and animation
-        await delay(100);
+        await delay(speed / 8);
 
         //increase-space animation
         tempSpacePreElement.classList.add("increase-width");
         tempSpacePostElement.classList.add("increase-width");
 
-        await delay(800);
+        await delay(speed);
 
         //show temp visual display
         tempVisualDiv.classList.toggle("hidden");
@@ -481,44 +512,44 @@ async function deleteNode(index) {
         //show the temp points to second list
         tempLabel.innerText = "temp = index.next";
 
-        await delay(800);
+        await delay(speed);
 
         //show temp poitns to second list
         afterPostText.innerText = "temp:";
         tempLabel.innerText = "";
 
-        await delay(800);
+        await delay(speed);
 
         //show temp is end of first list
         beforePreText.innerText = "temp;";
 
-        await delay(800);
+        await delay(speed);
     
         //have node to be deleted point to null
         beforePostText.classList.add("null");
         beforePostText.innerText = "NULL";
 
-        await delay(800);
+        await delay(speed);
 
         //add node to be deleted to temp visual display
         tempVisualDiv.append(node);
         tempVisualDiv.append(div);
         tempVisualDiv.append(beforePostText);
 
-        await delay(800);
+        await delay(speed);
 
         //remove space divs
         tempPostDiv.remove();
         tempPreDiv.remove();
 
-        await delay(800);
+        await delay(speed);
 
         //add fade out animation to node, arrow, and null to be deleted
         node.classList.add("add-fade-out");
         div.classList.add("add-fade-out");
         beforePostText.classList.add("add-fade-out");
 
-        await delay(500);
+        await delay(speed / 4);
 
         //remove null element
         beforePostText.remove();
@@ -557,6 +588,12 @@ async function deleteNode(index) {
  * @param {*} otherButtonTwo - one of two buttons NOT pushed
  */
 function changeMethod(type, method, button, otherButtonOne, otherButtonTwo) {
+    //check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } 
+
     //check what is being changed (add, deleted, or get)
     if (type == "add") {
         //update add method
@@ -604,6 +641,18 @@ function changeMethod(type, method, button, otherButtonOne, otherButtonTwo) {
  * calling makeNewNode method to showcase adding an item to linked list
  */
 addButton.addEventListener("click", async function() {
+    //check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+
     //rest message values for clarity
     message.style.color = "black";
     message.innerText = "";
@@ -648,7 +697,7 @@ addButton.addEventListener("click", async function() {
                 addInput.value = firstString.substring(firstString.indexOf(",") + 1);
 
                 //delay for animation
-                await delay(800);
+                await delay(speed);
 
                 //wait for creation and animation is finished
                 await makeNewNode(value, index);
@@ -678,7 +727,7 @@ addButton.addEventListener("click", async function() {
             addInput.value = addInput.value.substring(addInput.value.indexOf(",") + 1);
 
             //delay for animation
-            await delay(800);
+            await delay(speed);
 
             //wait for creation and animation is finished
             await makeNewNode(array[i], index);
@@ -687,6 +736,12 @@ addButton.addEventListener("click", async function() {
 
     //clear input
     addInput.value = "";
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
 });
 
 /**
@@ -694,6 +749,18 @@ addButton.addEventListener("click", async function() {
  * calling deleteNode method to showcase removing an item from a linked list
  */
 deleteButton.addEventListener("click", async function() {
+    //check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+
     //check if there are nodes in the list
     if (numNodes == 0) {
 
@@ -751,6 +818,12 @@ deleteButton.addEventListener("click", async function() {
 
     //clear delete input
     deleteInput.value = "";
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
 });
 
 /**
@@ -759,6 +832,18 @@ deleteButton.addEventListener("click", async function() {
  * to get the value at front/end/some index
  */
 getButton.addEventListener("click", async function() {
+    //check if animation is running
+    if (animationRunning) {
+        //if running, do not run animation
+        return;
+    } else {
+        //grey out buttons
+        toggleButtonFunction();
+
+        //update animation running varibale
+        animationRunning = true;
+    }
+    
     //check if there are nodes in the list
     if (numNodes == 0) {
         //alert use of error
@@ -808,7 +893,7 @@ getButton.addEventListener("click", async function() {
 
             //run iteration animation
             await iterateThroughList(parseInt(array[i]), true);
-            await delay(800);
+            await delay(speed);
 
             //update message value for later (ensure commas added correctly)
             if (i == array.length - 1) {
@@ -829,13 +914,19 @@ getButton.addEventListener("click", async function() {
         await iterateThroughList(0, true);
     } 
 
-    await delay(200);
+    await delay(speed / 4);
 
     //clear input value
     getInput.value = "";
 
     //update message to show all values retrieved
     message.innerText = messageValue;
+
+    //update animation running variable
+    animationRunning = false;
+
+    //un-grey buttons
+    toggleButtonFunction();
 });
 
 /**
@@ -893,3 +984,61 @@ getEndButton.addEventListener("click", function () {
 getIndexButton.addEventListener("click", function () {
  changeMethod("get", "index", getIndexButton, getEndButton, getFrontButton);
 });
+
+/**
+ * When the speed dial is changed, the speed value 
+ * will update and the speed of the animation will be
+ * updated
+ */
+speedChangeDial.addEventListener("change", function() {
+    let speedPrecent = speedChangeDial.value;
+    
+    if (speedPrecent == 100) {
+        speed = 0;
+    } else if (speedPrecent < 15) {
+        speed = ((100 - speedPrecent) * (fullSpeed * 3)) / 100;
+    
+    } else if (speedPrecent < 30) {
+        speed = ((100 - speedPrecent) * (fullSpeed * 2)) / 100;
+    } else {
+        speed = ((100 - speedPrecent) * fullSpeed) / 100;
+    }
+
+    speedLabel.innerText = speedPrecent + "%";
+});
+
+/**
+ * When window is resized, change displays for Figure 1 if 
+ * window size is less than 850px or an additional smaller 
+ * reszing for screens/windows smaller than 400px. 
+ */
+window.addEventListener("resize", function() {
+    let figureOne = document.getElementById("figure-1");
+
+    if (window.innerWidth <= 400) {
+        figureOne.classList.remove("medium");
+        figureOne.classList.add("small");
+    } else if (window.innerWidth <= 850) {
+        figureOne.classList.add("medium");
+        figureOne.classList.remove("small");
+    } else {
+        figureOne.classList.remove("medium");
+        figureOne.classList.remove("small");
+    }
+});
+
+/**
+ * Done to ensure that when reloading the window/screen in
+ * smaller sizes that Figure 1 looks good
+ */
+if (window.innerWidth <= 400) {
+    figureOne = document.getElementById("figure-1");
+
+    figureOne.classList.remove("medium");
+    figureOne.classList.add("small");
+} else if (window.innerWidth <= 850) {
+    figureOne = document.getElementById("figure-1");
+
+    figureOne.classList.add("medium");
+    figureOne.classList.remove("small");
+}

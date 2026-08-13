@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<header>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Linked Lists</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,7 +11,7 @@
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/data-struc.css">
     <link rel="stylesheet" href="../styles/datastructures/linkedlist.css">
-</header>
+</head>
 <body>
     <div class="header">
         <h1>Learning: Linked Lists</h1>
@@ -33,7 +34,7 @@
         </p>
 
         <!-- Visual of Figure 1: Linked List -->
-        <div class="link-container">
+        <div id="figure-1" class="link-container">
             <div class="node">
                 head
             </div>
@@ -449,6 +450,14 @@
                         When the method of adding index, please input values as: value, index. 
                     </p>
                 </div>
+                <div class="speed-dial-container">
+                    <div class="flex-row-container" style="width: max-content;">
+                        <label for="speed" class="center">Change Animation Speed:</label>
+                        <input id="speed" type="range" name="speed" min="0" max="100" value="50">
+                    </div>
+
+                    <p id="speed-label" class="small-margin">50%</p>
+                </div>
                 <div style="margin-bottom: 20px;">
                     <div class="flex-row-container">
                         <!-- <div class="small-margin">
@@ -463,7 +472,7 @@
                             <button id="addIndex" name="addMethod" class="small-margin unselected-button">Index</button>
                         </div>
                         <div class="small-margin">
-                            <label for="deleteMethod">Deletion Method:</label>
+                            <label for="deleteMethod">Delete Method:</label>
                             <button id="deleteFront" name="deleteMethod" class="small-margin selected-button">Front</button>
                             <button id="deleteEnd" name="deleteMethod" class="small-margin unselected-button">End</button>
                             <button id="deleteIndex" name="deleteMethod" class="small-margin unselected-button">Index</button>
